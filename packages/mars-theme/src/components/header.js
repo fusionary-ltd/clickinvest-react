@@ -2,8 +2,32 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
+import { useEffect } from "react";
 
 const Header = ({ state }) => {
+  useEffect(() => {
+    const rankMathElements = [];
+
+    fetch("https://architects-seattle.com/wp-json/rankmath/v1/getHead?url=" + state.source.url + "/" + state.router.link).then(async (response) => {
+      const json = await response.json();
+      const { head } = json;
+      const tempElement = document.createElement("div");
+      tempElement.innerHTML = head;
+      for (const child of tempElement.children) {
+        document.head.appendChild(child);
+        rankMathElements.push(child);
+      }
+      tempElement.remove();
+    });
+
+    return () => {
+      for (const child of rankMathElements) {
+        document.head.removeChild(child);
+        child.remove();
+      }
+    }
+  }, [state.router.link]);
+
   return (
     <>
       <Container>

@@ -45,7 +45,8 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          "url": "https://architects-seattle.com",
+          "api": "https://architects-seattle.com/wp-json"
         }
       }
     },
