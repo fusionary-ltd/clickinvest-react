@@ -1,14 +1,13 @@
 import * as React from 'react';
+import ReactStars from 'react-stars';
+
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper';
-
 import { BackgroundOverlay, HStack, RepairInput, RepairButton, SliderImg, SliderContent } from '../components/styled'
 import door_bg from '../assets/img/bg/garage_door_1.jpg'
 import slider1 from '../assets/img/slider/1.jpg'
@@ -158,6 +157,86 @@ const Home = () => {
                             </Swiper> */}
                         </Box>
                     </Stack>
+                </Container>
+            </Box>
+            <Box sx={{ bgcolor: '#262626', py: 19 }} />
+            <Box>
+                <Container maxWidth="lg">
+                    <Box sx={{ py: 7.5 }}>
+                        <Stack alignItems='center' sx={{ p: 1.25 }}>
+                            <Typography variant='h4' sx={{ fontSize: 36, fontWeight: 700, color: '#000', textAlign: 'center', mb: 2.5 }}>
+                                TESTIMONIALS
+                            </Typography>
+                            <HStack>
+                                <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
+                            </HStack>
+                            <Typography variant='h5' sx={{ fontSize: 18, color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5 }}>
+                                Don't Just Take Our Word We're The Best
+                            </Typography>
+                        </Stack>
+                        <Box>
+                            <Grid container>
+                                <Grid item xs={4}>
+                                    <Box sx={{ p: 1.25, height: '100%' }}>
+                                        <Stack alignItems='center' justifyContent='space-between' sx={{ height: '100%' }}>
+                                            <Typography sx={{ mb: 2.5, fontSize: 22.5, color: '#666666', textAlign: 'center' }}>
+                                                Prompt, friendly service. We had a little accident with our door, and they came out to us in a couple of hours late in the evening. Gave us a variety of options and prices to take care of our issue. Would happily recommend them.
+                                            </Typography>
+                                            <Stack>
+                                                <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: 17 }}>Robert Moyles</Typography>
+                                                <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: 17, fontWeight: 600 }}>Baldwin</Typography>
+                                                <ReactStars
+                                                    edit={false}
+                                                    count={5}
+                                                    value={5}
+                                                    size={35}
+                                                    color2={'#ffa825'} />
+                                            </Stack>
+                                        </Stack>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <Box sx={{ p: 1.25, height: '100%' }}>
+                                        <Stack alignItems='center' justifyContent='space-between' sx={{ height: '100%' }}>
+                                            <Typography sx={{ mb: 2.5, fontSize: 22.5, color: '#666666', textAlign: 'center' }}>
+                                                Service was quick and professional. Had an emergency with our garage door and they were on site and fixed our issue same day. Would recommend!
+                                            </Typography>
+                                            <Stack>
+                                                <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: 17 }}>Rhonda Ikert</Typography>
+                                                <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: 17, fontWeight: 600 }}>Cranberry</Typography>
+                                                <ReactStars
+                                                    edit={false}
+                                                    count={5}
+                                                    value={5}
+                                                    size={35}
+                                                    color2={'#ffa825'} />
+                                            </Stack>
+                                        </Stack>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <Box sx={{ p: 1.25, height: '100%' }}>
+                                        <Stack alignItems='center' justifyContent='space-between' sx={{ height: '100%' }}>
+                                            <Typography sx={{ mb: 2.5, fontSize: 22.5, color: '#666666', textAlign: 'center' }}>
+                                                I needed an emergency fix on my garage door, they were fast, friendly and efficient, and reasonably priced. I will definitely be using them again in the future.
+                                            </Typography>
+                                            <Stack>
+                                                <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: 17 }}>Denis Kennedy</Typography>
+                                                <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: 17, fontWeight: 600 }}>Penn Hills
+                                                </Typography>
+                                                <ReactStars
+                                                    edit={false}
+                                                    count={5}
+                                                    value={5}
+                                                    size={35}
+                                                    color2={'#ffa825'} />
+                                            </Stack>
+                                        </Stack>
+                                    </Box>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                    </Box>
                 </Container>
             </Box>
         </Box>
