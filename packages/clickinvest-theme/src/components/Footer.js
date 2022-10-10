@@ -81,19 +81,19 @@ export default function Footer() {
                             <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: 21, lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme => theme.palette.warning.main }}>Service Areas</Typography>
                             <HStack>
                                 <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink>Pittsburgh</FooterLink>
+                                    <FooterLink link='/'>Pittsburgh</FooterLink>
                                 </Box>
                                 <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink>Bethel Park</FooterLink>
+                                    <FooterLink link='/'>Bethel Park</FooterLink>
                                 </Box>
                                 <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink>Cranberry Township</FooterLink>
+                                    <FooterLink link='/'>Cranberry Township</FooterLink>
                                 </Box>
                                 <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink>Hampton Township</FooterLink>
+                                    <FooterLink link='/'>Hampton Township</FooterLink>
                                 </Box>
                                 <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink>Spring Hills</FooterLink>
+                                    <FooterLink link='/'>Spring Hills</FooterLink>
                                 </Box>
                             </HStack>
                         </Box>
@@ -105,32 +105,32 @@ export default function Footer() {
                             <Grid container spacing={2}>
                                 <Grid item xs={4}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle>Garage Door Panel Replacement: Which One Is Right for You?</FooterArticle>
+                                        <FooterArticle link='/'>Garage Door Panel Replacement: Which One Is Right for You?</FooterArticle>
                                     </Box>
                                 </Grid>
                                 <Grid item xs={4}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle>Commercial Garage Door Service in Pittsburgh</FooterArticle>
+                                        <FooterArticle link='/'>Commercial Garage Door Service in Pittsburgh</FooterArticle>
                                     </Box>
                                 </Grid>
                                 <Grid item xs={4}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle>Garage Door Pull Cord Came Off</FooterArticle>
+                                        <FooterArticle link='/'>Garage Door Pull Cord Came Off</FooterArticle>
                                     </Box>
                                 </Grid>
                                 <Grid item xs={4}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle>How Much Does Garage Door Opener Installation Cost?</FooterArticle>
+                                        <FooterArticle link='/'>How Much Does Garage Door Opener Installation Cost?</FooterArticle>
                                     </Box>
                                 </Grid>
                                 <Grid item xs={4}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle>Garage Door Opener Battery Replacement</FooterArticle>
+                                        <FooterArticle link='/'>Garage Door Opener Battery Replacement</FooterArticle>
                                     </Box>
                                 </Grid>
                                 <Grid item xs={4}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle>Annual Garage Door Maintenance</FooterArticle>
+                                        <FooterArticle link='/'>Annual Garage Door Maintenance</FooterArticle>
                                     </Box>
                                 </Grid>
                             </Grid>
@@ -143,19 +143,19 @@ export default function Footer() {
                     <HStack justifyContent='space-between'>
                         <Typography sx={{ color: '#ECECEC' }}>
                             © Copyright &nbsp;
-                            <FooterLink >Marksman Garage Doors Pittsburgh</FooterLink>
+                            <FooterLink link='/' >Marksman Garage Doors Pittsburgh</FooterLink>
                             &nbsp; | &nbsp;
-                            <FooterLink >sitemap</FooterLink>
+                            <FooterLink link='/' >sitemap</FooterLink>
                             &nbsp; | &nbsp;
-                            <FooterLink >Privacy Policy</FooterLink>
+                            <FooterLink link='/' >Privacy Policy</FooterLink>
                         </Typography>
                         <Stack flexDirection='row'>
-                            <Link>
+                            <Link link='/'>
                                 <IconButton sx={{ mr: .5, bgcolor: '#5A5959', borderRadius: 1, '&:hover': { bgcolor: '#5A5959' } }}>
                                     <FacebookIcon sx={{ color: '#fff' }} />
                                 </IconButton>
                             </Link>
-                            <Link>
+                            <Link link='/'>
                                 <IconButton sx={{ bgcolor: '#5A5959', borderRadius: 1, '&:hover': { bgcolor: '#5A5959' } }}>
                                     <GoogleIcon sx={{ color: '#fff' }} />
                                 </IconButton>

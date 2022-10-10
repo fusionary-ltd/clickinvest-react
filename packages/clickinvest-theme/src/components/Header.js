@@ -58,7 +58,7 @@ const Header = () => {
                     <Toolbar sx={{ px: '0px !important', justifyContent: 'space-between' }}>
                         <Box sx={{ width: '20%', padding: 1.25 }}>
                             <Link link='/'>
-                                <Box component='img' src={logo} sx={{ width: '100%' }} />
+                                <Box component='img' src={logo} sx={{ width: '100%' }} alt='logo' />
                             </Link>
                         </Box>
                         <Box>

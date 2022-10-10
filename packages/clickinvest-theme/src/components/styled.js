@@ -4,6 +4,9 @@ import Link from "@frontity/components/link";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+import door_bg from '../assets/img/bg/garage_door_1.jpg'
 
 export const TopLink = styled(Link)`
     padding: 10px;
@@ -78,4 +81,43 @@ export const BackgroundOverlay = styled(Box)`
     top: 0;
     left: 0;
     position: absolute;
+`;
+
+export const RepairInput = styled(TextField)`
+    margin-right: 10px;
+    .MuiOutlinedInput-root {
+        border-radius: 0px;
+        
+        input {
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            fontSize: 17px
+        }
+
+        fieldset {
+            display: none;
+        }
+    }
+`;
+
+export const RepairButton = styled(Button)`
+    color: #fff;
+    font-size: 17px;
+    padding: 5px 65px;
+    background-color: #262626;
+    text-transform: capitalize;
+    border-radius: 0px;
+    &:hover {
+        background-color: #54595F;
+    }
+`;
+
+export const HomImgBg = styled(Stack)`
+    background-image: url(${door_bg});
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-top: 120px;
+    padding-bottom: 120px;
 `;

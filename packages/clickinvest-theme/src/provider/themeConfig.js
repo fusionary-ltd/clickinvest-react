@@ -22,8 +22,8 @@ export const Light = {
             main: '#ff8f00',
         },
         background: {
-            paper: '#21242a',
-            default: '#070f1e',
+            paper: '#fff',
+            default: '#fff',
         },
     },
     typography: {

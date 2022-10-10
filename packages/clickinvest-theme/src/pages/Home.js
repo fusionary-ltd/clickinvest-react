@@ -3,18 +3,18 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container'
+import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { BackgroundOverlay, HStack } from '../components/styled'
+import { BackgroundOverlay, HStack, RepairInput, RepairButton } from '../components/styled'
 import door_bg from '../assets/img/bg/garage_door_1.jpg'
 
 const Home = () => {
     return (
         <Box>
             <Box
+                style={{ backgroundImage: `url(${door_bg})` }}
                 sx={{
-                    backgroundImage: `url(${door_bg})`,
                     backgroundPosition: 'center left',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
@@ -57,6 +57,54 @@ const Home = () => {
                             </Box>
                         </Box>
                     </HStack>
+                </Container>
+            </Box>
+            <Box
+                sx={{
+                    bgcolor: theme => theme.palette.warning.main,
+                    py: 6.5
+                }}
+            >
+                <Container maxWidth="lg">
+                    <Stack>
+                        <Typography variant='h1' sx={{ mb: 2.5, fontSize: 36, fontWeight: 700 }}>24/7 Emergency Repair Services</Typography>
+                        <Typography sx={{ mb: 2.5, fontSize: 17 }}>Is your garage door stuck? Want routine maintenance services from professionals? We’re reading for your call!</Typography>
+                        <HStack sx={{ alignItems: 'flex-start !important' }}>
+                            <Stack>
+                                <RepairInput placeholder="Full Name" name="full-name" variant="outlined" />
+                                <Typography sx={{ color: 'red' }}>The field is required.</Typography>
+                            </Stack>
+                            <Stack>
+                                <RepairInput placeholder="Phone Number" name="tel-323" type="tel" variant="outlined" />
+                                <Typography sx={{ color: 'red' }}>The field is required.</Typography>
+                            </Stack>
+                            <Stack>
+                                <RepairInput placeholder="Email Address" name="your-email" type="email" variant="outlined" />
+                                <Typography sx={{ color: 'red' }}>The field is required.</Typography>
+                            </Stack>
+                            <Stack>
+                                <RepairInput placeholder="City / Location" name="city-location" variant="outlined" />
+                                <Typography sx={{ color: 'red' }}>The field is required.</Typography>
+                            </Stack>
+                            <RepairButton>Submit</RepairButton>
+                        </HStack>
+                    </Stack>
+                </Container>
+            </Box>
+            <Box>
+                <Container maxWidth="lg">
+                    <Box sx={{ py: 7.5 }}>
+                        <Stack alignItems='center' sx={{ p: 1.25 }}>
+                            <Typography variant='h4' sx={{ fontSize: 36, fontWeight: 700, color: '#000', textAlign: 'center', mb: 2.5 }}>Serving Pittsburgh is what we love doing</Typography>
+                            <HStack>
+                                <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
+                            </HStack>
+                            <Typography variant='h5' sx={{ fontSize: 18, color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5 }}>
+                                Our high-quality professional garage door repair team will get your garage door repaired.
+                                We remain updated on all modern technology and specific trends and provide various services to the community of Pittsburgh.
+                            </Typography>
+                        </Stack>
+                    </Box>
                 </Container>
             </Box>
         </Box>
