@@ -10,7 +10,6 @@ const settings = {
   "packages": [
     {
       "name": "clickinvest-theme"
-      // "name": "@frontity/mars-theme",
       // "state": {
       //   "theme": {
       //     "menu": [

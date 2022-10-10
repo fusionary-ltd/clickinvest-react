@@ -35,7 +35,7 @@ const Header = () => {
         <>
             <Box sx={{ bgcolor: theme => theme.palette.warning.main }}>
                 <Container maxWidth="lg">
-                    <Stack alingItems='center' justifyContent='space-between' flexDirection='row'>
+                    <Stack alignItems='center' justifyContent='space-between' flexDirection='row'>
                         <Stack sx={{ padding: 1.25, alignItems: 'center', '&:hover': { color: 'white' } }} flexDirection='row'>
                             <TelegramIcon sx={{ fontSize: 18 }} />
                             <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5 }}>100 S Commons #102, Pittsburgh, PA 15212</Typography>

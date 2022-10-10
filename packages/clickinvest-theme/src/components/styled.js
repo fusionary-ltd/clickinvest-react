@@ -67,3 +67,15 @@ export const Divider = styled(Box)`
     width: 100%;
     border-top:1px solid #444444;
 `;
+
+export const BackgroundOverlay = styled(Box)`
+    background-color: transparent;
+    background-image: linear-gradient(110deg, #000000 50%, rgba(0, 0, 0, 0) 53%);
+    opacity: 0.45;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+`;

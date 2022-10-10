@@ -1,20 +1,12 @@
 import React, { useState } from "react"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-// import useLocalStorage from './useLocalStorage';
 import { ThemeContext, initialState } from './themeContext';
-import '../assets/css/index.css';
-
 
 import { Light, Dark } from './themeConfig';
 
 // ** Declare Theme Provider
 const MuiThemeProvider = ({ children }) => {
-
-    // const [modeConfig, setModeConfig] = useLocalStorage('theme-config', {
-    //     ...initialState
-    // });
-
     const [modeConfig, setModeConfig] = useState({ ...initialState })
 
     const setMode = (mode) => {
