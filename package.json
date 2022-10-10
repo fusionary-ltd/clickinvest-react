@@ -18,12 +18,16 @@
   },
   "prettier": {},
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@frontity/core": "^1.16.0",
     "@frontity/head-tags": "^1.1.1",
     "@frontity/html2react": "^1.7.0",
-    "@frontity/mars-theme": "./packages/mars-theme",
     "@frontity/tiny-router": "^1.4.4",
     "@frontity/wp-source": "^1.11.7",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/material": "^5.10.8",
+    "clickinvest-theme": "file:packages/clickinvest-theme",
     "frontity": "^1.17.2"
   }
 }
