@@ -18,6 +18,7 @@
   },
   "prettier": {},
   "dependencies": {
+    "@10up/frontity-build-config": "^2.0.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@frontity/core": "^1.16.0",
@@ -28,6 +29,8 @@
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
     "clickinvest-theme": "file:packages/clickinvest-theme",
-    "frontity": "^1.17.2"
+    "frontity": "^1.17.2",
+    "sass": "^1.55.0",
+    "swiper": "^6.8.4"
   }
 }

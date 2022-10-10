@@ -6,8 +6,14 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { BackgroundOverlay, HStack, RepairInput, RepairButton } from '../components/styled'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper';
+
+import { BackgroundOverlay, HStack, RepairInput, RepairButton, SliderImg, SliderContent } from '../components/styled'
 import door_bg from '../assets/img/bg/garage_door_1.jpg'
+import slider1 from '../assets/img/slider/1.jpg'
+import slider2 from '../assets/img/slider/2.jpg'
+import slider3 from '../assets/img/slider/3.jpg'
 
 const Home = () => {
     return (
@@ -105,6 +111,53 @@ const Home = () => {
                             </Typography>
                         </Stack>
                     </Box>
+                    <Stack>
+                        <Box sx={{ width: '100%' }}>
+                            {/* <Swiper
+                                autoplay={true}
+                                loop={true}
+                                modules={[Navigation, Pagination, Autoplay]}
+                                pagination={{
+                                    clickable: true,
+                                }}
+                                className='home-slider'
+                            >
+                                <SwiperSlide>
+                                    <Box sx={{ height: 400 }}>
+                                        <SliderImg style={{ backgroundImage: `url(${slider1})` }} />
+                                        <SliderContent>
+                                            <Stack sx={{ p: '50px', height: '100%', justifyContent: 'center' }}>
+                                                <Typography sx={{ fontSize: 27, fontWeight: 700, color: '#000', mb: 4 }}>Beautiful and Clean</Typography>
+                                                <Typography sx={{ fontSize: 17, color: '#000' }}>Your desired clean look is just a call away. Your garage will always look immaculate with Marksman.</Typography>
+                                            </Stack>
+                                        </SliderContent>
+                                    </Box>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <Box sx={{ height: 400 }}>
+                                        <SliderImg style={{ backgroundImage: `url(${slider2})` }} />
+                                        <SliderContent>
+                                            <Stack sx={{ p: '50px', height: '100%', justifyContent: 'center' }}>
+                                                <Typography sx={{ fontSize: 27, fontWeight: 700, color: '#000', mb: 4 }}>Beautiful and Clean</Typography>
+                                                <Typography sx={{ fontSize: 17, color: '#000' }}>Your desired clean look is just a call away. Your garage will always look immaculate with Marksman.</Typography>
+                                            </Stack>
+                                        </SliderContent>
+                                    </Box>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <Box sx={{ height: 400 }}>
+                                        <SliderImg style={{ backgroundImage: `url(${slider3})` }} />
+                                        <SliderContent>
+                                            <Stack sx={{ p: '50px', height: '100%', justifyContent: 'center' }}>
+                                                <Typography sx={{ fontSize: 27, fontWeight: 700, color: '#000', mb: 4 }}>Beautiful and Clean</Typography>
+                                                <Typography sx={{ fontSize: 17, color: '#000' }}>Your desired clean look is just a call away. Your garage will always look immaculate with Marksman.</Typography>
+                                            </Stack>
+                                        </SliderContent>
+                                    </Box>
+                                </SwiperSlide>
+                            </Swiper> */}
+                        </Box>
+                    </Stack>
                 </Container>
             </Box>
         </Box>

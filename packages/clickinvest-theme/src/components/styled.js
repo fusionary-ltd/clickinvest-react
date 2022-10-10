@@ -6,8 +6,6 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-import door_bg from '../assets/img/bg/garage_door_1.jpg'
-
 export const TopLink = styled(Link)`
     padding: 10px;
     color: #000;
@@ -112,12 +110,20 @@ export const RepairButton = styled(Button)`
     }
 `;
 
-export const HomImgBg = styled(Stack)`
-    background-image: url(${door_bg});
-    background-position: center left;
+export const SliderImg = styled(Box)`
+    background-size: cover; 
+    width: 65%; 
+    height: 100%;
+    background-position: 50%;
     background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    padding-top: 120px;
-    padding-bottom: 120px;
+`;
+
+export const SliderContent = styled(Stack)`
+    width: 35%; 
+    border: 1px solid #eee; 
+    background-color: #f9f9f9; 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    height: 100%;
 `;

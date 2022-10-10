@@ -4,6 +4,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeContext, initialState } from './themeContext';
 
 import { Light, Dark } from './themeConfig';
+// import '../assets/css/index.scss';
+// import "swiper/swiper.scss";
+// import "swiper/components/navigation/navigation.scss";
+// import "swiper/components/pagination/pagination.scss";
 
 // ** Declare Theme Provider
 const MuiThemeProvider = ({ children }) => {

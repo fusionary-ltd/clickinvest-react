@@ -50,6 +50,15 @@ const settings = {
         }
       }
     },
+    // '@10up/frontity-build-config',
+    // {
+    //   name: '@10upfrontity-build-config',
+    //   state: {
+    //     TenUpBuildConfig: {
+    //       publicPath: '/custom-public-path'
+    //     }
+    //   }
+    // },
     "@frontity/tiny-router",
     "@frontity/html2react"
   ]
