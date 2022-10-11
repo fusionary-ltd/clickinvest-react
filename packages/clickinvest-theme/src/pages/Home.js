@@ -8,11 +8,17 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { BackgroundOverlay, HStack, RepairInput, RepairButton, SliderImg, SliderContent } from '../components/styled'
+import { BackgroundOverlay, HStack, RepairInput, RepairButton, ServiceLink, SliderContent } from '../components/styled'
 import door_bg from '../assets/img/bg/garage_door_1.jpg'
 import slider1 from '../assets/img/slider/1.jpg'
 import slider2 from '../assets/img/slider/2.jpg'
 import slider3 from '../assets/img/slider/3.jpg'
+
+import black_bg from '../assets/img/bg/black-bg.jpg'
+
+import service1 from '../assets/img/services/service1.jpg'
+import service2 from '../assets/img/services/service2.jpg'
+import service3 from '../assets/img/services/service3.jpg'
 
 const Home = () => {
     return (
@@ -104,7 +110,7 @@ const Home = () => {
                             <HStack>
                                 <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
                             </HStack>
-                            <Typography variant='h5' sx={{ fontSize: 18, color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5 }}>
+                            <Typography variant='h5' sx={{ fontSize: 18, color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5, fontWeight: 300 }}>
                                 Our high-quality professional garage door repair team will get your garage door repaired.
                                 We remain updated on all modern technology and specific trends and provide various services to the community of Pittsburgh.
                             </Typography>
@@ -170,7 +176,7 @@ const Home = () => {
                             <HStack>
                                 <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
                             </HStack>
-                            <Typography variant='h5' sx={{ fontSize: 18, color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5 }}>
+                            <Typography variant='h5' sx={{ fontSize: 18, color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5, fontWeight: 300 }}>
                                 Don't Just Take Our Word We're The Best
                             </Typography>
                         </Stack>
@@ -237,6 +243,114 @@ const Home = () => {
                             </Grid>
                         </Box>
                     </Box>
+                </Container>
+            </Box>
+            <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
+                <Container maxWidth="lg">
+                    <Stack alignItems='center' sx={{ pb: 9 }}>
+                        <Typography variant='h4' sx={{ fontSize: 36, fontWeight: 700, color: '#000', textAlign: 'center', mb: 2.5 }}>
+                            Garage Door Services
+                        </Typography>
+                        <HStack>
+                            <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
+                        </HStack>
+                        <Typography variant='h5' sx={{ fontSize: 18, color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5, fontWeight: 300 }}>
+                            We provide the best repair services in Pittsburgh. Our warranty, just like our service, knows no bounds. That’s right - ALL of us parts and work is covered. Now THAT is comprehensive.
+                        </Typography>
+                    </Stack>
+                    {
+                        [0, 1, 2, 3].map((item) => (
+                            <>
+                                <HStack sx={{ pb: 9 }}>
+                                    <Stack sx={{ width: '50%', p: 1.25 }}>
+                                        <ServiceLink link='/'>
+                                            <Typography variant='h3' sx={{ fontSize: 27, fontWeight: 700, color: '#000' }}>Garage Door Automatic Opener Repair</Typography>
+                                        </ServiceLink>
+                                        <Typography>Opening your automatic door manually is a waste of a good luxury. If it’s not working – let us fix it. Simple!</Typography>
+                                    </Stack>
+                                    <Stack sx={{ width: '50%', px: 3.75 }}>
+                                        <Box component='img' src={service1} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
+                                    </Stack>
+                                </HStack>
+                                <HStack sx={{ pb: 9 }}>
+                                    <Stack sx={{ width: '50%', px: 3.75 }}>
+                                        <Box component='img' src={service2} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
+                                    </Stack>
+                                    <Stack sx={{ width: '50%', p: 1.25 }}>
+                                        <ServiceLink link='/'>
+                                            <Typography variant='h3' sx={{ fontSize: 27, fontWeight: 700, color: '#000' }}>Garage Door Cable Repair</Typography>
+                                        </ServiceLink>
+                                        <Typography>If your cables are in any way damaged or are showing signs of wear and tear, give us a call.</Typography>
+                                    </Stack>
+                                </HStack>
+                            </>
+                        ))
+                    }
+                </Container>
+            </Box>
+            <Box sx={{ py: 10 }} style={{ backgroundImage: `url(${black_bg})` }}>
+                <Container maxWidth="lg">
+                    <HStack alignItems='flex-start'>
+                        <Stack sx={{ width: '50%', pr: 4 }}>
+                            <Typography
+                                variant='h1'
+                                sx={{
+                                    color: '#000000',
+                                    fontSize: 36,
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    position: 'relative',
+                                    mb: 2.5,
+                                    py: 2.5,
+                                    zIndex: 1,
+                                    '&:before': {
+                                        content: `""`,
+                                        position: 'absolute',
+                                        background: '#F7941D',
+                                        width: '110%',
+                                        height: '100%',
+                                        zIndex: -1,
+                                        right: 0,
+                                        top: 0
+                                    }
+                                }}>THE MARKSMAN TEAM</Typography>
+                            <Box>
+                                <Typography sx={{ color: '#fff', mb: 1 }}>Our team of experienced and qualified fitters are on hand to help. Providing a high quality service on a variety of garage door brands, styles and configurations, we offer a personal service that will leave you and your wallet happy.</Typography>
+                                <Typography sx={{ color: '#fff', mb: 1 }}>Does your garage door need fixing? Never attempt to repair overhead doors on your own, especially if you have no experience. It can be quite a dangerous job because you can get seriously injured if you don’t do it right. This is why it’s important that you contact one of our well-trained and experienced overhead doors repair professionals today so we can assess the problem and give you a quotation.</Typography>
+                                <Typography sx={{ color: '#fff', mb: 1 }}>Give us a call today.</Typography>
+                            </Box>
+                        </Stack>
+                        <Stack sx={{ width: '50%' }}>
+                            <Box component='img' src={service3} sx={{ p: 1.25 }} />
+                        </Stack>
+                    </HStack>
+                </Container>
+            </Box>
+            <Box sx={{ py: 4, bgcolor: '#F7941D' }} >
+                <Container maxWidth="lg">
+                    <HStack justifyContent='space-between'>
+                        <Typography sx={{
+                            color: '#000000',
+                            fontSize: 36,
+                            fontWeight: 700
+                        }}>Call Us For a FREE Estimate</Typography>
+                        <Link href="tel:4123882633" sx={{ textDecoration: 'none' }}>
+                            <Button sx={{
+                                lineHeight: 1,
+                                borderRadius: 1.5,
+                                px: 5,
+                                py: 2.5,
+                                bgcolor: '#333333',
+                                fontSize: 24,
+                                fontWeight: 700,
+                                color: '#fff',
+                                textTransform: 'capitalize',
+                                '&:hover': { bgcolor: '#333333' }
+                            }}>
+                                Call: (412) 388-2633
+                            </Button>
+                        </Link>
+                    </HStack>
                 </Container>
             </Box>
         </Box>

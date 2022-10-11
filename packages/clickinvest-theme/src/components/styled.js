@@ -127,3 +127,8 @@ export const SliderContent = styled(Stack)`
     right: 0; 
     height: 100%;
 `;
+
+
+export const ServiceLink = styled(Link)`
+    text-decoration: none;
+`;
