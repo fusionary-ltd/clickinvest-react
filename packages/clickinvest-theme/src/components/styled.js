@@ -111,6 +111,20 @@ export const RepairButton = styled(Button)`
     }
 `;
 
+export const TabButton = styled(Button)`
+    color: #000;
+    width: 100%;
+    font-size: 12px;
+    padding: 10px;
+    font-weight: 700;
+    background-color: #f1f1f1;
+    text-transform: uppercase;
+    border-radius: 0px;
+    &:hover {
+        background-color: #F7941D;
+    }
+`;
+
 export const SliderImg = styled(Box)`
     background-size: cover; 
     width: 65%; 

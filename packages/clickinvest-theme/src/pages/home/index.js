@@ -11,6 +11,7 @@ import YearsExperience from './YearsExperience';
 import ExperienceBg from './ExperienceBg';
 import Blog from './Blog';
 import Supporting from './Supporting';
+import TapHelper from './TabHelper';
 
 const Home = () => {
     return (
@@ -29,6 +30,7 @@ const Home = () => {
             <CallFreeEstimate />
             <YearsExperience />
             <ExperienceBg />
+            <TapHelper />
             <ContactService
                 {...{
                     title: 'Call Us or Send Us a Message',
