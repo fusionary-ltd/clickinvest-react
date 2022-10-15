@@ -20,6 +20,7 @@ export const HStack = styled(Stack)`
     align-items: center;
 `;
 
+
 export const CategoryBtn = styled(Button)`
     color: #000000;
     font-size: 17px;

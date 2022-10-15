@@ -5,7 +5,7 @@ import MuiThemeProvider from "../provider/Theme"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import Home from "../pages/Home"
+import Home from "../pages/Home/index"
 
 
 const Root = ({ state }) => {
