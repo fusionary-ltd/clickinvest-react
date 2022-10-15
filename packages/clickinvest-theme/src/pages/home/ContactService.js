@@ -7,7 +7,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { HStack, RepairInput, RepairButton } from '../../components/styled';
 
-const RepairServices = () => {
+const ContactService = ({ title, sub }) => {
     return (
         <Box
             sx={{
@@ -17,8 +17,8 @@ const RepairServices = () => {
         >
             <Container maxWidth="lg">
                 <Stack>
-                    <Typography variant='h1' sx={{ mb: 2.5, fontSize: 36, fontWeight: 700 }}>24/7 Emergency Repair Services</Typography>
-                    <Typography sx={{ mb: 2.5, fontSize: 17 }}>Is your garage door stuck? Want routine maintenance services from professionals? We’re reading for your call!</Typography>
+                    <Typography variant='h1' sx={{ mb: 2.5, fontSize: 36, fontWeight: 700 }}>{title}</Typography>
+                    <Typography sx={{ mb: 2.5, fontSize: 17 }}>{sub}</Typography>
                     <HStack sx={{ alignItems: 'flex-start !important' }}>
                         <Stack>
                             <RepairInput placeholder="Full Name" name="full-name" variant="outlined" />
@@ -44,4 +44,4 @@ const RepairServices = () => {
     );
 }
 
-export default RepairServices;
+export default ContactService;
