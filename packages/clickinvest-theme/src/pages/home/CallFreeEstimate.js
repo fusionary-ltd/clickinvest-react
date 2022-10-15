@@ -4,13 +4,13 @@ import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import {  HStack } from '../../components/styled'
+import { HStack } from '../../components/styled'
 
 const CallFreeEstimate = () => {
     return (
         <Box sx={{ py: 4, bgcolor: '#F7941D' }} >
             <Container maxWidth="lg">
-                <HStack justifyContent='space-between'>
+                <HStack justifyContent='space-between' sx={{ flexDirection: { md: 'row', sm: 'column' } }}>
                     <Typography sx={{
                         color: '#000000',
                         fontSize: 36,

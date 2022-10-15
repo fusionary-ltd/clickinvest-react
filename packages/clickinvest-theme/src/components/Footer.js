@@ -35,7 +35,7 @@ export default function Footer() {
                         </HStack>
                         <Box sx={{ padding: 1.25 }}>
                             <Grid container spacing={2}>
-                                <Grid item xs={3.5}>
+                                <Grid item md={3.5} sm={12} xs={12}>
                                     <Box sx={{ borderColor: theme => theme.palette.warning.main, borderWidth: 1, borderStyle: 'solid' }}>
                                         <Stack flexDirection='row'>
                                             <Stack sx={{ alignItems: 'center', justifyContent: 'center', mr: 2, padding: 2.5, bgcolor: theme => theme.palette.warning.main }}>
@@ -48,7 +48,7 @@ export default function Footer() {
                                         </Stack>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={4.5}>
+                                <Grid item md={4.5} sm={12} xs={12}>
                                     <Box sx={{ borderColor: theme => theme.palette.warning.main, borderWidth: 1, borderStyle: 'solid' }}>
                                         <Stack flexDirection='row'>
                                             <Stack sx={{ alignItems: 'center', justifyContent: 'center', mr: 2, padding: 2.5, bgcolor: theme => theme.palette.warning.main }}>
@@ -61,7 +61,7 @@ export default function Footer() {
                                         </Stack>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item md={4} sm={12} xs={12}>
                                     <Box sx={{ borderColor: theme => theme.palette.warning.main, borderWidth: 1, borderStyle: 'solid' }}>
                                         <Stack flexDirection='row'>
                                             <Stack sx={{ alignItems: 'center', justifyContent: 'center', mr: 2, padding: 2.5, bgcolor: theme => theme.palette.warning.main }}>
@@ -79,23 +79,33 @@ export default function Footer() {
                         <Divider sx={{ mb: 2.5 }} />
                         <Box sx={{ mb: 2.5 }}>
                             <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: 21, lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme => theme.palette.warning.main }}>Service Areas</Typography>
-                            <HStack>
-                                <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink link='/'>Pittsburgh</FooterLink>
-                                </Box>
-                                <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink link='/'>Bethel Park</FooterLink>
-                                </Box>
-                                <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink link='/'>Cranberry Township</FooterLink>
-                                </Box>
-                                <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink link='/'>Hampton Township</FooterLink>
-                                </Box>
-                                <Box sx={{ py: 1.25, width: '16%' }}>
-                                    <FooterLink link='/'>Spring Hills</FooterLink>
-                                </Box>
-                            </HStack>
+                            <Grid container spacing={2}>
+                                <Grid item md={12 / 5}>
+                                    <Box sx={{ py: 1.25 }}>
+                                        <FooterLink link='/'>Pittsburgh</FooterLink>
+                                    </Box>
+                                </Grid>
+                                <Grid item md={12 / 5}>
+                                    <Box sx={{ py: 1.25 }}>
+                                        <FooterLink link='/'>Bethel Park</FooterLink>
+                                    </Box>
+                                </Grid>
+                                <Grid item md={12 / 5}>
+                                    <Box sx={{ py: 1.25 }}>
+                                        <FooterLink link='/'>Cranberry Township</FooterLink>
+                                    </Box>
+                                </Grid>
+                                <Grid item md={12 / 5}>
+                                    <Box sx={{ py: 1.25 }}>
+                                        <FooterLink link='/'>Hampton Township</FooterLink>
+                                    </Box>
+                                </Grid>
+                                <Grid item md={12 / 5}>
+                                    <Box sx={{ py: 1.25 }}>
+                                        <FooterLink link='/'>Spring Hills</FooterLink>
+                                    </Box>
+                                </Grid>
+                            </Grid>
                         </Box>
                         <Divider sx={{ mb: 2.5 }} />
                         <Box sx={{ mb: 2.5 }}>
@@ -103,32 +113,32 @@ export default function Footer() {
                                 Latest Articles
                             </Typography>
                             <Grid container spacing={2}>
-                                <Grid item xs={4}>
+                                <Grid item md={4} sm={6}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
                                         <FooterArticle link='/'>Garage Door Panel Replacement: Which One Is Right for You?</FooterArticle>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item md={4} sm={6}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
                                         <FooterArticle link='/'>Commercial Garage Door Service in Pittsburgh</FooterArticle>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item md={4} sm={6}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
                                         <FooterArticle link='/'>Garage Door Pull Cord Came Off</FooterArticle>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item md={4} sm={6}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
                                         <FooterArticle link='/'>How Much Does Garage Door Opener Installation Cost?</FooterArticle>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item md={4} sm={6}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
                                         <FooterArticle link='/'>Garage Door Opener Battery Replacement</FooterArticle>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item md={4} sm={6}>
                                     <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
                                         <FooterArticle link='/'>Annual Garage Door Maintenance</FooterArticle>
                                     </Box>

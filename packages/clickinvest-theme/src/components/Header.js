@@ -10,8 +10,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
+import MenuIcon from '@mui/icons-material/Menu';
 import EmailIcon from '@mui/icons-material/Email';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -33,35 +35,37 @@ const Header = () => {
     };
     return (
         <>
-            <Box sx={{ bgcolor: theme => theme.palette.warning.main }}>
+            <Box sx={{ bgcolor: theme => theme.palette.warning.main, display: { sm: 'block', xs: 'none' } }}>
                 <Container maxWidth="lg">
-                    <Stack alignItems='center' justifyContent='space-between' flexDirection='row'>
-                        <Stack sx={{ padding: 1.25, alignItems: 'center', '&:hover': { color: 'white' } }} flexDirection='row'>
+                    <Stack justifyContent='space-between' sx={{ flexDirection: { md: 'row', sm: 'column' }, py: { sm: 1.25 } }}>
+                        <Stack sx={{ p: { md: 1.25 }, alignItems: 'center', '&:hover': { color: 'white' } }} flexDirection='row'>
                             <TelegramIcon sx={{ fontSize: 18 }} />
                             <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5 }}>100 S Commons #102, Pittsburgh, PA 15212</Typography>
                         </Stack>
                         <Stack flexDirection='row'>
                             <TopLink link='info@marksmangaragedoors.com'>
                                 <EmailIcon sx={{ fontSize: 18 }} />
-                                <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5 }}>info@marksmangaragedoors.com</Typography>
+                                <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5, mr: 1 }}>info@marksmangaragedoors.com</Typography>
                             </TopLink>
-                            <TopLink link="tel:4123882633">
-                                <LocalPhoneIcon sx={{ fontSize: 18 }} />
-                                <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5 }}>(412) 388-2633</Typography>
-                            </TopLink>
+                            <Stack justifyContent='center' sx={{ ml: { sm: 'auto' } }}>
+                                <TopLink link="tel:4123882633">
+                                    <LocalPhoneIcon sx={{ fontSize: 18 }} />
+                                    <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5 }}>(412) 388-2633</Typography>
+                                </TopLink>
+                            </Stack>
                         </Stack>
                     </Stack>
                 </Container>
             </Box>
             <AppBar position="sticky" sx={{ bgcolor: '#fff' }}>
                 <Container maxWidth="lg">
-                    <Toolbar sx={{ px: '0px !important', justifyContent: 'space-between' }}>
-                        <Box sx={{ width: '20%', padding: 1.25 }}>
+                    <Toolbar sx={{ px: '0px !important', alignItems: { sm: 'center', xs: 'flex-start' }, justifyContent: { sm: 'unset', xs: 'space-between' } }}>
+                        <Box sx={{ width: { sm: '20%', xs: '50%' }, padding: 1.25 }}>
                             <Link link='/'>
                                 <Box component='img' src={logo} sx={{ width: '100%' }} alt='logo' />
                             </Link>
                         </Box>
-                        <Box>
+                        <Box sx={{ m: 'auto', display: { sm: 'block', xs: 'none' } }}>
                             <HStack>
                                 <Box sx={{ position: 'relative' }}>
                                     <CategoryBtn endIcon={<ExpandMoreIcon />} sx={{ color: open ? '#F7941D' : '#000000' }} onClick={handleClick} >Service</CategoryBtn>
@@ -90,9 +94,14 @@ const Header = () => {
                                 </Box>
                             </HStack>
                         </Box>
-                        <Link link='/contact' style={{ textDecoration: 'none' }}>
-                            <Button color="error" variant="contained" sx={{ textTransform: 'inherit', fontSize: 17, fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
-                        </Link>
+                        <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
+                            <Link link='/contact' style={{ textDecoration: 'none' }}>
+                                <Button color="error" variant="contained" sx={{ textTransform: 'inherit', fontSize: 17, fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
+                            </Link>
+                        </Box>
+                        <IconButton sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }}>
+                            <MenuIcon />
+                        </IconButton>
                     </Toolbar>
                 </Container>
             </AppBar>

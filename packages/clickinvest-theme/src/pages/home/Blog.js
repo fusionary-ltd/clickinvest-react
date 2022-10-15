@@ -27,7 +27,7 @@ const Blog = () => {
                     <Grid container spacing={4}>
                         {
                             [1, 2, 3].map((idx) => (
-                                <Grid xs={4} item key={idx}>
+                                <Grid md={4} sm={6} item key={idx}>
                                     <Box sx={{ borderBottom: '1px solid #ebebeb' }}>
                                         <Stack>
                                             <Box component='img' src={door} sx={{ with: '100%' }} />

@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 export const TopLink = styled(Link)`
-    padding: 10px;
     color: #000;
     display: flex; 
     align-items: center; 

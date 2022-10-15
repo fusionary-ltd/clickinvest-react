@@ -24,7 +24,7 @@ const ExperienceBg = () => {
             <BackgroundOverlay sx={{ bgcolor: 'rgba(0, 0, 0, 0.54)', opacity: 0.5 }} />
             <Container maxWidth="lg">
                 <HStack sx={{ position: 'relative' }}>
-                    <Box sx={{ p: 1.25, width: '42.456%' }}>
+                    <Box sx={{ p: 1.25, width: { md: '42.456%', sm: '50%' } }}>
                         <Box>
                             <Typography variant='h1' sx={{ color: '#FFFFFF', fontSize: 36, fontWeight: 700, textTransform: 'uppercase', lineHeight: '50px' }}>
                                 Marksman Experience
