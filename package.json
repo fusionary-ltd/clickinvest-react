@@ -27,6 +27,7 @@
     "@frontity/wp-source": "^1.11.7",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
+    "accessibility": "^4.4.1",
     "clickinvest-theme": "file:packages/clickinvest-theme",
     "frontity": "^1.17.2",
     "react-stars": "^2.2.5"

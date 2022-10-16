@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from "@frontity/components/link";
-import { connect, styled } from "frontity";
+import { connect } from "frontity";
 
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
@@ -33,6 +33,7 @@ const Header = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
     return (
         <>
             <Box sx={{ bgcolor: theme => theme.palette.warning.main, display: { sm: 'block', xs: 'none' } }}>
