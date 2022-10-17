@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Link from "@frontity/components/link";
 
 import Box from '@mui/material/Box';
@@ -15,10 +15,13 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import logo from '../assets/img/marks_logo.png';
 
-export default function Footer() {
+const Footer = () => {
+    const [show, setShow] = useState(false);
     return (
         <>
             <Box sx={{ bgcolor: '#212121', pt: { md: 12, xs: 3 }, pb: 10 }}>
@@ -148,7 +151,7 @@ export default function Footer() {
                     </Stack>
                 </Container>
             </Box>
-            <Box sx={{ bgcolor: '#474747', py: 1.25 }}>
+            <Box sx={{ bgcolor: '#474747', py: 1.25, pb: { md: '10px', sm: '60px' } }}>
                 <Container maxWidth="lg">
                     <HStack justifyContent='space-between'>
                         <Typography sx={{ color: '#ECECEC' }}>
@@ -174,6 +177,39 @@ export default function Footer() {
                     </HStack>
                 </Container>
             </Box>
+            <Box sx={{ display: { md: 'none', sm: 'block' }, bgcolor: '#000000bf', width: '100%', position: 'fixed', bottom: 0 }}>
+                <HStack sx={{ justifyContent: 'space-around', alignItems: 'center' }}>
+                    {
+                        show &&
+                        <IconButton sx={{ padding: 0 }}>
+                            <EmailIcon sx={{ color: 'white', fontSize: '3rem' }} />
+                        </IconButton>
+                    }
+                    <Box>
+                        <Stack alignItems='center'>
+                            <Box onClick={() => setShow(!show)}>
+                                {
+                                    show ?
+                                        <ExpandMoreIcon sx={{ color: 'white', borderWidth: 1, borderColor: 'white', borderStyle: 'none solid solid solid', width: 60, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }} />
+                                        : <ExpandLessIcon sx={{ color: 'white', borderWidth: 1, borderColor: 'white', borderStyle: 'none solid solid solid', width: 60, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }} />
+                                }
+                            </Box>
+                            {
+                                show &&
+                                <Typography sx={{ color: 'white' }}>Contact Us</Typography>
+                            }
+                        </Stack>
+                    </Box>
+                    {
+                        show &&
+                        <IconButton sx={{ padding: 0, borderRadius: '50%', bgcolor: '#88e519' }}>
+                            <LocalPhoneIcon sx={{ color: 'white', fontSize: '3rem' }} />
+                        </IconButton>
+                    }
+                </HStack>
+            </Box>
         </>
     );
 }
+
+export default Footer;
