@@ -22,7 +22,7 @@ export const HStack = styled(Stack)`
 
 export const CategoryBtn = styled(Button)`
     color: #000000;
-    font-size: 17px;
+    font-size: 1.1rem;
     font-weight: 700;
     padding: 13px 20px;
     line-height: 20px;
@@ -38,7 +38,7 @@ export const CategoryBtn = styled(Button)`
 
 export const CategoryLink = styled(Link)`
     color: #000000;
-    font-size: 17px;
+    font-size: 1.1rem;
     font-weight: 700;
     padding: 13px 20px;
     line-height: 20px;
@@ -57,7 +57,7 @@ export const FooterLink = styled(Link)`
 
 export const FooterArticle = styled(Link)`
     color: #ECECEC;
-    font-size: 17px;
+    font-size: 1.1rem;
     line-height: 32px;
     text-decoration: none;
 `;
@@ -100,7 +100,7 @@ export const RepairInput = styled(TextField)`
 
 export const RepairButton = styled(Button)`
     color: #fff;
-    font-size: 17px;
+    font-size: 1.1rem;
     padding: 5px 65px;
     background-color: #262626;
     text-transform: capitalize;
@@ -113,10 +113,9 @@ export const RepairButton = styled(Button)`
 export const TabButton = styled(Button)`
     color: #000;
     width: 100%;
-    font-size: 12px;
+    font-size: '1rem';
     padding: 10px;
     font-weight: 700;
-    background-color: #f1f1f1;
     text-transform: uppercase;
     border-radius: 0px;
     &:hover {

@@ -24,14 +24,14 @@ const ExperienceBg = () => {
             <BackgroundOverlay sx={{ bgcolor: 'rgba(0, 0, 0, 0.54)', opacity: 0.5 }} />
             <Container maxWidth="lg">
                 <HStack sx={{ position: 'relative' }}>
-                    <Box sx={{ p: 1.25, width: { md: '42.456%', sm: '50%' } }}>
+                    <Box sx={{ p: 1.25, width: { md: '50%', sm: '60%' } }}>
                         <Box>
-                            <Typography variant='h1' sx={{ color: '#FFFFFF', fontSize: 36, fontWeight: 700, textTransform: 'uppercase', lineHeight: '50px' }}>
+                            <Typography variant='h1' sx={{ color: '#FFFFFF', fontSize: '2.2rem', fontWeight: 700, textTransform: 'uppercase', lineHeight: '50px' }}>
                                 Marksman Experience
                             </Typography>
                         </Box>
                         <Box sx={{ my: 4.5 }}>
-                            <Typography variant='h2' sx={{ color: '#FFFFFF', fontSize: 20, fontWeight: 300, lineHeight: '1.3em' }}>
+                            <Typography variant='h2' sx={{ color: '#FFFFFF', fontSize: '1.2rem', fontWeight: 300, lineHeight: '1.3em' }}>
                                 For many years, our garage door repair company has been repairing all types of garage doors, and all of our team members are certified professionals who have undergone extensive training on how to do the job with safety in mind.
                             </Typography>
                         </Box>
@@ -43,7 +43,7 @@ const ExperienceBg = () => {
                                     px: 5,
                                     py: 2.5,
                                     bgcolor: '#D91108',
-                                    fontSize: 24,
+                                    fontSize: '1.5rem',
                                     fontWeight: 700,
                                     color: '#fff',
                                     textTransform: 'capitalize',

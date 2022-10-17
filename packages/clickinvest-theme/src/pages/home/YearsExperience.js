@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -13,7 +14,7 @@ const CallFreeEstimate = () => {
             <Container maxWidth="lg">
                 <Stack >
                     <Stack alignItems='left' sx={{ pb: 0 }}>
-                        <Typography variant='h4' sx={{ fontSize: 36, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
+                        <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
                             Years of Experience
                         </Typography>
                         <HStack>
@@ -28,21 +29,25 @@ const CallFreeEstimate = () => {
                 <Container maxWidth="lg" sx={{ position: 'relative' }}>
                     <Stack>
                         <HStack sx={{ pb: 2, mt: -18, mb: 5, bgcolor: '#FFFFFF' }}>
-                            {
-                                [1, 2, 3].map((idx) => (
-                                    <Stack key={idx} sx={{ width: '33.33%', p: 1.25 }}>
-                                        <Stack sx={{ px: 2 }}>
-                                            <Box component='img' src={door} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
-                                        </Stack>
-                                        <Stack sx={{ p: 2.25 }}>
-                                            <ServiceLink link='/'>
-                                                <Typography variant='h3' sx={{ fontSize: 27, fontWeight: 700, color: '#000' }}>Garage Door Automatic Opener Repair</Typography>
-                                            </ServiceLink>
-                                            <Typography>Opening your automatic door manually is a waste of a good luxury. If it’s not working – let us fix it. Simple!</Typography>
-                                        </Stack>
-                                    </Stack>
-                                ))
-                            }
+                            <Grid container>
+                                {
+                                    [1, 2, 3].map((idx) => (
+                                        <Grid item sm={4} xs={12}>
+                                            <Stack key={idx} sx={{ p: 1.25 }}>
+                                                <Stack sx={{ px: 2 }}>
+                                                    <Box component='img' src={door} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
+                                                </Stack>
+                                                <Stack sx={{ p: 2.25 }}>
+                                                    <ServiceLink link='/'>
+                                                        <Typography variant='h3' sx={{ fontSize: '1.5rem', fontWeight: 700, color: '#000' }}>Garage Door Automatic Opener Repair</Typography>
+                                                    </ServiceLink>
+                                                    <Typography>Opening your automatic door manually is a waste of a good luxury. If it’s not working – let us fix it. Simple!</Typography>
+                                                </Stack>
+                                            </Stack>
+                                        </Grid>
+                                    ))
+                                }
+                            </Grid>
                         </HStack>
                     </Stack>
                 </Container>

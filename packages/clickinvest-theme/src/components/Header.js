@@ -38,20 +38,20 @@ const Header = () => {
         <>
             <Box sx={{ bgcolor: theme => theme.palette.warning.main, display: { sm: 'block', xs: 'none' } }}>
                 <Container maxWidth="lg">
-                    <Stack justifyContent='space-between' sx={{ flexDirection: { md: 'row', sm: 'column' }, py: { sm: 1.25 } }}>
+                    <Stack justifyContent='space-between' sx={{ flexDirection: { md: 'row', sm: 'column' }, py: { md: 0, sm: 1.25 } }}>
                         <Stack sx={{ p: { md: 1.25 }, alignItems: 'center', '&:hover': { color: 'white' } }} flexDirection='row'>
                             <TelegramIcon sx={{ fontSize: 18 }} />
-                            <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5 }}>100 S Commons #102, Pittsburgh, PA 15212</Typography>
+                            <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>100 S Commons #102, Pittsburgh, PA 15212</Typography>
                         </Stack>
                         <Stack flexDirection='row'>
                             <TopLink link='info@marksmangaragedoors.com'>
                                 <EmailIcon sx={{ fontSize: 18 }} />
-                                <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5, mr: 1 }}>info@marksmangaragedoors.com</Typography>
+                                <Typography component='span' sx={{ lineHeight: 1.4, pl: .5, mr: 1 }}>info@marksmangaragedoors.com</Typography>
                             </TopLink>
                             <Stack justifyContent='center' sx={{ ml: { sm: 'auto' } }}>
                                 <TopLink link="tel:4123882633">
                                     <LocalPhoneIcon sx={{ fontSize: 18 }} />
-                                    <Typography component='span' sx={{ fontSize: 17, lineHeight: 1.4, pl: .5 }}>(412) 388-2633</Typography>
+                                    <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>(412) 388-2633</Typography>
                                 </TopLink>
                             </Stack>
                         </Stack>
@@ -97,7 +97,7 @@ const Header = () => {
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
                             <Link link='/contact' style={{ textDecoration: 'none' }}>
-                                <Button color="error" variant="contained" sx={{ textTransform: 'inherit', fontSize: 17, fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
+                                <Button color="error" variant="contained" sx={{ textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
                             </Link>
                         </Box>
                         <IconButton sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }}>

@@ -12,7 +12,7 @@ const Supporting = () => {
             <Container maxWidth="lg">
                 <Stack sx={{ mb: 2 }}>
                     <Stack alignItems='left' sx={{ pb: 0 }}>
-                        <Typography variant='h4' sx={{ fontSize: 36, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
+                        <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
                             Supporting Pittsburgh
                         </Typography>
                         <HStack>
@@ -25,7 +25,7 @@ const Supporting = () => {
                     <Typography sx={{ mb: 1 }}>Thus, garage doors are needed to protect your garage fully. Since they provide security and convenience, they are worth investing in. What’s more, they can last for a maximum of 20 years when taken care of well.</Typography>
                 </Stack>
                 <Stack>
-                    <Typography variant='h4' sx={{ fontSize: 26, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
+                    <Typography variant='h4' sx={{ fontSize: { md: '1.8rem', xs: '1.5rem' }, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
                         How We Fix Garage Doors
                     </Typography>
                     <Typography sx={{ mb: 1 }}>Hailed as the Steel City and City of Bridges of America, Pittsburgh is home to the steel industry. The industrialization of Pittsburgh over the years has been improving non-stop.</Typography>

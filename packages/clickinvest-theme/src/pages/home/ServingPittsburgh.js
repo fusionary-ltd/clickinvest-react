@@ -10,22 +10,22 @@ const ServingPirrsburgh = () => {
     return (
         <Box>
             <Box>
-            <Container maxWidth="lg">
-                <Box sx={{ py: 7.5 }}>
-                    <Stack alignItems='center' sx={{ p: 1.25 }}>
-                        <Typography variant='h4' sx={{ fontSize: 36, fontWeight: 700, color: '#000', textAlign: 'center', mb: 2.5 }}>Serving Pittsburgh is what we love doing</Typography>
-                        <HStack>
-                            <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
-                        </HStack>
-                        <Typography variant='h5' sx={{ fontSize: 18, color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5, fontWeight: 300 }}>
-                            Our high-quality professional garage door repair team will get your garage door repaired.
-                            We remain updated on all modern technology and specific trends and provide various services to the community of Pittsburgh.
-                        </Typography>
-                    </Stack>
-                </Box>
-                <Stack>
-                    <Box sx={{ width: '100%' }}>
-                        {/* <Swiper
+                <Container maxWidth="lg">
+                    <Box sx={{ py: 7.5 }}>
+                        <Stack alignItems='center' sx={{ p: 1.25 }}>
+                            <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'center', mb: 2.5 }}>Serving Pittsburgh is what we love doing</Typography>
+                            <HStack>
+                                <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
+                            </HStack>
+                            <Typography variant='h5' sx={{ fontSize: '1.2rem', color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5, fontWeight: 300 }}>
+                                Our high-quality professional garage door repair team will get your garage door repaired.
+                                We remain updated on all modern technology and specific trends and provide various services to the community of Pittsburgh.
+                            </Typography>
+                        </Stack>
+                    </Box>
+                    <Stack>
+                        <Box sx={{ width: '100%' }}>
+                            {/* <Swiper
                             autoplay={true}
                             loop={true}
                             modules={[Navigation, Pagination, Autoplay]}
@@ -68,12 +68,12 @@ const ServingPirrsburgh = () => {
                                 </Box>
                             </SwiperSlide>
                         </Swiper> */}
-                    </Box>
-                </Stack>
-            </Container>
+                        </Box>
+                    </Stack>
+                </Container>
+            </Box>
+            <Box sx={{ bgcolor: '#262626', py: 19 }} />
         </Box>
-        <Box sx={{ bgcolor: '#262626', py: 19 }} />
-    </Box>
     );
 }
 

@@ -26,15 +26,15 @@ const Introduce = ({ url }) => {
                 <HStack sx={{ position: 'relative' }}>
                     <Box sx={{ p: 1.25 }}>
                         <Box>
-                            <Typography variant='h1' sx={{ color: '#FFFFFF', fontSize: 46, fontWeight: 700, textTransform: 'uppercase', lineHeight: '50px' }}>
+                            <Typography variant='h1' sx={{ color: '#FFFFFF', fontSize: { md: '3rem', xs: '1.75rem' }, fontWeight: 700, textTransform: 'uppercase', lineHeight: { md: '50px', xs: '30px' } }}>
                                 Garage Door Repair Pittsburgh
-                                <Typography sx={{ color: '#FFFFFF', fontSize: 46, fontWeight: 700, textTransform: 'uppercase', lineHeight: '50px' }}>
+                                <Typography sx={{ color: '#FFFFFF', fontSize: { md: '3rem', xs: '1.75rem' }, fontWeight: 700, textTransform: 'uppercase', lineHeight: { md: '50px', xs: '30px' } }}>
                                     MARKSMAN GARAGE DOORS
                                 </Typography>
                             </Typography>
                         </Box>
                         <Box sx={{ my: 4.5 }}>
-                            <Typography variant='h2' sx={{ color: '#FFFFFF', fontSize: 20, fontWeight: 300, lineHeight: '1.3em' }}>Marksman Garage Doors is a locally owned and operated servicing company.</Typography>
+                            <Typography variant='h2' sx={{ color: '#FFFFFF', fontSize: '1.1rem', fontWeight: 300, lineHeight: '1.3em' }}>Marksman Garage Doors is a locally owned and operated servicing company.</Typography>
                         </Box>
                         <Box>
                             <Link href="tel:4123882633" sx={{ textDecoration: 'none' }}>
@@ -44,7 +44,7 @@ const Introduce = ({ url }) => {
                                     px: 5,
                                     py: 2.5,
                                     bgcolor: '#D91108',
-                                    fontSize: 24,
+                                    fontSize: '1.5rem',
                                     fontWeight: 700,
                                     color: '#fff',
                                     textTransform: 'capitalize',

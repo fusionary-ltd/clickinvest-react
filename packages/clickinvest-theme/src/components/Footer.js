@@ -21,16 +21,16 @@ import logo from '../assets/img/marks_logo.png';
 export default function Footer() {
     return (
         <>
-            <Box sx={{ bgcolor: '#212121', pt: 12, pb: 10 }}>
+            <Box sx={{ bgcolor: '#212121', pt: { md: 12, xs: 3 }, pb: 10 }}>
                 <Container maxWidth="lg">
                     <Stack>
-                        <HStack>
-                            <Box sx={{ width: '17%', padding: 1.25 }}>
+                        <HStack sx={{ flexDirection: { md: 'row', xs: 'column' } }}>
+                            <Box sx={{ width: { md: '17%', xs: '60%' }, padding: 1.25 }}>
                                 <Box component='img' src={logo} sx={{ width: '100%' }} />
                             </Box>
                             <Box sx={{ ml: 1.25 }}>
-                                <Typography variant='h5' sx={{ py: 1.25, px: 2.5, color: '#000000', fontSize: 21, lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme => theme.palette.warning.main }}>Garage Door Repair Pittsburgh Marksman</Typography>
-                                <Typography sx={{ mt: .5, color: '#fff', fontSize: 17 }}>Looking for a garage door repair company near you? Give us a call!</Typography>
+                                <Typography variant='h5' sx={{ py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme => theme.palette.warning.main }}>Garage Door Repair Pittsburgh Marksman</Typography>
+                                <Typography sx={{ mt: .5, color: '#fff', fontSize: '1rem' }}>Looking for a garage door repair company near you? Give us a call!</Typography>
                             </Box>
                         </HStack>
                         <Box sx={{ padding: 1.25 }}>
@@ -42,8 +42,8 @@ export default function Footer() {
                                                 <LocalPhoneIcon sx={{ fontSize: 60 }} />
                                             </Stack>
                                             <Box sx={{ padding: 1.25, pb: 0 }}>
-                                                <Typography sx={{ color: '#CCCCCC', fontSize: 17, fontWeight: 300 }}>Give Us A Call 24/7</Typography>
-                                                <Typography sx={{ color: '#fff', fontSize: 18, lineHeight: '23px' }}>(412) 388-2633</Typography>
+                                                <Typography sx={{ color: '#CCCCCC', fontSize: '1.1rem', fontWeight: 300 }}>Give Us A Call 24/7</Typography>
+                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>(412) 388-2633</Typography>
                                             </Box>
                                         </Stack>
                                     </Box>
@@ -55,8 +55,8 @@ export default function Footer() {
                                                 <EmailIcon sx={{ fontSize: 60 }} />
                                             </Stack>
                                             <Box sx={{ padding: 1.25, pb: 0 }}>
-                                                <Typography sx={{ color: '#CCCCCC', fontSize: 17, fontWeight: 300 }}>Email Us</Typography>
-                                                <Typography sx={{ color: '#fff', fontSize: 18, lineHeight: '23px' }}>info@marksmangaragedoors.com</Typography>
+                                                <Typography sx={{ color: '#CCCCCC', fontSize: '1.1rem', fontWeight: 300 }}>Email Us</Typography>
+                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>info@marksmangaragedoors.com</Typography>
                                             </Box>
                                         </Stack>
                                     </Box>
@@ -68,8 +68,8 @@ export default function Footer() {
                                                 <LocationOnIcon sx={{ fontSize: 60 }} />
                                             </Stack>
                                             <Box sx={{ padding: 1.25, pb: 0 }}>
-                                                <Typography sx={{ color: '#CCCCCC', fontSize: 17, fontWeight: 300 }}>Our Address</Typography>
-                                                <Typography sx={{ color: '#fff', fontSize: 18, lineHeight: '23px' }}>100 S Commons #102, Pittsburgh, PA 15212</Typography>
+                                                <Typography sx={{ color: '#CCCCCC', fontSize: '1.1rem', fontWeight: 300 }}>Our Address</Typography>
+                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>100 S Commons #102, Pittsburgh, PA 15212</Typography>
                                             </Box>
                                         </Stack>
                                     </Box>
@@ -78,7 +78,7 @@ export default function Footer() {
                         </Box>
                         <Divider sx={{ mb: 2.5 }} />
                         <Box sx={{ mb: 2.5 }}>
-                            <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: 21, lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme => theme.palette.warning.main }}>Service Areas</Typography>
+                            <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme => theme.palette.warning.main }}>Service Areas</Typography>
                             <Grid container spacing={2}>
                                 <Grid item md={12 / 5}>
                                     <Box sx={{ py: 1.25 }}>
@@ -109,7 +109,7 @@ export default function Footer() {
                         </Box>
                         <Divider sx={{ mb: 2.5 }} />
                         <Box sx={{ mb: 2.5 }}>
-                            <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: 21, lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme => theme.palette.warning.main }}>
+                            <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme => theme.palette.warning.main }}>
                                 Latest Articles
                             </Typography>
                             <Grid container spacing={2}>

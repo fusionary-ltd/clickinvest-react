@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { TabButton } from '../../components/styled';
 
 const TapHelper = () => {
-    const [active, setActive] = useState();
+    const [active, setActive] = useState(-1);
     const title = [
         'DOOR JAMMED?',
         'REPAIR COSTS',
@@ -41,6 +41,7 @@ const TapHelper = () => {
             your squeaking away!`
         }
     ]
+    console.log(active)
     return (
         <Box sx={{ bgcolor: '#fff', py: 8 }}>
             <Container maxWidth="lg">
@@ -48,7 +49,7 @@ const TapHelper = () => {
                     <Grid container spacing={1}>
                         {
                             title.map((item, idx) => (
-                                <Grid item xs={12 / title.length} key={idx}>
+                                <Grid item sm={12 / title.length} xs={12} key={idx}>
                                     <TabButton onClick={() => setActive(idx)} sx={{ bgcolor: idx === active ? '#F7941D' : '#f1f1f1' }} >{item}</TabButton>
                                 </Grid>
                             ))
@@ -56,17 +57,17 @@ const TapHelper = () => {
                     </Grid>
                 </Stack>
                 {
-                    active >= 0 ?
+                    active !== -1 ?
                         <Stack sx={{
                             p: 2,
                             borderStyle: 'solid',
                             borderWidth: 1,
                             borderColor: '#E5E5E5'
                         }}>
-                            <Typography variant='h2' sx={{ fontWeight: 700, fontSize: 28, py: 2, mb: 2, borderBottom: 'solid 1px #E5E5E5' }}>
+                            <Typography variant='h2' sx={{ fontWeight: 700, fontSize: { sm: '2rem', xs: '1.5rem' }, py: 2, mb: 2, borderBottom: 'solid 1px #E5E5E5' }}>
                                 {content[active]?.title}
                             </Typography>
-                            <Typography sx={{ maxWidth: '60%' }}>{content[active]?.desc}</Typography>
+                            <Typography sx={{ maxWidth: { md: '60%', xs: '100%' } }}>{content[active]?.desc}</Typography>
                         </Stack> : null
                 }
             </Container>

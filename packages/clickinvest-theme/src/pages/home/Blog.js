@@ -14,14 +14,14 @@ const Blog = () => {
             <Container maxWidth="lg">
                 <Stack sx={{ mb: 2 }}>
                     <Stack alignItems='left' sx={{ pb: 0 }}>
-                        <Typography variant='h4' sx={{ fontSize: 36, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
+                        <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
                             Our Blog
                         </Typography>
                         <HStack>
                             <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
                         </HStack>
                     </Stack>
-                    <Typography>Articles, Tips, Trends And Our Expert Recommendations.</Typography>
+                    <Typography sx={{ fontSize: { md: '1.4rem', xs: '1rem' } }}>Articles, Tips, Trends And Our Expert Recommendations.</Typography>
                 </Stack>
                 <Box>
                     <Grid container spacing={4}>
@@ -34,11 +34,11 @@ const Blog = () => {
                                         </Stack>
                                         <Stack>
                                             <ServiceLink link='/'>
-                                                <Typography variant='h3' sx={{ fontSize: 27, fontWeight: 700, my: 2, color: '#000' }}>
+                                                <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, my: 2, color: '#000' }}>
                                                     Garage Door Panel Replacement: Which One Is Right for You?
                                                 </Typography>
                                             </ServiceLink>
-                                            <Typography sx={{ fontSize: 17, color: '#777', pb: 2 }}>
+                                            <Typography sx={{ fontSize: '1rem', color: '#777', pb: 2 }}>
                                                 If your garage door panel is damaged, you may be wondering if it’s worth repairing or if you should just replace the entire garage door.
                                             </Typography>
                                         </Stack>

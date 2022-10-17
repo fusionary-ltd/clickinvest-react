@@ -17,8 +17,8 @@ const ContactService = ({ title, sub }) => {
         >
             <Container maxWidth="lg">
                 <Stack>
-                    <Typography variant='h1' sx={{ mb: 2.5, fontSize: 36, fontWeight: 700 }}>{title}</Typography>
-                    <Typography sx={{ mb: 2.5, fontSize: 17 }}>{sub}</Typography>
+                    <Typography variant='h1' sx={{ mb: 2.5, fontSize: { md: '2.4rem', xs: '1.5rem' }, fontWeight: 700 }}>{title}</Typography>
+                    <Typography sx={{ mb: 2.5, fontSize: '1rem' }}>{sub}</Typography>
                     <Grid container>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
