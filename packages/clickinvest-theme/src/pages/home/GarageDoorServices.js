@@ -1,16 +1,21 @@
-import * as React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { HStack, ServiceLink } from '../../components/styled';
 
-import service1 from '../../assets/img/services/service1.jpg';
-import service2 from '../../assets/img/services/service2.jpg';
+// import service1 from '../../assets/img/services/service1.jpg';
+// import service2 from '../../assets/img/services/service2.jpg';
 
-const GarageDoorServices = () => {
+const GarageDoorServices = ({ state }) => {
+    const [blog, setBlog] = useState({});
+    useEffect(() => {
+        setBlog(state.source.post)
+    }, []);
+
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
             <Container maxWidth="lg">
@@ -26,48 +31,61 @@ const GarageDoorServices = () => {
                     </Typography>
                 </Stack>
                 {
-                    [0, 1, 2, 3].map((item) => (
-                        <React.Fragment key={item}>
-                            <HStack sx={{ pb: 9 }}>
-                                <Grid container>
-                                    <Grid item sm={6} xs={12}>
-                                        <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
-                                            <ServiceLink link='/'>
-                                                <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>Garage Door Automatic Opener Repair</Typography>
-                                            </ServiceLink>
-                                            <Typography>Opening your automatic door manually is a waste of a good luxury. If it’s not working – let us fix it. Simple!</Typography>
-                                        </Stack>
-                                    </Grid>
-                                    <Grid item sm={6} xs={12}>
-                                        <Stack sx={{ px: 3.75 }}>
-                                            <Box component='img' src={service1} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
-                                        </Stack>
-                                    </Grid>
-                                </Grid>
-                            </HStack>
-                            <HStack sx={{ pb: 9 }}>
-                                <Grid container>
-                                    <Grid item sm={6} xs={12}>
-                                        <Stack sx={{ px: 3.75 }}>
-                                            <Box component='img' src={service2} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
-                                        </Stack>
-                                    </Grid>
-                                    <Grid item sm={6} xs={12}>
-                                        <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
-                                            <ServiceLink link='/'>
-                                                <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>Garage Door Automatic Opener Repair</Typography>
-                                            </ServiceLink>
-                                            <Typography>Opening your automatic door manually is a waste of a good luxury. If it’s not working – let us fix it. Simple!</Typography>
-                                        </Stack>
-                                    </Grid>
-                                </Grid>
-                            </HStack>
-                        </React.Fragment>
-                    ))
+                    Object.keys(blog).map((id, idx) => {
+                        return (
+                            <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
+                                <ServiceLink link='/'>
+                                    <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>{blog[id].title.rendered}</Typography>
+                                </ServiceLink>
+                                <Typography dangerouslySetInnerHTML={{ __html: blog[id].content.rendered }} />
+                            </Stack>
+                        )
+                        // if (idx % 2 === 0) {
+                        //     return (
+                        //         <HStack sx={{ pb: 9 }} key={idx}>
+                        //             <Grid container>
+                        //                 <Grid item sm={6} xs={12}>
+                        //                     <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
+                        //                         <ServiceLink link='/'>
+                        //                             <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>{blog[id].title.rendered}</Typography>
+                        //                         </ServiceLink>
+                        //                         <Typography dangerouslySetInnerHTML={{ __html: blog[id].content.rendered }} />
+                        //                     </Stack>
+                        //                 </Grid>
+                        //                 <Grid item sm={6} xs={12}>
+                        //                     <Stack sx={{ px: 3.75 }}>
+                        //                         <Box component='img' src={service1} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
+                        //                     </Stack>
+                        //                 </Grid>
+                        //             </Grid>
+                        //         </HStack>
+                        //     )
+                        // } else {
+                        //     return (
+                        //         <HStack sx={{ pb: 9 }} key={idx}>
+                        //             <Grid container>
+                        //                 <Grid item sm={6} xs={12}>
+                        //                     <Stack sx={{ px: 3.75 }}>
+                        //                         <Box component='img' src={service2} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
+                        //                     </Stack>
+                        //                 </Grid>
+                        //                 <Grid item sm={6} xs={12}>
+                        //                     <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
+                        //                         <ServiceLink link='/'>
+                        //                             <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>{blog[id].title.rendered}</Typography>
+                        //                         </ServiceLink>
+                        //                         <Typography dangerouslySetInnerHTML={{ __html: blog[id].content.rendered }} />
+                        //                     </Stack>
+                        //                 </Grid>
+                        //             </Grid>
+                        //         </HStack>
+                        //     )
+                        // }
+                    })
                 }
             </Container>
         </Box>
     );
 }
 
-export default GarageDoorServices;
+export default connect(GarageDoorServices);

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from "frontity"
+import React from 'react';
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -9,9 +9,6 @@ import { HStack, ServiceLink } from '../../components/styled'
 import door from '../../assets/img/experience/garage-door.jpg'
 
 const Blog = ({ state }) => {
-    useEffect(() => {
-        console.log('first', state.source.data)
-    }, [])
     return (
         <Box sx={{ py: 7, bgcolor: '#fffff' }} >
             <Container maxWidth="lg">
