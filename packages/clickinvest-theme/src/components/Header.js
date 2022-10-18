@@ -21,6 +21,8 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 import logo from '../assets/img/marks_logo.png';
 
+import config from '../config/index';
+
 import { TopLink, HStack, CategoryBtn, CategoryLink } from './styled';
 
 
@@ -41,17 +43,17 @@ const Header = () => {
                     <Stack justifyContent='space-between' sx={{ flexDirection: { md: 'row', sm: 'column' }, py: { md: 0, sm: 1.25 } }}>
                         <Stack sx={{ p: { md: 1.25 }, alignItems: 'center', '&:hover': { color: 'white' } }} flexDirection='row'>
                             <TelegramIcon sx={{ fontSize: 18 }} />
-                            <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>100 S Commons #102, Pittsburgh, PA 15212</Typography>
+                            <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{config.address}</Typography>
                         </Stack>
                         <Stack flexDirection='row'>
                             <TopLink link='info@marksmangaragedoors.com'>
                                 <EmailIcon sx={{ fontSize: 18 }} />
-                                <Typography component='span' sx={{ lineHeight: 1.4, pl: .5, mr: 1 }}>info@marksmangaragedoors.com</Typography>
+                                <Typography component='span' sx={{ lineHeight: 1.4, pl: .5, mr: 1 }}>{config.mail}</Typography>
                             </TopLink>
                             <Stack justifyContent='center' sx={{ ml: { sm: 'auto' } }}>
                                 <TopLink link="tel:4123882633">
                                     <LocalPhoneIcon sx={{ fontSize: 18 }} />
-                                    <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>(412) 388-2633</Typography>
+                                    <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{config.phone}</Typography>
                                 </TopLink>
                             </Stack>
                         </Stack>
@@ -79,9 +81,9 @@ const Header = () => {
                                             'aria-labelledby': 'basic-button',
                                         }}
                                     >
-                                        <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                        <MenuItem onClick={handleClose}>My account</MenuItem>
-                                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                        <MenuItem onClick={handleClose}>category 1</MenuItem>
+                                        <MenuItem onClick={handleClose}>category 2</MenuItem>
+                                        <MenuItem onClick={handleClose}>category 3</MenuItem>
                                     </Menu>
                                 </Box>
                                 <Box>

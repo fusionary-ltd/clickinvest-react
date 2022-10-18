@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { BackgroundOverlay, HStack } from '../../components/styled'
 
 import door_remot_bg from '../../assets/img/bg/garage-door-remote.jpg';
+import config from '../../config/index';
 
 const ExperienceBg = () => {
     return (
@@ -49,7 +50,7 @@ const ExperienceBg = () => {
                                     textTransform: 'capitalize',
                                     '&:hover': { bgcolor: '#D91108' }
                                 }}>
-                                    Call: (412) 388-2633
+                                    {`Call: ${config.phone}`}
                                 </Button>
                             </Link>
                         </Box>

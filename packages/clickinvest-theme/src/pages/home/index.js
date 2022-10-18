@@ -1,5 +1,5 @@
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
-
 import Introduce from './Introduce';
 import ContactService from './ContactService';
 import ServingPittsburgh from './ServingPittsburgh';
@@ -13,7 +13,7 @@ import Blog from './Blog';
 import Supporting from './Supporting';
 import TapHelper from './TabHelper';
 
-const Home = () => {
+const Home = ({ state }) => {
     return (
         <Box>
             <Introduce />
@@ -49,4 +49,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default connect(Home);
