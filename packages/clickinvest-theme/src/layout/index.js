@@ -5,15 +5,15 @@ import MuiThemeProvider from "../provider/Theme"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import Home from "../pages/Home/index"
+import Home from "../pages/home/index"
 
-import { Accessibility } from 'accessibility';
+// import { Accessibility } from 'accessibility';
 
 const Root = ({ state }) => {
   const data = state.source.get(state.router.link);
-  useEffect(() => {
-    window.addEventListener('load', function () { new Accessibility(); }, false);
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('load', function () { new Accessibility(); }, false);
+  // }, [])
 
   return (
     <MuiThemeProvider>
