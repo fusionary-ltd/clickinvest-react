@@ -9,7 +9,16 @@ import { HStack, ServiceLink } from '../../components/styled';
 const GarageDoorServices = ({ state }) => {
     const [blog, setBlog] = useState({});
     useEffect(() => {
-        setBlog(state.source.post)
+        (async () => {
+            setBlog(state.source.post);
+            for (const postId in state.source.post) {
+                const post = state.source.post[postId];
+                const featuredMediaImage = await state.source.attachment[post.featured_media];
+                if (featuredMediaImage) {
+                    post.featuredMediaUrl = featuredMediaImage.source_url;
+                }
+            }
+        })()
     }, []);
 
     return (
@@ -33,7 +42,8 @@ const GarageDoorServices = ({ state }) => {
                                 <ServiceLink link='/'>
                                     <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>{blog[id].title.rendered}</Typography>
                                 </ServiceLink>
-                                <Typography dangerouslySetInnerHTML={{ __html: blog[id].content.rendered }} />
+                                <Typography dangerouslySetInnerHTML={{ __html: blog[id].excerpt.rendered }} />
+                                <img src={blog[id].featuredMediaUrl} />
                             </Stack>
                         )
                         // if (idx % 2 === 0) {
