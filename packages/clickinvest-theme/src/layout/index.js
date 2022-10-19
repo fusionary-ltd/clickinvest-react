@@ -12,7 +12,6 @@ import { Accessibility } from 'accessibility';
 
 const Root = ({ state }) => {
   const data = state.source.get(state.router.link);
-  console.log(data.route)
   useEffect(() => {
     window.addEventListener('load', function () { new Accessibility(); }, false);
   }, [])
