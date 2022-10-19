@@ -81,7 +81,9 @@ const Header = () => {
                                             'aria-labelledby': 'basic-button',
                                         }}
                                     >
-                                        <MenuItem onClick={handleClose}>category 1</MenuItem>
+                                        <MenuItem onClick={handleClose}>
+                                            <Link link='/post'>Post page</Link>
+                                        </MenuItem>
                                         <MenuItem onClick={handleClose}>category 2</MenuItem>
                                         <MenuItem onClick={handleClose}>category 3</MenuItem>
                                     </Menu>

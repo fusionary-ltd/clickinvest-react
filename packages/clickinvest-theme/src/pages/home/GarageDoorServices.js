@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
-// import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { HStack, ServiceLink } from '../../components/styled';
-
-// import service1 from '../../assets/img/services/service1.jpg';
-// import service2 from '../../assets/img/services/service2.jpg';
 
 const GarageDoorServices = ({ state }) => {
     const [blog, setBlog] = useState({});
@@ -33,7 +29,7 @@ const GarageDoorServices = ({ state }) => {
                 {
                     Object.keys(blog).map((id, idx) => {
                         return (
-                            <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
+                            <Stack key={idx} sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
                                 <ServiceLink link='/'>
                                     <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>{blog[id].title.rendered}</Typography>
                                 </ServiceLink>

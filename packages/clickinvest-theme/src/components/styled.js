@@ -12,6 +12,13 @@ export const TopLink = styled(Link)`
     align-items: center; 
     text-decoration: none;
     &:hover { color: white }
+    `;
+
+export const RightLink = styled(Link)`
+    margin: 16px 0px;
+    color: #F7941D;
+    text-decoration: none;
+    &:hover { color: #000 }
 `;
 
 export const HStack = styled(Stack)`

@@ -9,37 +9,25 @@ const settings = {
   },
   "packages": [
     {
-      "name": "clickinvest-theme"
-      // "state": {
-      //   "theme": {
-      //     "menu": [
-      //       [
-      //         "Home",
-      //         "/"
-      //       ],
-      //       [
-      //         "Nature",
-      //         "/category/nature/"
-      //       ],
-      //       [
-      //         "Travel",
-      //         "/category/travel/"
-      //       ],
-      //       [
-      //         "Japan",
-      //         "/tag/japan/"
-      //       ],
-      //       [
-      //         "About Us",
-      //         "/about-us/"
-      //       ]
-      //     ],
-      //     "featured": {
-      //       "showOnList": false,
-      //       "showOnPost": false
-      //     }
-      //   }
-      // }
+      "name": "clickinvest-theme",
+      "state": {
+        "theme": {
+          "menu": [
+            [
+              "Home",
+              "/"
+            ],
+            [
+              "Post",
+              "/post/"
+            ],
+          ],
+          "featured": {
+            "showOnList": false,
+            "showOnPost": false
+          }
+        }
+      }
     },
     {
       "name": "@frontity/wp-source",
