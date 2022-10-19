@@ -19,6 +19,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import logo from '../assets/img/marks_logo.png';
+import config from '../config/index';
 
 const Footer = () => {
     const [show, setShow] = useState(false);
@@ -46,7 +47,7 @@ const Footer = () => {
                                             </Stack>
                                             <Box sx={{ padding: 1.25, pb: 0 }}>
                                                 <Typography sx={{ color: '#CCCCCC', fontSize: '1.1rem', fontWeight: 300 }}>Give Us A Call 24/7</Typography>
-                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>(412) 388-2633</Typography>
+                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>{config.phone}</Typography>
                                             </Box>
                                         </Stack>
                                     </Box>
@@ -59,7 +60,7 @@ const Footer = () => {
                                             </Stack>
                                             <Box sx={{ padding: 1.25, pb: 0 }}>
                                                 <Typography sx={{ color: '#CCCCCC', fontSize: '1.1rem', fontWeight: 300 }}>Email Us</Typography>
-                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>info@marksmangaragedoors.com</Typography>
+                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>{config.mail}</Typography>
                                             </Box>
                                         </Stack>
                                     </Box>
@@ -72,7 +73,7 @@ const Footer = () => {
                                             </Stack>
                                             <Box sx={{ padding: 1.25, pb: 0 }}>
                                                 <Typography sx={{ color: '#CCCCCC', fontSize: '1.1rem', fontWeight: 300 }}>Our Address</Typography>
-                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>100 S Commons #102, Pittsburgh, PA 15212</Typography>
+                                                <Typography sx={{ color: '#fff', fontSize: '1.1rem', lineHeight: '23px' }}>{config.address}</Typography>
                                             </Box>
                                         </Stack>
                                     </Box>

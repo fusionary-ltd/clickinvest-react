@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { HStack } from '../../components/styled'
+import config from '../../config/index';
 
 const CallFreeEstimate = () => {
     return (
@@ -29,7 +30,7 @@ const CallFreeEstimate = () => {
                             textTransform: 'capitalize',
                             '&:hover': { bgcolor: '#333333' }
                         }}>
-                            Call: (412) 388-2633
+                            {`Call: ${config.phone}`}
                         </Button>
                     </Link>
                 </HStack>
