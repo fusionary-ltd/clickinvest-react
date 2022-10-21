@@ -35,12 +35,12 @@ const Testimonials = () => {
                                         <Stack>
                                             <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: '1rem' }}>Robert Moyles</Typography>
                                             <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: '1rem', fontWeight: 600 }}>Baldwin</Typography>
-                                            <ReactStars
+                                            {/* <ReactStars
                                                 edit={false}
                                                 count={5}
                                                 value={5}
                                                 size={35}
-                                                color2={'#ffa825'} />
+                                                color2={'#ffa825'} /> */}
                                         </Stack>
                                     </Stack>
                                 </Box>
@@ -54,12 +54,12 @@ const Testimonials = () => {
                                         <Stack>
                                             <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: '1rem' }}>Rhonda Ikert</Typography>
                                             <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: '1rem', fontWeight: 600 }}>Cranberry</Typography>
-                                            <ReactStars
+                                            {/* <ReactStars
                                                 edit={false}
                                                 count={5}
                                                 value={5}
                                                 size={35}
-                                                color2={'#ffa825'} />
+                                                color2={'#ffa825'} /> */}
                                         </Stack>
                                     </Stack>
                                 </Box>
@@ -74,12 +74,12 @@ const Testimonials = () => {
                                             <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: '1rem' }}>Denis Kennedy</Typography>
                                             <Typography sx={{ color: '#666666', textAlign: 'center', fontSize: '1rem', fontWeight: 600 }}>Penn Hills
                                             </Typography>
-                                            <ReactStars
+                                            {/* <ReactStars
                                                 edit={false}
                                                 count={5}
                                                 value={5}
                                                 size={35}
-                                                color2={'#ffa825'} />
+                                                color2={'#ffa825'} /> */}
                                         </Stack>
                                     </Stack>
                                 </Box>

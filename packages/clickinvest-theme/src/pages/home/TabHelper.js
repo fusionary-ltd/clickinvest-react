@@ -41,7 +41,7 @@ const TapHelper = () => {
             your squeaking away!`
         }
     ]
-    console.log(active)
+
     return (
         <Box sx={{ bgcolor: '#fff', py: 8 }}>
             <Container maxWidth="lg">

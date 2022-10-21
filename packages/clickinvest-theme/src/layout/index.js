@@ -12,6 +12,7 @@ import { Accessibility } from 'accessibility';
 
 const Root = ({ state }) => {
   const data = state.source.get(state.router.link);
+  
   useEffect(() => {
     window.addEventListener('load', function () { new Accessibility(); }, false);
   }, [])
@@ -20,8 +21,8 @@ const Root = ({ state }) => {
     <MuiThemeProvider>
       <Header />
       <Switch>
-        <Home when={data.route === '/'} />
-        <Post when={data.route === '/post/'} />
+        <Home when={data.isArchive} />
+        <Post when={data.isPostType} />
       </Switch>
       <Footer />
     </MuiThemeProvider>

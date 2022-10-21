@@ -32,8 +32,8 @@ const CallFreeEstimate = () => {
                             <Grid container>
                                 {
                                     [1, 2, 3].map((idx) => (
-                                        <Grid item sm={4} xs={12}>
-                                            <Stack key={idx} sx={{ p: 1.25 }}>
+                                        <Grid item key={idx} sm={4} xs={12}>
+                                            <Stack sx={{ p: 1.25 }}>
                                                 <Stack sx={{ px: 2 }}>
                                                     <Box component='img' src={door} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
                                                 </Stack>

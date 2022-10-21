@@ -26,7 +26,9 @@ import config from '../config/index';
 import { TopLink, HStack, CategoryBtn, CategoryLink } from './styled';
 
 
-const Header = () => {
+const Header = ({ state }) => {
+    const header = state.source.get('/');
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -80,12 +82,18 @@ const Header = () => {
                                         MenuListProps={{
                                             'aria-labelledby': 'basic-button',
                                         }}
+                                        sx={{
+                                            '& .MuiPaper-root': {
+                                                borderRadius: 0,
+                                                bgcolor: '#ff8f00'
+                                            }
+                                        }}
                                     >
                                         <MenuItem onClick={handleClose}>
-                                            <Link link='/post'>Post page</Link>
+                                            example
+                                            {/* <MenuLink>{item.link.replaceAll('-', ' ').slice(1, -1)}</MenuLink> */}
                                         </MenuItem>
-                                        <MenuItem onClick={handleClose}>category 2</MenuItem>
-                                        <MenuItem onClick={handleClose}>category 3</MenuItem>
+
                                     </Menu>
                                 </Box>
                                 <Box>

@@ -4,22 +4,11 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { HStack, ServiceLink } from '../../components/styled';
+import { HStack } from '../../components/styled';
+import List from '../../components/List';
 
 const GarageDoorServices = ({ state }) => {
-    const [blog, setBlog] = useState({});
-    useEffect(() => {
-        (async () => {
-            setBlog(state.source.post);
-            for (const postId in state.source.post) {
-                const post = state.source.post[postId];
-                const featuredMediaImage = await state.source.attachment[post.featured_media];
-                if (featuredMediaImage) {
-                    post.featuredMediaUrl = featuredMediaImage.source_url;
-                }
-            }
-        })()
-    }, []);
+    const data = state.source.get(state.router.link);
 
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
@@ -35,60 +24,11 @@ const GarageDoorServices = ({ state }) => {
                         We provide the best repair services in Pittsburgh. Our warranty, just like our service, knows no bounds. That’s right - ALL of us parts and work is covered. Now THAT is comprehensive.
                     </Typography>
                 </Stack>
-                {
-                    Object.keys(blog).map((id, idx) => {
-                        return (
-                            <Stack key={idx} sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
-                                <ServiceLink link='/'>
-                                    <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>{blog[id].title.rendered}</Typography>
-                                </ServiceLink>
-                                <Typography dangerouslySetInnerHTML={{ __html: blog[id].excerpt.rendered }} />
-                                <img src={blog[id].featuredMediaUrl} />
-                            </Stack>
-                        )
-                        // if (idx % 2 === 0) {
-                        //     return (
-                        //         <HStack sx={{ pb: 9 }} key={idx}>
-                        //             <Grid container>
-                        //                 <Grid item sm={6} xs={12}>
-                        //                     <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
-                        //                         <ServiceLink link='/'>
-                        //                             <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>{blog[id].title.rendered}</Typography>
-                        //                         </ServiceLink>
-                        //                         <Typography dangerouslySetInnerHTML={{ __html: blog[id].content.rendered }} />
-                        //                     </Stack>
-                        //                 </Grid>
-                        //                 <Grid item sm={6} xs={12}>
-                        //                     <Stack sx={{ px: 3.75 }}>
-                        //                         <Box component='img' src={service1} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
-                        //                     </Stack>
-                        //                 </Grid>
-                        //             </Grid>
-                        //         </HStack>
-                        //     )
-                        // } else {
-                        //     return (
-                        //         <HStack sx={{ pb: 9 }} key={idx}>
-                        //             <Grid container>
-                        //                 <Grid item sm={6} xs={12}>
-                        //                     <Stack sx={{ px: 3.75 }}>
-                        //                         <Box component='img' src={service2} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
-                        //                     </Stack>
-                        //                 </Grid>
-                        //                 <Grid item sm={6} xs={12}>
-                        //                     <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
-                        //                         <ServiceLink link='/'>
-                        //                             <Typography variant='h3' sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#000' }}>{blog[id].title.rendered}</Typography>
-                        //                         </ServiceLink>
-                        //                         <Typography dangerouslySetInnerHTML={{ __html: blog[id].content.rendered }} />
-                        //                     </Stack>
-                        //                 </Grid>
-                        //             </Grid>
-                        //         </HStack>
-                        //     )
-                        // }
-                    })
-                }
+
+                {data.items.map(({ type, id }) => {
+                    const item = state.source[type][id];
+                    return <List key={item.id} item={item} />;
+                })}
             </Container>
         </Box>
     );
