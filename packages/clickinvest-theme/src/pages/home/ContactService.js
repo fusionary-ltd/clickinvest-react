@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -8,6 +8,56 @@ import Typography from '@mui/material/Typography';
 import { HStack, RepairInput, RepairButton } from '../../components/styled';
 
 const ContactService = ({ title, sub }) => {
+    const [values, setValues] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        location: ''
+    });
+    const [error, setError] = useState({});
+
+    const handleValue = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+    };
+
+    const sendRequest = () => {
+        let temp = error;
+        if (values.name) {
+            temp = { ...temp, name: false };
+        } else {
+            temp = { ...temp, name: true };
+        }
+
+        if (values.phone) {
+            var phoneno = /^\d{10}$/;
+            if(values.phone.match(phoneno)){
+                temp = { ...temp, phone: false };
+            } else {
+                temp = { ...temp, phone: true };
+            }
+        } else {
+            temp = { ...temp, phone: true };
+        }
+
+        if (values.email) {
+            let flag = String(values.email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+            if (flag && flag.length) {
+                temp = { ...temp, email: false };
+            } else {
+                temp = { ...temp, email: true };
+            }
+        } else {
+            temp = { ...temp, email: true };
+        }
+
+        if (values.location) {
+            temp = { ...temp, location: false };
+        } else {
+            temp = { ...temp, location: true };
+        }
+        setError(temp);
+    }
+
     return (
         <Box
             sx={{
@@ -22,30 +72,30 @@ const ContactService = ({ title, sub }) => {
                     <Grid container>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
-                                <RepairInput placeholder="Full Name" name="full-name" variant="outlined" />
-                                <Typography sx={{ color: 'red' }}>The field is required.</Typography>
+                                <RepairInput placeholder="Full Name" name="full-name" variant="outlined" onChange={handleValue('name')} />
+                                {error.name && <Typography sx={{ color: 'red' }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
-                                <RepairInput placeholder="Phone Number" name="tel-323" type="tel" variant="outlined" />
-                                <Typography sx={{ color: 'red' }}>The field is required.</Typography>
+                                <RepairInput placeholder="Phone Number" name="tel-323" type="tel" variant="outlined" onChange={handleValue('phone')} />
+                                {error.phone && <Typography sx={{ color: 'red' }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
-                                <RepairInput placeholder="Email Address" name="your-email" type="email" variant="outlined" />
-                                <Typography sx={{ color: 'red' }}>The field is required.</Typography>
+                                <RepairInput placeholder="Email Address" name="your-email" type="email" variant="outlined" onChange={handleValue('email')} />
+                                {error.email && <Typography sx={{ color: 'red' }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
-                                <RepairInput placeholder="City / Location" name="city-location" variant="outlined" />
-                                <Typography sx={{ color: 'red' }}>The field is required.</Typography>
+                                <RepairInput placeholder="City / Location" name="city-location" variant="outlined" onChange={handleValue('location')} />
+                                {error.location && <Typography sx={{ color: 'red' }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
-                            <RepairButton sx={{ width: '100%' }}>Submit</RepairButton>
+                            <RepairButton sx={{ width: '100%' }} onClick={() => sendRequest()}>Submit</RepairButton>
                         </Grid>
                     </Grid>
                 </Stack>
