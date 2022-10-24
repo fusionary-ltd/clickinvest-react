@@ -9,7 +9,6 @@ import PostItem from '../../components/PostItem';
 
 const GarageDoorServices = ({ state }) => {
     const data = state.source.get(state.router.link);
-
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
             <Container maxWidth="lg">
