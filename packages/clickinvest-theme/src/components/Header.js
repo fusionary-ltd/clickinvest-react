@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from "@frontity/components/link";
 import { connect } from "frontity";
 
@@ -8,12 +8,20 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Collapse from '@mui/material/Collapse';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import EmailIcon from '@mui/icons-material/Email';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -27,10 +35,12 @@ import { TopLink, HStack, CategoryBtn, CategoryLink } from './styled';
 
 
 const Header = ({ state }) => {
-    const header = state.source.get('/');
-
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [menu, setMenu] = useState(false);
+    const [service, setService] = useState(false);
+    const [areas, setAreas] = useState(false);
     const open = Boolean(anchorEl);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -112,12 +122,64 @@ const Header = ({ state }) => {
                                 <Button color="error" variant="contained" sx={{ textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
                             </Link>
                         </Box>
-                        <IconButton sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }}>
-                            <MenuIcon />
+                        <IconButton sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }} onClick={() => setMenu(!menu)}>
+                            {
+                                menu ? <CloseIcon /> : <MenuIcon />
+                            }
                         </IconButton>
                     </Toolbar>
                 </Container>
             </AppBar>
+            <Box sx={{ display: { sm: 'none', xs: 'block' } }}>
+                <Collapse in={menu} timeout="auto" unmountOnExit>
+                    <List
+                        sx={{ width: '100%', bgcolor: 'background.paper' }}
+                        component="nav"
+                        aria-labelledby="nested-list-subheader"
+                    >
+                        <ListItemButton onClick={() => setService(!service)}>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Service" />
+                            {service ? <ExpandLess /> : <ExpandMore />}
+                        </ListItemButton>
+                        <Collapse in={service} timeout="auto" unmountOnExit>
+                            <List component="div" disablePadding>
+                                <ListItemButton sx={{ pl: 4 }}>
+                                    <ListItemText primary="Demo Posts" />
+                                </ListItemButton>
+                            </List>
+                        </Collapse>
+                        <ListItemButton onClick={() => setAreas(!areas)}>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Areas" />
+                            {areas ? <ExpandLess /> : <ExpandMore />}
+                        </ListItemButton>
+                        <Collapse in={areas} timeout="auto" unmountOnExit>
+                            <List component="div" disablePadding>
+                                <ListItemButton sx={{ pl: 4 }}>
+                                    <ListItemText primary="Demo Areas" />
+                                </ListItemButton>
+                            </List>
+                        </Collapse>
+                        <ListItemButton >
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Articles" />
+                        </ListItemButton>
+                        <ListItemButton >
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="About" />
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+            </Box>
         </>
     );
 }
