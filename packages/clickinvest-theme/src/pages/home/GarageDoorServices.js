@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { HStack } from '../../components/styled';
-import List from '../../components/List';
+import PostItem from '../../components/PostItem';
 
 const GarageDoorServices = ({ state }) => {
     const data = state.source.get(state.router.link);
@@ -27,7 +27,7 @@ const GarageDoorServices = ({ state }) => {
 
                 {data.items.map(({ type, id }) => {
                     const item = state.source[type][id];
-                    return <List key={item.id} item={item} />;
+                    return <PostItem key={item.id} item={item} />;
                 })}
             </Container>
         </Box>
