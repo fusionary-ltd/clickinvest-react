@@ -10,7 +10,7 @@ import Image from "@frontity/components/image";
  *
  * @returns A react component.
  */
-const Image = ({ state, id }) => {
+const PostImage = ({ state, id }) => {
   const media = state.source.attachment[id];
 
   if (!media) return null;
@@ -39,7 +39,7 @@ const Image = ({ state, id }) => {
   );
 };
 
-export default connect(Image);
+export default connect(PostImage);
 
 const Container = styled.div`
   ${({ isAmp }) => isAmp && "position: relative;"};

@@ -1,5 +1,5 @@
 import { connect } from "frontity";
-import Image from "./Image";
+import PostImage from "./PostImage";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { ServiceLink, Title, AuthorName, PublishDate, Excerpt } from './styled';
@@ -7,7 +7,6 @@ import { ServiceLink, Title, AuthorName, PublishDate, Excerpt } from './styled';
 const PostItem = ({ state, item }) => {
     const author = state.source.author[item.author];
     const date = new Date(item.date);
-    console.log(item.excerpt, 'here is post item')
 
     return (
         <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center' }}>
@@ -37,7 +36,7 @@ const PostItem = ({ state, item }) => {
                 )}
                 {state.theme.featured.showOnList && (
                     <Box sx={{ p: .5, bgcolor: '#fff', width: 'calc(50% - 30px)', ml: '30px' }}>
-                        <Image id={item.featured_media} />
+                        <PostImage id={item.featured_media} />
                     </Box>
                 )}
             </Stack>
