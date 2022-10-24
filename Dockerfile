@@ -4,11 +4,11 @@ WORKDIR /app
 # Install dependencies
 COPY package.json package-lock.json ./
 RUN npm ci
-COPY _accessibilty.js /app/node_modules/accessibilty/dist/accessibilty.js
+COPY _accessibility.js /app/node_modules/accessibility/dist/accessibility.js
 
 # Copy source files
 COPY . .
-RUN rm _accessibilty.js
+RUN rm _accessibility.js
 
 # Build
 RUN npm run build
