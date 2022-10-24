@@ -15,7 +15,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -31,7 +30,7 @@ import logo from '../assets/img/marks_logo.png';
 
 import config from '../config/index';
 
-import { TopLink, HStack, CategoryBtn, CategoryLink } from './styled';
+import { TopLink, HStack, CategoryBtn, CategoryLink, ServiceLink } from './styled';
 
 
 const Header = ({ state }) => {
@@ -101,7 +100,6 @@ const Header = ({ state }) => {
                                     >
                                         <MenuItem onClick={handleClose}>
                                             example
-                                            {/* <MenuLink>{item.link.replaceAll('-', ' ').slice(1, -1)}</MenuLink> */}
                                         </MenuItem>
 
                                     </Menu>
@@ -128,58 +126,48 @@ const Header = ({ state }) => {
                             }
                         </IconButton>
                     </Toolbar>
+                    <Box sx={{ display: { sm: 'none', xs: 'block' }, color: '#000000de' }}>
+                        <Collapse in={menu} timeout="auto" unmountOnExit>
+                            <List
+                                sx={{ width: '100%', bgcolor: 'background.paper' }}
+                                component="nav"
+                                aria-labelledby="nested-list-subheader"
+                            >
+                                <ListItemButton onClick={() => setService(!service)}>
+                                    <ListItemText primary="Service" />
+                                    {service ? <ExpandLess /> : <ExpandMore />}
+                                </ListItemButton>
+                                <Collapse in={service} timeout="auto" unmountOnExit>
+                                    <List component="div" disablePadding>
+                                        <ListItemButton sx={{ pl: 4 }}>
+                                            <ListItemText primary="Demo Posts" />
+                                        </ListItemButton>
+                                    </List>
+                                </Collapse>
+                                <ListItemButton onClick={() => setAreas(!areas)}>
+                                    <ListItemText primary="Areas" />
+                                    {areas ? <ExpandLess /> : <ExpandMore />}
+                                </ListItemButton>
+                                <Collapse in={areas} timeout="auto" unmountOnExit>
+                                    <List component="div" disablePadding>
+                                        <ListItemButton sx={{ pl: 4 }}>
+                                            <ListItemText primary="Demo Areas one" />
+                                        </ListItemButton>
+                                    </List>
+                                </Collapse>
+                                <ListItemButton >
+                                    <ListItemText primary="Articles" />
+                                </ListItemButton>
+                                <ServiceLink link='/about-us'>
+                                    <ListItemButton >
+                                        <ListItemText primary="About" sx={{ color: '#000000de' }} />
+                                    </ListItemButton>
+                                </ServiceLink>
+                            </List>
+                        </Collapse>
+                    </Box>
                 </Container>
             </AppBar>
-            <Box sx={{ display: { sm: 'none', xs: 'block' } }}>
-                <Collapse in={menu} timeout="auto" unmountOnExit>
-                    <List
-                        sx={{ width: '100%', bgcolor: 'background.paper' }}
-                        component="nav"
-                        aria-labelledby="nested-list-subheader"
-                    >
-                        <ListItemButton onClick={() => setService(!service)}>
-                            <ListItemIcon>
-                                <InboxIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Service" />
-                            {service ? <ExpandLess /> : <ExpandMore />}
-                        </ListItemButton>
-                        <Collapse in={service} timeout="auto" unmountOnExit>
-                            <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }}>
-                                    <ListItemText primary="Demo Posts" />
-                                </ListItemButton>
-                            </List>
-                        </Collapse>
-                        <ListItemButton onClick={() => setAreas(!areas)}>
-                            <ListItemIcon>
-                                <InboxIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Areas" />
-                            {areas ? <ExpandLess /> : <ExpandMore />}
-                        </ListItemButton>
-                        <Collapse in={areas} timeout="auto" unmountOnExit>
-                            <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }}>
-                                    <ListItemText primary="Demo Areas" />
-                                </ListItemButton>
-                            </List>
-                        </Collapse>
-                        <ListItemButton >
-                            <ListItemIcon>
-                                <InboxIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Articles" />
-                        </ListItemButton>
-                        <ListItemButton >
-                            <ListItemIcon>
-                                <InboxIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="About" />
-                        </ListItemButton>
-                    </List>
-                </Collapse>
-            </Box>
         </>
     );
 }
