@@ -24,9 +24,9 @@ const GarageDoorServices = ({ state }) => {
                     </Typography>
                 </Stack>
 
-                {data.items.map(({ type, id }) => {
+                {data.items.map(({ type, id }, idx) => {
                     const item = state.source[type][id];
-                    return <PostItem key={item.id} item={item} />;
+                    return <PostItem key={item.id} item={item} order={idx} />;
                 })}
             </Container>
         </Box>
