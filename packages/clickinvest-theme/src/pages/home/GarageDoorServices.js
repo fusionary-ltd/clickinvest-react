@@ -9,6 +9,7 @@ import PostItem from '../../components/PostItem';
 
 const GarageDoorServices = ({ state, actions }) => {
     const data = state.source.get(state.router.link);
+    console.log(data, actions)
 
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
@@ -30,7 +31,7 @@ const GarageDoorServices = ({ state, actions }) => {
                     return <PostItem key={item.id} item={item} order={idx} />;
                 })}
 
-                {/* <PrevNextNav>
+                <PrevNextNav>
                     {data.previous && (
                         <button
                             onClick={() => {
@@ -49,7 +50,7 @@ const GarageDoorServices = ({ state, actions }) => {
                             Next &#187;
                         </button>
                     )}
-                </PrevNextNav> */}
+                </PrevNextNav>
             </Container>
         </Box>
     );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -7,13 +7,14 @@ import Typography from '@mui/material/Typography';
 import { HStack, PrevNextNav } from '../../components/styled';
 import PostItem from '../../components/PostItem';
 
-const GarageDoorServices = ({ state, actions }) => {
+const Blog = ({ state, actions }) => {
     const [url, setUrl] = useState('/');
 
     const data = useMemo(() => {
         return state.source.get(url);
     }, [url])
 
+    console.log(data, url, 'blog')
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
             <Container maxWidth="lg">
@@ -26,7 +27,7 @@ const GarageDoorServices = ({ state, actions }) => {
                     </HStack>
                 </Stack>
 
-                {data.items.map(({ type, id }, idx) => {
+                {data.items && data.items.map(({ type, id }, idx) => {
                     const item = state.source[type][id];
                     return <PostItem key={item.id} item={item} order={idx} />;
                 })}
@@ -56,4 +57,4 @@ const GarageDoorServices = ({ state, actions }) => {
     );
 }
 
-export default connect(GarageDoorServices);
+export default connect(Blog);
