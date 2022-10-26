@@ -19,14 +19,11 @@ const GarageDoorServices = ({ state, actions }) => {
             <Container maxWidth="lg">
                 <Stack alignItems='center' sx={{ pb: 9 }}>
                     <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'center', mb: 2.5 }}>
-                        Garage Door Services
+                        Blog
                     </Typography>
                     <HStack>
                         <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
                     </HStack>
-                    <Typography variant='h5' sx={{ fontSize: '1.4rem', color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5, fontWeight: 300 }}>
-                        We provide the best repair services in Pittsburgh. Our warranty, just like our service, knows no bounds. That’s right - ALL of us parts and work is covered. Now THAT is comprehensive.
-                    </Typography>
                 </Stack>
 
                 {data.items.map(({ type, id }, idx) => {
