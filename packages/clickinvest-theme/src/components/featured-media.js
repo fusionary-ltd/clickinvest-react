@@ -1,5 +1,6 @@
 import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 /**
  * The Component that renders a featured media, typically an image. The featured
@@ -30,13 +31,15 @@ const FeaturedMedia = ({ state, id }) => {
 
   return (
     <Container isAmp={state.frontity.mode === "amp"}>
-      <StyledImage
-        alt={media.title.rendered}
-        src={media.source_url}
-        srcSet={srcset}
-        width={media?.media_details?.width}
-        height={media?.media_details?.height}
-      />
+      <LazyLoadComponent>
+        <StyledImage
+          alt={media.title.rendered}
+          src={media.source_url}
+          srcSet={srcset}
+          width={media?.media_details?.width}
+          height={media?.media_details?.height}
+        />
+      </LazyLoadComponent>
     </Container>
   );
 };

@@ -8,7 +8,11 @@ import { HStack, PrevNextNav } from '../../components/styled';
 import PostItem from '../../components/PostItem';
 
 const GarageDoorServices = ({ state, actions }) => {
-    const data = state.source.get(state.router.link);
+    const [url, setUrl] = useState('/');
+
+    const data = useMemo(() => {
+        return state.source.get(url);
+    }, [url])
 
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
@@ -34,7 +38,7 @@ const GarageDoorServices = ({ state, actions }) => {
                     {data.previous && (
                         <button
                             onClick={() => {
-                                actions.router.set(data.previous)
+                                setUrl(data.previous)
                             }}
                         >
                             &#171; Prev
@@ -43,7 +47,7 @@ const GarageDoorServices = ({ state, actions }) => {
                     {data.next && (
                         <button
                             onClick={() => {
-                                actions.router.set(data.next)
+                                setUrl(data.next)
                             }}
                         >
                             Next &#187;
