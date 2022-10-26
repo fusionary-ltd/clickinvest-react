@@ -12,7 +12,7 @@ import { Accessibility } from 'accessibility';
 
 const Root = ({ state }) => {
   const data = state.source.get(state.router.link);
-  
+
   useEffect(() => {
     window.addEventListener('load', function () { new Accessibility(); }, false);
   }, [])

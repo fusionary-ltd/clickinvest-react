@@ -24,7 +24,7 @@ const settings = {
           ],
           "featured": {
             "showOnList": true,
-            "showOnPost": false
+            "showOnPost": true
           }
         }
       }
@@ -34,7 +34,7 @@ const settings = {
       "state": {
         "source": {
           "url": "https://architects-seattle.com",
-          "api": "https://architects-seattle.com/wp-json"
+          "api": "https://architects-seattle.com/wp-json",
         }
       }
     },

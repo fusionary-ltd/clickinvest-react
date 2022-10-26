@@ -4,11 +4,13 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { HStack } from '../../components/styled';
+import { HStack, PrevNextNav } from '../../components/styled';
 import PostItem from '../../components/PostItem';
 
-const GarageDoorServices = ({ state }) => {
+const GarageDoorServices = ({ state, actions }) => {
     const data = state.source.get(state.router.link);
+
+    console.log(data)
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
             <Container maxWidth="lg">
@@ -28,6 +30,27 @@ const GarageDoorServices = ({ state }) => {
                     const item = state.source[type][id];
                     return <PostItem key={item.id} item={item} order={idx} />;
                 })}
+
+                <PrevNextNav>
+                    {data.previous && (
+                        <button
+                            onClick={() => {
+                                actions.router.set(data.previous)
+                            }}
+                        >
+                            &#171; Prev
+                        </button>
+                    )}
+                    {data.next && (
+                        <button
+                            onClick={() => {
+                                actions.router.set(data.next)
+                            }}
+                        >
+                            Next &#187;
+                        </button>
+                    )}
+                </PrevNextNav>
             </Container>
         </Box>
     );

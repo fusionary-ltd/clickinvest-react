@@ -7,6 +7,23 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+export const PrevNextNav = styled.div`
+  padding-top: 1.5em;
+
+  & > button {
+    background: #eee;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    color: #888;
+    border: 1px solid #aaa;
+    font-size: 0.8em;
+    margin-right: 2em;
+  }
+  & > button:hover {
+    cursor: pointer;
+  }
+`
+
 export const Content = styled.div`
   color: rgba(12, 17, 43, 0.8);
   word-break: break-word;
