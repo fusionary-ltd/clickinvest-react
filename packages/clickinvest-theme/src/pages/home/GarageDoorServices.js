@@ -30,7 +30,7 @@ const GarageDoorServices = ({ state, actions }) => {
                     return <PostItem key={item.id} item={item} order={idx} />;
                 })}
 
-                <PrevNextNav>
+                {/* <PrevNextNav>
                     {data.previous && (
                         <button
                             onClick={() => {
@@ -49,7 +49,7 @@ const GarageDoorServices = ({ state, actions }) => {
                             Next &#187;
                         </button>
                     )}
-                </PrevNextNav>
+                </PrevNextNav> */}
             </Container>
         </Box>
     );
