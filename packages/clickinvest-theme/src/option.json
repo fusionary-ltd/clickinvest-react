@@ -3,9 +3,9 @@
         "brandName": "Template Now",
         "whiteLogo": "https://demo.clickinvest.io/static/images/marks_logo-ef0e862ad97edc0d34cd0e0172c1ce65.png",
         "blackLogo": "https://demo.clickinvest.io/static/images/marks_logo-ef0e862ad97edc0d34cd0e0172c1ce65.png",
-        "primary": "#21bb14",
-        "secondary": "#085a32",
-        "warning": "#399cff"
+        "primary": "#F7941D",
+        "secondary": "#212121",
+        "warning": "#D91108"
     },
     "contact": {
         "phoneNumber": "(412) 388-2633",
