@@ -192,7 +192,6 @@ export const MenuLink = styled(Link)`
 
 export const RightLink = styled(Link)`
     margin: 16px 0px;
-    color: #F7941D;
     text-decoration: none;
     &:hover { color: #000 }
 `;
@@ -210,10 +209,6 @@ export const CategoryBtn = styled(Button)`
     padding: 13px 20px;
     line-height: 20px;
     text-transform: capitalize;
-    &:hover {
-        color: #F7941D;
-        background-color: transparent;
-    }
     .MuiTouchRipple-root {
         display: none;
     }
@@ -227,10 +222,6 @@ export const CategoryLink = styled(Link)`
     line-height: 20px;
     text-decoration: none;
     text-transform: capitalize;
-    &:hover {
-        color: #F7941D;
-        background-color: transparent;
-    }
 `;
 
 export const FooterLink = styled(Link)`
@@ -249,7 +240,6 @@ export const Divider = styled(Box)`
     margin-top: 15px;
     margin-bottom: 15px;
     width: 100%;
-    border-top:1px solid #444444;
 `;
 
 export const BackgroundOverlay = styled(Box)`
@@ -285,12 +275,8 @@ export const RepairButton = styled(Button)`
     color: #fff;
     font-size: 1.1rem;
     padding: 5px 65px;
-    background-color: #262626;
     text-transform: capitalize;
     border-radius: 0px;
-    &:hover {
-        background-color: #54595F;
-    }
 `;
 
 export const TabButton = styled(Button)`
@@ -301,9 +287,6 @@ export const TabButton = styled(Button)`
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 0px;
-    &:hover {
-        background-color: #F7941D;
-    }
 `;
 
 export const SliderImg = styled(Box)`

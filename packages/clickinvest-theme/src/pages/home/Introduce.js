@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
@@ -9,7 +9,8 @@ import { BackgroundOverlay, HStack } from '../../components/styled'
 
 import door_bg from '../../assets/img/bg/garage_door_1.jpg';
 
-const Introduce = ({ url }) => {
+const Introduce = ({ state }) => {
+    const { theme, contact } = state.option;
     return (
         <Box
             style={{ backgroundImage: `url(${door_bg})` }}
@@ -43,14 +44,14 @@ const Introduce = ({ url }) => {
                                     borderRadius: 1.5,
                                     px: 5,
                                     py: 2.5,
-                                    bgcolor: '#D91108',
+                                    bgcolor: theme.warning,
                                     fontSize: '1.5rem',
                                     fontWeight: 700,
                                     color: '#fff',
                                     textTransform: 'capitalize',
-                                    '&:hover': { bgcolor: '#D91108' }
+                                    '&:hover': { bgcolor: theme.warning }
                                 }}>
-                                    Call: (412) 388-2633
+                                    {`Call: ${contact.phoneNumber}`}
                                 </Button>
                             </Link>
                         </Box>
@@ -61,4 +62,4 @@ const Introduce = ({ url }) => {
     );
 }
 
-export default Introduce;
+export default connect(Introduce);

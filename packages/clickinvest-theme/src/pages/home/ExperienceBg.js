@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
@@ -8,9 +8,10 @@ import Typography from '@mui/material/Typography';
 import { BackgroundOverlay, HStack } from '../../components/styled'
 
 import door_remot_bg from '../../assets/img/bg/garage-door-remote.jpg';
-import config from '../../config/index';
 
-const ExperienceBg = () => {
+const ExperienceBg = ({ state }) => {
+    const { theme, contact } = state.option;
+
     return (
         <Box
             style={{ backgroundImage: `url(${door_remot_bg})` }}
@@ -43,14 +44,14 @@ const ExperienceBg = () => {
                                     borderRadius: 1.5,
                                     px: 5,
                                     py: 2.5,
-                                    bgcolor: '#D91108',
+                                    bgcolor: theme.warning,
                                     fontSize: '1.5rem',
                                     fontWeight: 700,
                                     color: '#fff',
                                     textTransform: 'capitalize',
-                                    '&:hover': { bgcolor: '#D91108' }
+                                    '&:hover': { bgcolor: theme.warning }
                                 }}>
-                                    {`Call: ${config.phone}`}
+                                    {`Call: ${contact.phoneNumber}`}
                                 </Button>
                             </Link>
                         </Box>
@@ -61,4 +62,4 @@ const ExperienceBg = () => {
     );
 }
 
-export default ExperienceBg;
+export default connect(ExperienceBg);

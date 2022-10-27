@@ -5,24 +5,16 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { HStack, ServiceLink } from '../../components/styled'
+import { ServiceLink } from '../../components/styled'
 import door from '../../assets/img/experience/garage-door.jpg'
+import Title from '../../components/Title';
 
 const Blog = ({ state }) => {
+
     return (
         <Box sx={{ py: 7, bgcolor: '#fffff' }} >
             <Container maxWidth="lg">
-                <Stack sx={{ mb: 2 }}>
-                    <Stack alignItems='left' sx={{ pb: 0 }}>
-                        <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
-                            Our Blog
-                        </Typography>
-                        <HStack>
-                            <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
-                        </HStack>
-                    </Stack>
-                    <Typography sx={{ fontSize: { md: '1.4rem', xs: '1rem' } }}>Articles, Tips, Trends And Our Expert Recommendations.</Typography>
-                </Stack>
+                <Title title={'Our Blog'} desc={`Articles, Tips, Trends And Our Expert Recommendations.`} isLeft={true} />
                 <Box>
                     <Grid container spacing={4}>
                         {

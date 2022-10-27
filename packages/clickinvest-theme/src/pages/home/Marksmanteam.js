@@ -1,15 +1,17 @@
 import * as React from 'react';
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { HStack } from '../../components/styled';
 
 import black_bg from '../../assets/img/bg/black-bg.jpg';
 import service3 from '../../assets/img/services/service3.jpg';
 
-const Marksmanteam = () => {
+const Marksmanteam = ({state}) => {
+    const { theme } = state.option;
+
     return (
         <Box sx={{ py: 10 }} style={{ backgroundImage: `url(${black_bg})` }}>
             <Container maxWidth="lg">
@@ -30,7 +32,7 @@ const Marksmanteam = () => {
                                     '&:before': {
                                         content: `""`,
                                         position: 'absolute',
-                                        background: '#F7941D',
+                                        background: theme.primary,
                                         width: '110%',
                                         height: '100%',
                                         zIndex: -1,
@@ -56,4 +58,4 @@ const Marksmanteam = () => {
     );
 }
 
-export default Marksmanteam;
+export default connect(Marksmanteam);

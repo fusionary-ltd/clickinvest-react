@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -7,7 +7,9 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { TabButton } from '../../components/styled';
 
-const TapHelper = () => {
+const TapHelper = ({ state }) => {
+    const { theme } = state.option;
+
     const [active, setActive] = useState(-1);
     const title = [
         'DOOR JAMMED?',
@@ -50,7 +52,7 @@ const TapHelper = () => {
                         {
                             title.map((item, idx) => (
                                 <Grid item sm={12 / title.length} xs={12} key={idx}>
-                                    <TabButton onClick={() => setActive(idx)} sx={{ bgcolor: idx === active ? '#F7941D' : '#f1f1f1' }} >{item}</TabButton>
+                                    <TabButton onClick={() => setActive(idx)} sx={{ bgcolor: idx === active ? theme.primary : '#f1f1f1', '&:hover': { bgcolor: theme.primary } }} >{item}</TabButton>
                                 </Grid>
                             ))
                         }
@@ -75,4 +77,4 @@ const TapHelper = () => {
     );
 }
 
-export default TapHelper;
+export default connect(TapHelper);

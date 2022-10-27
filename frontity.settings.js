@@ -18,8 +18,8 @@ const settings = {
               "/"
             ],
             [
-              "Post",
-              "/post/"
+              "blog",
+              "/blog/"
             ],
           ],
           "featured": {

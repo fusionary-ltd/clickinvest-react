@@ -1,29 +1,23 @@
 import * as React from 'react';
 import ReactStars from 'react-stars';
-
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { HStack } from '../../components/styled';
+import Title from '../../components/Title';
 
-const Testimonials = () => {
+const Testimonials = ({ state }) => {
+    const { theme, contact } = state.option;
     return (
         <Box>
             <Container maxWidth="lg">
                 <Box sx={{ py: 7.5 }}>
-                    <Stack alignItems='center' sx={{ p: 1.25 }}>
-                        <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'center', mb: 2.5 }}>
-                            TESTIMONIALS
-                        </Typography>
-                        <HStack>
-                            <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
-                        </HStack>
-                        <Typography variant='h5' sx={{ fontSize: '1.4rem', color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5, fontWeight: 300 }}>
-                            Don't Just Take Our Word We're The Best
-                        </Typography>
-                    </Stack>
+                    <Title
+                        title={'TESTIMONIALS'}
+                        desc={`Don't Just Take Our Word We're The Best`}
+                    />
                     <Box>
                         <Grid container>
                             <Grid item sm={4} xs={12}>
@@ -92,4 +86,4 @@ const Testimonials = () => {
     );
 }
 
-export default Testimonials;
+export default connect(Testimonials);

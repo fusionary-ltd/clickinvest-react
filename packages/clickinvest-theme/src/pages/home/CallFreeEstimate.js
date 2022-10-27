@@ -1,15 +1,17 @@
 import * as React from 'react';
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { HStack } from '../../components/styled'
-import config from '../../config/index';
 
-const CallFreeEstimate = () => {
+const CallFreeEstimate = ({ state }) => {
+    const { theme, contact } = state.option;
+
     return (
-        <Box sx={{ py: 4, bgcolor: '#F7941D' }} >
+        <Box sx={{ py: 4, bgcolor: theme.primary }} >
             <Container maxWidth="lg">
                 <HStack justifyContent='space-between' sx={{ flexDirection: { md: 'row', xs: 'column' } }}>
                     <Typography sx={{
@@ -23,14 +25,14 @@ const CallFreeEstimate = () => {
                             borderRadius: 1.5,
                             px: 5,
                             py: 2.5,
-                            bgcolor: '#333333',
+                            bgcolor: theme.secondary,
                             fontSize: '1.5rem',
                             fontWeight: 700,
                             color: '#fff',
                             textTransform: 'capitalize',
-                            '&:hover': { bgcolor: '#333333' }
+                            '&:hover': { bgcolor: theme.secondary }
                         }}>
-                            {`Call: ${config.phone}`}
+                            {`Call: ${contact.phoneNumber}`}
                         </Button>
                     </Link>
                 </HStack>
@@ -39,4 +41,4 @@ const CallFreeEstimate = () => {
     );
 }
 
-export default CallFreeEstimate;
+export default connect(CallFreeEstimate);

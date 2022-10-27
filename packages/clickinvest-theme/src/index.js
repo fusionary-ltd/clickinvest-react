@@ -1,3 +1,4 @@
+import option from './option.json'
 import Root from "./layout"
 
 const clickinvestTheme = {
@@ -9,7 +10,14 @@ const clickinvestTheme = {
     theme: {},
   },
   actions: {
-    theme: {},
+    theme: {
+      init: ({ state }) => {
+
+      },
+      beforeSSR: ({ state, libraries }) => {
+        state.option = option
+      },
+    },
   },
 }
 

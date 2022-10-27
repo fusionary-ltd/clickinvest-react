@@ -26,10 +26,6 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
-import logo from '../assets/img/marks_logo.png';
-
-import config from '../config/index';
-
 import { TopLink, HStack, CategoryBtn, CategoryLink, ServiceLink } from './styled';
 
 
@@ -39,6 +35,7 @@ const Header = ({ state }) => {
     const [service, setService] = useState(false);
     const [areas, setAreas] = useState(false);
     const open = Boolean(anchorEl);
+    const { theme, contact } = state.option;
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -49,22 +46,22 @@ const Header = ({ state }) => {
 
     return (
         <>
-            <Box sx={{ bgcolor: theme => theme.palette.warning.main, display: { sm: 'block', xs: 'none' } }}>
+            <Box sx={{ bgcolor: theme.primary, display: { sm: 'block', xs: 'none' } }}>
                 <Container maxWidth="lg">
                     <Stack justifyContent='space-between' sx={{ flexDirection: { md: 'row', sm: 'column' }, py: { md: 0, sm: 1.25 } }}>
                         <Stack sx={{ p: { md: 1.25 }, alignItems: 'center', '&:hover': { color: 'white' } }} flexDirection='row'>
                             <TelegramIcon sx={{ fontSize: 18 }} />
-                            <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{config.address}</Typography>
+                            <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{contact.address}</Typography>
                         </Stack>
                         <Stack flexDirection='row'>
                             <TopLink link='info@marksmangaragedoors.com'>
                                 <EmailIcon sx={{ fontSize: 18 }} />
-                                <Typography component='span' sx={{ lineHeight: 1.4, pl: .5, mr: 1 }}>{config.mail}</Typography>
+                                <Typography component='span' sx={{ lineHeight: 1.4, pl: .5, mr: 1 }}>{contact.email}</Typography>
                             </TopLink>
                             <Stack justifyContent='center' sx={{ ml: { sm: 'auto' } }}>
                                 <TopLink link="tel:4123882633">
                                     <LocalPhoneIcon sx={{ fontSize: 18 }} />
-                                    <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{config.phone}</Typography>
+                                    <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{contact.phoneNumber}</Typography>
                                 </TopLink>
                             </Stack>
                         </Stack>
@@ -75,14 +72,18 @@ const Header = ({ state }) => {
                 <Container maxWidth="lg">
                     <Toolbar sx={{ px: '0px !important', alignItems: { sm: 'center', xs: 'flex-start' }, justifyContent: { sm: 'unset', xs: 'space-between' } }}>
                         <Box sx={{ width: { sm: '20%', xs: '50%' }, padding: 1.25 }}>
-                            <Link link='/'>
-                                <Box component='img' src={logo} sx={{ width: '100%' }} alt='logo' />
-                            </Link>
+                            {
+                                state.option.theme.whiteLogo || state.option.theme.blackLogo ?
+                                    <Link link='/'>
+                                        <Box component='img' src={state.option.theme.whiteLogo ? state.option.theme.whiteLogo : state.option.theme.blackLogo} sx={{ width: '100%' }} alt='logo' />
+                                    </Link> :
+                                    <Typography>{state.option.theme.brandName}</Typography>
+                            }
                         </Box>
                         <Box sx={{ m: 'auto', display: { sm: 'block', xs: 'none' } }}>
                             <HStack>
                                 <Box sx={{ position: 'relative' }}>
-                                    <CategoryBtn endIcon={<ExpandMoreIcon />} sx={{ color: open ? '#F7941D' : '#000000' }} onClick={handleClick} >Service</CategoryBtn>
+                                    <CategoryBtn endIcon={<ExpandMoreIcon />} sx={{ color: open ? theme.primary : '#000000', '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} onClick={handleClick} >Service</CategoryBtn>
                                     <Menu
                                         id="basic-menu"
                                         anchorEl={anchorEl}
@@ -94,7 +95,7 @@ const Header = ({ state }) => {
                                         sx={{
                                             '& .MuiPaper-root': {
                                                 borderRadius: 0,
-                                                bgcolor: '#ff8f00'
+                                                bgcolor: theme.primary
                                             }
                                         }}
                                     >
@@ -105,19 +106,23 @@ const Header = ({ state }) => {
                                     </Menu>
                                 </Box>
                                 <Box>
-                                    <CategoryBtn endIcon={<ExpandMoreIcon />}>Areas</CategoryBtn>
+                                    <CategoryBtn sx={{ '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} endIcon={<ExpandMoreIcon />}>Areas</CategoryBtn>
                                 </Box>
                                 <Box>
-                                    <CategoryLink link='/blog'>Articles</CategoryLink>
+                                    <CategoryLink link='/blog'>
+                                        <Typography sx={{ px: '20px', py: '13px', color: '#000000', fontSize: '1.1rem', fontWeight: 700, '&:hover': { bgcolor: 'transparent', color: theme.primary } }}>Articles</Typography>
+                                    </CategoryLink>
                                 </Box>
                                 <Box>
-                                    <CategoryLink link='/about-us'>About</CategoryLink>
+                                    <CategoryLink link='/about-us'>
+                                        <Typography sx={{ px: '20px', py: '13px', color: '#000000', fontSize: '1.1rem', fontWeight: 700, '&:hover': { bgcolor: 'transparent', color: theme.primary } }}>About</Typography>
+                                    </CategoryLink>
                                 </Box>
                             </HStack>
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
                             <Link link='/contact' style={{ textDecoration: 'none' }}>
-                                <Button color="error" variant="contained" sx={{ textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
+                                <Button variant="contained" sx={{ '&:hover': { bgcolor: theme.warning }, bgcolor: theme.warning, textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
                             </Link>
                         </Box>
                         <IconButton sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }} onClick={() => setMenu(!menu)}>

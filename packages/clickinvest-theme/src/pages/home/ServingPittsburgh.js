@@ -1,27 +1,23 @@
 import * as React from 'react';
-
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import { HStack } from '../../components/styled'
 
-const ServingPirrsburgh = () => {
+import Title from '../../components/Title'
+
+const ServingPirrsburgh = ({ state }) => {
+    const { theme } = state.option;
     return (
         <Box>
             <Box>
                 <Container maxWidth="lg">
                     <Box sx={{ py: 7.5 }}>
-                        <Stack alignItems='center' sx={{ p: 1.25 }}>
-                            <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'center', mb: 2.5 }}>Serving Pittsburgh is what we love doing</Typography>
-                            <HStack>
-                                <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
-                            </HStack>
-                            <Typography variant='h5' sx={{ fontSize: '1.2rem', color: '#000', lineHeight: '31px', textAlign: 'center', mb: 2.5, fontWeight: 300 }}>
-                                Our high-quality professional garage door repair team will get your garage door repaired.
-                                We remain updated on all modern technology and specific trends and provide various services to the community of Pittsburgh.
-                            </Typography>
-                        </Stack>
+                        <Title 
+                        title={'Serving Pittsburgh is what we love doing'} 
+                        desc={`Our high-quality professional garage door repair team will get your garage door repaired.
+                                We remain updated on all modern technology and specific trends and provide various services to the community of Pittsburgh.`} />
+                       
                     </Box>
                     <Stack>
                         <Box sx={{ width: '100%' }}>
@@ -72,9 +68,9 @@ const ServingPirrsburgh = () => {
                     </Stack>
                 </Container>
             </Box>
-            <Box sx={{ bgcolor: '#262626', py: 19 }} />
+            <Box sx={{ bgcolor: theme.secondary, py: 19 }} />
         </Box>
     );
 }
 
-export default ServingPirrsburgh;
+export default connect(ServingPirrsburgh);

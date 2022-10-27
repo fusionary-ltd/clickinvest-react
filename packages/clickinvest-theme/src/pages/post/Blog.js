@@ -14,7 +14,6 @@ const Blog = ({ state, actions }) => {
         return state.source.get(url);
     }, [url])
 
-    console.log(data, url, 'blog')
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
             <Container maxWidth="lg">

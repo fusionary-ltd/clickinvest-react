@@ -5,25 +5,20 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { HStack, ServiceLink } from '../../components/styled'
-import door from '../../assets/img/experience/garage-door.jpg'
+import { HStack, ServiceLink } from '../../components/styled';
+import door from '../../assets/img/experience/garage-door.jpg';
+import Title from '../../components/Title';
 
 const CallFreeEstimate = () => {
     return (
         <Box sx={{ pt: 7, bgcolor: '#fffff' }} >
             <Container maxWidth="lg">
-                <Stack >
-                    <Stack alignItems='left' sx={{ pb: 0 }}>
-                        <Typography variant='h4' sx={{ fontSize: { md: '2.5rem', xs: '2rem' }, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
-                            Years of Experience
-                        </Typography>
-                        <HStack>
-                            <Box sx={{ mb: 2.5, width: 50, borderColor: theme => theme.palette.warning.main, borderStyle: 'solid none none', borderWidth: 4 }} />
-                        </HStack>
-                    </Stack>
-                    <Typography>A professional team like ours needs to carry out a garage door’s repair, especially if it is an overhead type. When you contact us, we make sure that the garage door is properly fixed so that you, your family, or your employees
-                        are not at risk.</Typography>
-                </Stack>
+                <Title
+                    title={'Years of Experience'}
+                    desc={`A professional team like ours needs to carry out a garage door’s repair, especially if it is an overhead type. When you contact us, we make sure that the garage door is properly fixed so that you, your family, or your employees
+                    are not at risk.`}
+                    isLeft={true}
+                />
             </Container>
             <Box sx={{ bgcolor: '#F5F5F5', mt: 20 }} >
                 <Container maxWidth="lg" sx={{ position: 'relative' }}>

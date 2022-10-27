@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-
+import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { HStack, RepairInput, RepairButton } from '../../components/styled';
+import { RepairInput, RepairButton } from '../../components/styled';
 
-const ContactService = ({ title, sub }) => {
+const ContactService = ({ state, title, sub }) => {
+    const { theme } = state.option;
+
     const [values, setValues] = useState({
         name: '',
         phone: '',
@@ -30,7 +32,7 @@ const ContactService = ({ title, sub }) => {
 
         if (values.phone) {
             var phoneno = /^\d{10}$/;
-            if(values.phone.match(phoneno)){
+            if (values.phone.match(phoneno)) {
                 temp = { ...temp, phone: false };
             } else {
                 temp = { ...temp, phone: true };
@@ -61,7 +63,7 @@ const ContactService = ({ title, sub }) => {
     return (
         <Box
             sx={{
-                bgcolor: theme => theme.palette.warning.main,
+                bgcolor: theme.primary,
                 py: 6.5
             }}
         >
@@ -73,29 +75,29 @@ const ContactService = ({ title, sub }) => {
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
                                 <RepairInput placeholder="Full Name" name="full-name" variant="outlined" onChange={handleValue('name')} />
-                                {error.name && <Typography sx={{ color: 'red' }}>Please enter the correct value.</Typography>}
+                                {error.name && <Typography sx={{ color: theme.warning }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
                                 <RepairInput placeholder="Phone Number" name="tel-323" type="tel" variant="outlined" onChange={handleValue('phone')} />
-                                {error.phone && <Typography sx={{ color: 'red' }}>Please enter the correct value.</Typography>}
+                                {error.phone && <Typography sx={{ color: theme.warning }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
                                 <RepairInput placeholder="Email Address" name="your-email" type="email" variant="outlined" onChange={handleValue('email')} />
-                                {error.email && <Typography sx={{ color: 'red' }}>Please enter the correct value.</Typography>}
+                                {error.email && <Typography sx={{ color: theme.warning }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>
                                 <RepairInput placeholder="City / Location" name="city-location" variant="outlined" onChange={handleValue('location')} />
-                                {error.location && <Typography sx={{ color: 'red' }}>Please enter the correct value.</Typography>}
+                                {error.location && <Typography sx={{ color: theme.warning }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
-                            <RepairButton sx={{ width: '100%' }} onClick={() => sendRequest()}>Submit</RepairButton>
+                            <RepairButton sx={{ width: '100%', bgcolor: theme.secondary, '&:hover': { bgcolor: theme.secondary } }} onClick={() => sendRequest()}>Submit</RepairButton>
                         </Grid>
                     </Grid>
                 </Stack>
@@ -104,4 +106,4 @@ const ContactService = ({ title, sub }) => {
     );
 }
 
-export default ContactService;
+export default connect(ContactService);
