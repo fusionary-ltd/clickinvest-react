@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { connect } from "frontity"
+import TagManager from 'react-gtm-module'
 import Switch from "@frontity/components/switch"
 import MuiThemeProvider from "../provider/Theme"
 import { GoogleReCaptchaProvider, GoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -17,22 +18,19 @@ const Root = ({ state }) => {
   const [token, setToken] = useState();
 
   useEffect(() => {
+    TagManager.initialize({ gtmId: 'GTM-NB4CG7G' })
     window.addEventListener('load', function () { new Accessibility(); }, false)
   }, [])
-
-  console.log(token, 'token----')
 
   return (
     <MuiThemeProvider>
       <GoogleReCaptchaProvider
         reCaptchaKey={reCaptcha.siteKey}
-        // useRecaptchaNet="[optional_boolean_value]"
-        // useEnterprise="[optional_boolean_value]"
         scriptProps={{
-          async: false, // optional, default to false,
-          defer: false, // optional, default to false
-          appendTo: 'head', // optional, default to "head", can be "head" or "body",
-          nonce: undefined // optional, default undefined
+          async: false,
+          defer: false,
+          appendTo: 'head',
+          nonce: undefined
         }}
         container={{
           parameters: {
