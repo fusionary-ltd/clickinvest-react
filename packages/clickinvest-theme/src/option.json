@@ -38,7 +38,9 @@
         ]
     },
     "reCaptcha": {
-        "siteKey": "6Ld4g70iAAAAAGcH4c249PANvMsDY4laVhxXGY7g",
-        "secretKey": "6Ld4g70iAAAAAAFODsFKR4ayiGMjqZ2asQdx4Mgg"
+        "siteKey": "6Lc68b4iAAAAAH5GsjtMP9Mf9mkcZIjMBanIwvRl",
+        "secretKey": "6Lc68b4iAAAAAFy-upYcIiqpDT327U6ZYoVyIRVi",
+        "oldSiteKey": "6Ld4g70iAAAAAGcH4c249PANvMsDY4laVhxXGY7g",
+        "oldSecretKey": "6Ld4g70iAAAAAAFODsFKR4ayiGMjqZ2asQdx4Mgg"
     }
 }

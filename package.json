@@ -30,7 +30,7 @@
     "accessibility": "^4.4.1",
     "clickinvest-theme": "file:packages/clickinvest-theme",
     "frontity": "^1.17.2",
-    "react-google-recaptcha": "^2.1.0",
+    "react-google-recaptcha-v3": "^1.10.0",
     "react-lazy-load-image-component": "^1.5.5",
     "react-stars": "^2.2.5"
   }
