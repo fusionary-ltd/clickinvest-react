@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -17,6 +17,56 @@ const PostPage = ({ state, actions, libraries }) => {
     const Html2React = libraries.html2react.Component;
     const { theme, contact } = state.option;
 
+    const [values, setValues] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        reason: ''
+    });
+    const [error, setError] = useState({});
+
+    const handleValue = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+    };
+
+    const sendRequest = () => {
+        let temp = error;
+        if (values.name) {
+            temp = { ...temp, name: false };
+        } else {
+            temp = { ...temp, name: true };
+        }
+
+        if (values.phone) {
+            var phoneno = /^\d{10}$/;
+            if (values.phone.match(phoneno)) {
+                temp = { ...temp, phone: false };
+            } else {
+                temp = { ...temp, phone: true };
+            }
+        } else {
+            temp = { ...temp, phone: true };
+        }
+
+        if (values.email) {
+            let flag = String(values.email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+            if (flag && flag.length) {
+                temp = { ...temp, email: false };
+            } else {
+                temp = { ...temp, email: true };
+            }
+        } else {
+            temp = { ...temp, email: true };
+        }
+
+        if (values.location) {
+            temp = { ...temp, location: false };
+        } else {
+            temp = { ...temp, location: true };
+        }
+        setError(temp);
+    }
+
     return (
         <Box sx={{ my: 4 }}>
             <Container maxWidth="lg">
@@ -34,24 +84,26 @@ const PostPage = ({ state, actions, libraries }) => {
                                     <Grid container spacing={2}>
                                         <Grid item md={4}>
                                             <Stack>
-                                                <RepairInput placeholder="Full Name" name="Name" variant="outlined" />
-                                                <Typography sx={{ color: theme.warning }}>The field is required.</Typography>
+                                                <RepairInput placeholder="Full Name" name="Name" variant="outlined" onChange={handleValue('name')} />
+                                                {
+                                                    error.name && <Typography sx={{ color: theme.warning }}>The field is required.</Typography>
+                                                }
                                             </Stack>
                                         </Grid>
                                         <Grid item md={4}>
                                             <Stack>
-                                                <RepairInput placeholder="Phone" name="Phone" variant="outlined" />
-                                                <Typography sx={{ color: theme.warning }}>The field is required.</Typography>
+                                                <RepairInput placeholder="Phone" name="Phone" variant="outlined" onChange={handleValue('phone')} />
+                                                {error.phone && <Typography sx={{ color: theme.warning }}>The field is required.</Typography>}
                                             </Stack>
                                         </Grid>
                                         <Grid item md={4}>
                                             <Stack>
-                                                <RepairInput placeholder="Email" name="Email" variant="outlined" />
-                                                <Typography sx={{ color: theme.warning }}>The field is required.</Typography>
+                                                <RepairInput placeholder="Email" name="Email" variant="outlined" onChange={handleValue('email')} />
+                                                {error.email && <Typography sx={{ color: theme.warning }}>The field is required.</Typography>}
                                             </Stack>
                                         </Grid>
                                         <Grid item md={8}>
-                                            <select style={{ width: '100%', height: '100%', border: 0, fontSize: '1em' }}>
+                                            <select style={{ width: '100%', height: '100%', border: 0, fontSize: '1em' }} onChange={handleValue('reason')} >
                                                 <option>Not sure, my garage door is stuck</option>
                                                 <option>Garage Door Replacement</option>
                                                 <option>Garage Spring Replacement</option>
@@ -60,7 +112,7 @@ const PostPage = ({ state, actions, libraries }) => {
                                             </select>
                                         </Grid>
                                         <Grid item md={4}>
-                                            <RepairButton sx={{ bgcolor: theme.secondary, '&:hover': { bgcolor: theme.secondary } }}>SEND</RepairButton>
+                                            <RepairButton onClick={() => sendRequest()} sx={{ bgcolor: theme.secondary, '&:hover': { bgcolor: theme.secondary } }}>SEND</RepairButton>
                                         </Grid>
                                     </Grid>
                                 </Box>
