@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 
-import { HStack, FooterLink, Divider, FooterArticle } from './styled';
+import { HStack, FooterLink, Divider, FooterArticle, ServiceLink } from './styled';
 
 import EmailIcon from '@mui/icons-material/Email';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -18,7 +18,6 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
-import logo from '../assets/img/marks_logo.png';
 
 const Footer = ({ state }) => {
     const { theme, contact, footer } = state.option;
@@ -30,8 +29,14 @@ const Footer = ({ state }) => {
                 <Container maxWidth="lg">
                     <Stack>
                         <HStack sx={{ flexDirection: { md: 'row', xs: 'column' } }}>
-                            <Box sx={{ width: { md: '17%', xs: '60%' }, padding: 1.25 }}>
-                                <Box component='img' src={logo} sx={{ width: '100%' }} />
+                            <Box sx={{ width: { md: '20%', xs: '60%' }, padding: 1.25 }}>
+                                <ServiceLink link='/'>
+                                    {
+                                        theme.whiteLogo || theme.blackLogo ?
+                                            <Box component='img' src={theme.whiteLogo ? theme.whiteLogo : theme.blackLogo} sx={{ width: '100%' }} alt='logo' />
+                                            : <Typography variant='h2' sx={{ with: 'auto', color: '#FFF', fontSize: 30, fontWeight: 600 }}>{theme.brandName}</Typography>
+                                    }
+                                </ServiceLink>
                             </Box>
                             <Box sx={{ ml: 1.25 }}>
                                 <Typography variant='h5' sx={{ py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme.primary }}>Garage Door Repair Pittsburgh Marksman</Typography>

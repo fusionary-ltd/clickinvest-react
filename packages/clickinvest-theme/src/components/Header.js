@@ -72,13 +72,13 @@ const Header = ({ state }) => {
                 <Container maxWidth="lg">
                     <Toolbar sx={{ px: '0px !important', alignItems: { sm: 'center', xs: 'flex-start' }, justifyContent: { sm: 'unset', xs: 'space-between' } }}>
                         <Box sx={{ width: { sm: '20%', xs: '50%' }, padding: 1.25 }}>
-                            {
-                                state.option.theme.whiteLogo || state.option.theme.blackLogo ?
-                                    <Link link='/'>
-                                        <Box component='img' src={state.option.theme.whiteLogo ? state.option.theme.whiteLogo : state.option.theme.blackLogo} sx={{ width: '100%' }} alt='logo' />
-                                    </Link> :
-                                    <Typography>{state.option.theme.brandName}</Typography>
-                            }
+                            <ServiceLink link='/'>
+                                {
+                                    theme.whiteLogo || theme.blackLogo ?
+                                        <Box component='img' src={theme.whiteLogo ? theme.whiteLogo : theme.blackLogo} sx={{ width: '100%' }} alt='logo' />
+                                        : <Typography variant='h1' sx={{ color: '#000', fontSize: 30, fontWeight: 600 }}>{theme.brandName}</Typography>
+                                }
+                            </ServiceLink>
                         </Box>
                         <Box sx={{ m: 'auto', display: { sm: 'block', xs: 'none' } }}>
                             <HStack>

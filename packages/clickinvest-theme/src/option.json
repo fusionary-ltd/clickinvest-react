@@ -5,7 +5,7 @@
         "blackLogo": "https://demo.clickinvest.io/static/images/marks_logo-ef0e862ad97edc0d34cd0e0172c1ce65.png",
         "primary": "#F7941D",
         "secondary": "#212121",
-        "warning": "#D91108"
+        "warning": "#D91108 "
     },
     "contact": {
         "phoneNumber": "(412) 388-2633",
@@ -36,5 +36,9 @@
                 "link": "/spring-hills"
             }
         ]
+    },
+    "reCaptcha": {
+        "siteKey": "6Ld4g70iAAAAAGcH4c249PANvMsDY4laVhxXGY7g",
+        "secretKey": "6Ld4g70iAAAAAAFODsFKR4ayiGMjqZ2asQdx4Mgg"
     }
 }
