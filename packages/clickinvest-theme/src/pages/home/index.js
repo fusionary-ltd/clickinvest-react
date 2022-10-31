@@ -5,45 +5,30 @@ import ContactService from './ContactService';
 import ServingPittsburgh from './ServingPittsburgh';
 import Testimonials from './Testimonials';
 import GarageDoorServices from './GarageDoorServices';
-import Marksmanteam from './Marksmanteam';
+import AboutTeam from './AboutTeam';
 import CallFreeEstimate from './CallFreeEstimate';
-import YearsExperience from './YearsExperience';
+import Experience from './Experience';
 import ExperienceBg from './ExperienceBg';
-import Blog from './Blog';
 import Supporting from './Supporting';
-import TapHelper from './TabHelper';
+// import Blog from './Blog';
+// import TapHelper from './TabHelper';
 
 const Home = ({ state }) => {
     return (
         <Box>
             <Introduce />
-            <ContactService
-                {...{
-                    title: '24/7 Emergency Repair Services',
-                    sub: 'Is your garage door stuck? Want routine maintenance services from professionals? We’re reading for your call!'
-                }}
-            />
+            <ContactService />
             <ServingPittsburgh />
             <Testimonials />
             <GarageDoorServices />
-            <Marksmanteam />
+            <AboutTeam />
             <CallFreeEstimate />
-            <YearsExperience />
+            <Experience />
             <ExperienceBg />
-            <TapHelper />
-            <ContactService
-                {...{
-                    title: 'Call Us or Send Us a Message',
-                    sub: 'Leave your contact information in the fields below and we will contact you as soon as possible.'
-                }}
-            />
-            <Blog />
-            <ContactService
-                {...{
-                    title: 'Book Our Services',
-                    sub: 'Is your garage door stuck? Need a professional installation? We’re here to take your call!'
-                }}
-            />
+            {/* <TapHelper />
+            <ContactService />
+            <Blog /> */}
+            <ContactService />
             <Supporting />
         </Box>
     )

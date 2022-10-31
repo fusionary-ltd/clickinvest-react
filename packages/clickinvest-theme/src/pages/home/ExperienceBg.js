@@ -7,14 +7,12 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { BackgroundOverlay, HStack } from '../../components/styled'
 
-import door_remot_bg from '../../assets/img/bg/garage-door-remote.jpg';
-
 const ExperienceBg = ({ state }) => {
-    const { theme, contact } = state.option;
+    const { theme, contact, home } = state.option;
 
     return (
         <Box
-            style={{ backgroundImage: `url(${door_remot_bg})` }}
+            style={{ backgroundImage: `url(${home.experience.bgImg})` }}
             sx={{
                 backgroundPosition: 'bottom center  ',
                 backgroundRepeat: 'no-repeat',
@@ -29,12 +27,12 @@ const ExperienceBg = ({ state }) => {
                     <Box sx={{ p: 1.25, width: { md: '50%', sm: '60%' } }}>
                         <Box>
                             <Typography variant='h1' sx={{ color: '#FFFFFF', fontSize: '2.2rem', fontWeight: 700, textTransform: 'uppercase', lineHeight: '50px' }}>
-                                Marksman Experience
+                                {home.experience.adTitle}
                             </Typography>
                         </Box>
                         <Box sx={{ my: 4.5 }}>
                             <Typography variant='h2' sx={{ color: '#FFFFFF', fontSize: '1.2rem', fontWeight: 300, lineHeight: '1.3em' }}>
-                                For many years, our garage door repair company has been repairing all types of garage doors, and all of our team members are certified professionals who have undergone extensive training on how to do the job with safety in mind.
+                                {home.experience.adDescription}
                             </Typography>
                         </Box>
                         <Box>

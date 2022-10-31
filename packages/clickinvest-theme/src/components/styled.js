@@ -7,9 +7,93 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+export const SlideContent = styled.div`
+    width: 35%;
+    margin-right: 0;
+    margin-left: auto;
+    background-color: #f9f9f9;
+    text-align: left !important;
+    border: 1px solid #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 50px;
+    margin-left: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const SliderContainer = styled.div`
+  position: relative;
+  margin: auto;
+`;
+
+export const SliderWrapper = styled.div`
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+`;
+
+export const Slider = styled.ul`
+  margin: 0;
+  padding: 0;
+  height: 100%
+`;
+
+export const SliderItem = styled.li`
+  float: left;
+  position: relative;
+  transition: all .2s linear;
+  list-style-type: none;  
+  `;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+`;
+
+export const PrevButton = styled.button`
+  background-size: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s linear;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+export const NextButton = styled.button`
+  background-size: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s linear;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
 export const PrevNextNav = styled.div`
   padding-top: 1.5em;
-
   & > button {
     background: #eee;
     text-decoration: none;
@@ -22,7 +106,36 @@ export const PrevNextNav = styled.div`
   & > button:hover {
     cursor: pointer;
   }
-`
+`;
+
+export const IndicatorsWrapper = styled.div`
+  width: 100%;
+`;
+
+export const Indicators = styled.ul`
+  position: absolute;
+  z-index: 2 !important;
+  text-align: center;
+`;
+
+export const Indicator = styled.div`
+  display: inline-block;
+  margin-right: 5px;
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  `;
+
+export const IndicatorAct = styled.div`
+  display: inline-block;
+  margin-right: 5px;
+  width: 30px;
+  height: 5px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+`;
 
 export const Content = styled.div`
   color: rgba(12, 17, 43, 0.8);

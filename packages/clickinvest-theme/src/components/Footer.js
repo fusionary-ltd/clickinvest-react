@@ -39,8 +39,12 @@ const Footer = ({ state }) => {
                                 </ServiceLink>
                             </Box>
                             <Box sx={{ ml: 1.25 }}>
-                                <Typography variant='h5' sx={{ py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme.primary }}>Garage Door Repair Pittsburgh Marksman</Typography>
-                                <Typography sx={{ mt: .5, color: '#fff', fontSize: '1rem' }}>Looking for a garage door repair company near you? Give us a call!</Typography>
+                                <Typography variant='h5' sx={{ py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme.primary }}>
+                                    {footer.title}
+                                </Typography>
+                                <Typography sx={{ mt: .5, color: '#fff', fontSize: '1rem' }}>
+                                    {footer.description}
+                                </Typography>
                             </Box>
                         </HStack>
                         <Box sx={{ padding: 1.25 }}>

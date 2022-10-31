@@ -7,8 +7,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { RepairInput, RepairButton } from '../../components/styled';
 
-const ContactService = ({ state, title, sub }) => {
-    const { theme } = state.option;
+const ContactService = ({ state }) => {
+    const { theme, home } = state.option;
 
     const [values, setValues] = useState({
         name: '',
@@ -69,8 +69,8 @@ const ContactService = ({ state, title, sub }) => {
         >
             <Container maxWidth="lg">
                 <Stack>
-                    <Typography variant='h3' sx={{ mb: 2.5, fontSize: { md: '2.4rem', xs: '1.5rem' }, fontWeight: 700 }}>{title}</Typography>
-                    <Typography sx={{ mb: 2.5, fontSize: '1rem' }}>{sub}</Typography>
+                    <Typography variant='h3' sx={{ mb: 2.5, fontSize: { md: '2.4rem', xs: '1.5rem' }, fontWeight: 700 }}>{home.contact.title}</Typography>
+                    <Typography sx={{ mb: 2.5, fontSize: '1rem' }}>{home.contact.description}</Typography>
                     <Grid container>
                         <Grid item sm={12 / 5} xs={12}>
                             <Stack>

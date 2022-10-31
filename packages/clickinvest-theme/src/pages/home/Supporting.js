@@ -7,24 +7,15 @@ import Typography from '@mui/material/Typography';
 import Title from '../../components/Title';
 
 const Supporting = ({ state }) => {
+    const { home } = state.option;
     return (
         <Box sx={{ py: 7, bgcolor: '#fffff' }} >
             <Container maxWidth="lg">
                 <Stack sx={{ mb: 2 }}>
-                    <Title title={'Supporting Pittsburgh'} desc={``} isLeft={true} />
-                    <Typography sx={{ mb: 1 }}>Hailed as the Steel City and City of Bridges of America, Pittsburgh is home to the steel industry. The industrialization of Pittsburgh over the years has been improving non-stop.</Typography>
-                    <Typography sx={{ mb: 1 }}>Because of the number of steel bridges and buildings, it’s no wonder why Pittsburgh residents own vehicles as means of transportation. With the use of cars, residents can freely go wherever they want in Pittsburgh.</Typography>
-                    <Typography sx={{ mb: 1 }}>Hence, there is a need for garages for every homeowner. A garage is where they keep their car and other belongings. In other words, it serves as storage for your belongings and equipment.</Typography>
-                    <Typography sx={{ mb: 1 }}>Thus, garage doors are needed to protect your garage fully. Since they provide security and convenience, they are worth investing in. What’s more, they can last for a maximum of 20 years when taken care of well.</Typography>
-                </Stack>
-                <Stack>
-                    <Typography variant='h4' sx={{ fontSize: { md: '1.8rem', xs: '1.5rem' }, fontWeight: 700, color: '#000', textAlign: 'left', mb: 2.5 }}>
-                        How We Fix Garage Doors
+                    <Title title={home.long.title} desc={``} isLeft={true} />
+                    <Typography sx={{ mb: 1 }}>
+                        {home.long.description}
                     </Typography>
-                    <Typography sx={{ mb: 1 }}>Hailed as the Steel City and City of Bridges of America, Pittsburgh is home to the steel industry. The industrialization of Pittsburgh over the years has been improving non-stop.</Typography>
-                    <Typography sx={{ mb: 1 }}>Because of the number of steel bridges and buildings, it’s no wonder why Pittsburgh residents own vehicles as means of transportation. With the use of cars, residents can freely go wherever they want in Pittsburgh.</Typography>
-                    <Typography sx={{ mb: 1 }}>Hence, there is a need for garages for every homeowner. A garage is where they keep their car and other belongings. In other words, it serves as storage for your belongings and equipment.</Typography>
-                    <Typography sx={{ mb: 1 }}>Thus, garage doors are needed to protect your garage fully. Since they provide security and convenience, they are worth investing in. What’s more, they can last for a maximum of 20 years when taken care of well.</Typography>
                 </Stack>
             </Container>
         </Box>
