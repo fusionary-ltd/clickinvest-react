@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-
+import ContactService from '../home/ContactService';
 import { AboutUsContent } from '../../components/styled';
 
 const PostPage = ({ state, libraries }) => {
@@ -24,6 +24,7 @@ const PostPage = ({ state, libraries }) => {
                 }
 
             </Container>
+            <ContactService />
         </Box>
     )
 }
