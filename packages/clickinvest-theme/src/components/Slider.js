@@ -98,13 +98,13 @@ const SliderCmp = ({ state }) => {
                 slideData.width ?
                     <Indicators style={{ width: slideData.width }}>
                         {home.slider.items.map((item, index) => (
-                            <>
+                            <Box key={index} sx={{ display: 'inline-block' }}>
                                 {
                                     index + 1 === slideData.activeIndex ?
-                                        <IndicatorAct style={{ backgroundColor: theme.warning }} key={index} onClick={clickIndicator} /> :
-                                        <Indicator key={index} onClick={clickIndicator} />
+                                        <IndicatorAct style={{ backgroundColor: theme.warning }} onClick={clickIndicator} /> :
+                                        <Indicator onClick={clickIndicator} />
                                 }
-                            </>
+                            </Box>
                         ))
                         }
                     </Indicators> : null

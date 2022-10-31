@@ -18,9 +18,15 @@ const Root = ({ state }) => {
   const [token, setToken] = useState();
 
   useEffect(() => {
-    TagManager.initialize({ gtmId: 'GTM-NB4CG7G' })
-    window.addEventListener('load', function () { new Accessibility(); }, false)
+    TagManager.initialize({ gtmId: 'GTM-NB4CG7G' });
+    window.addEventListener('load', function () { new Accessibility(); }, false);
   }, [])
+
+  useEffect(() => {
+    if (document && document.getElementsByClassName('grecaptcha-badge')[0]) {
+      document.getElementsByClassName('grecaptcha-badge')[0].style.display = 'none';
+    }
+  }, [token])
 
   return (
     <MuiThemeProvider>
@@ -46,6 +52,7 @@ const Root = ({ state }) => {
         </Switch>
         <Footer />
         <GoogleReCaptcha
+          style={{ display: 'none' }}
           onVerify={token => {
             setToken(token);
           }}
