@@ -24,7 +24,7 @@ const ServingPirrsburgh = ({ state }) => {
                     </Box>
                 </Container>
             </Box>
-            <Box sx={{ bgcolor: theme.secondary, py: 19, mt: -10 }} />
+            <Box sx={{ bgcolor: theme.secondary, py: '100px', mt: '-100px' }} />
         </Box>
     );
 }
