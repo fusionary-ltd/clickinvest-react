@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-
+import linePattern from '../assets/img/bg/line-pattern.png'
 export const SlideContent = styled.div`
     width: 35%;
     margin-right: 0;
@@ -135,6 +135,51 @@ export const IndicatorAct = styled.div`
   height: 5px;
   cursor: pointer;
   transition: all 0.2s linear;
+`;
+
+export const AboutUsContent = styled.div`
+  .elementor-heading-title {
+    font-size:1.6em;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .elementor-widget-container {
+    .elementor-image {
+      padding: 50px;
+      position: relative;
+
+      &:before {
+        content: "";
+        background: url(${linePattern});
+        width: 100%;
+        height: 430px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: -1;
+      }
+
+      img {
+        width:100%;
+        height: auto;
+      }
+    }
+
+    .elementor-text-editor {
+      h5 {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        font-family: inherit;
+        font-weight: 600;
+        line-height: 1.2;
+        color: inherit;
+        font-size: 2rem;
+      }
+
+    }
+  }
+
 `;
 
 export const Content = styled.div`
