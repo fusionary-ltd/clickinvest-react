@@ -73,26 +73,26 @@ const ContactService = ({ state }) => {
                     <Typography sx={{ mb: 2.5, fontSize: '1rem' }}>{home.contact.description}</Typography>
                     <Grid container>
                         <Grid item sm={12 / 5} xs={12}>
-                            <Stack>
-                                <RepairInput placeholder="Full Name" name="full-name" variant="outlined" onChange={handleValue('name')} />
+                            <Stack sx={{ mb: { md: 0, xs: 2 } }}>
+                                <RepairInput sx={{ mr: { sm: 1, xs: 0 } }} placeholder="Full Name" name="full-name" variant="outlined" onChange={handleValue('name')} />
                                 {error.name && <Typography sx={{ color: theme.warning }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
-                            <Stack>
-                                <RepairInput placeholder="Phone Number" name="tel-323" type="tel" variant="outlined" onChange={handleValue('phone')} />
+                            <Stack sx={{ mb: { md: 0, xs: 2 } }}>
+                                <RepairInput sx={{ mr: { sm: 1, xs: 0 } }} placeholder="Phone Number" name="tel-323" type="tel" variant="outlined" onChange={handleValue('phone')} />
                                 {error.phone && <Typography sx={{ color: theme.warning }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
-                            <Stack>
-                                <RepairInput placeholder="Email Address" name="your-email" type="email" variant="outlined" onChange={handleValue('email')} />
+                            <Stack sx={{ mb: { md: 0, xs: 2 } }}>
+                                <RepairInput sx={{ mr: { sm: 1, xs: 0 } }} placeholder="Email Address" name="your-email" type="email" variant="outlined" onChange={handleValue('email')} />
                                 {error.email && <Typography sx={{ color: theme.warning }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>
                         <Grid item sm={12 / 5} xs={12}>
-                            <Stack>
-                                <RepairInput placeholder="City / Location" name="city-location" variant="outlined" onChange={handleValue('location')} />
+                            <Stack sx={{ mb: { md: 0, xs: 2 } }}>
+                                <RepairInput sx={{ mr: { sm: 1, xs: 0 } }} placeholder="City / Location" name="city-location" variant="outlined" onChange={handleValue('location')} />
                                 {error.location && <Typography sx={{ color: theme.warning }}>Please enter the correct value.</Typography>}
                             </Stack>
                         </Grid>

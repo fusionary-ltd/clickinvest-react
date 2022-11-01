@@ -35,7 +35,7 @@ const Introduce = ({ state }) => {
                             </Typography>
                         </Box>
                         <Box>
-                            <Link href="tel:4123882633" sx={{ textDecoration: 'none' }}>
+                            <Link href={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`} sx={{ textDecoration: 'none' }}>
                                 <Button sx={{
                                     lineHeight: 1,
                                     borderRadius: 1.5,

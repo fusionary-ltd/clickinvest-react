@@ -7,10 +7,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import linePattern from '../assets/img/bg/line-pattern.png'
-export const SlideContent = styled.div`
-    width: 35%;
-    margin-right: 0;
-    margin-left: auto;
+export const SlideContent = styled(Box)`
     background-color: #f9f9f9;
     text-align: left !important;
     border: 1px solid #eee;
@@ -22,7 +19,6 @@ export const SlideContent = styled.div`
     bottom: 0;
     right: 0;
     padding: 50px;
-    margin-left: auto;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -138,6 +134,7 @@ export const IndicatorAct = styled.div`
 `;
 
 export const AboutUsContent = styled.div`
+  position: relative;
   .elementor-heading-title {
     font-size:1.6em;
     font-weight: 700;
@@ -174,9 +171,47 @@ export const AboutUsContent = styled.div`
         font-weight: 600;
         line-height: 1.2;
         color: inherit;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
 
+    }
+  }
+
+  @media (max-width: 426px) {
+    .elementor-widget-container {
+      .elementor-image {
+        padding: 10px;
+        position: relative;
+  
+        &:before {
+          content: "";
+          background: url(${linePattern});
+          width: 100%;
+          height: 200px;
+          top: 0;
+          left: 0;
+          position: absolute;
+          z-index: -1;
+        }
+  
+        img {
+          width:100%;
+          height: auto;
+        }
+      }
+  
+      .elementor-text-editor {
+        h5 {
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+          font-family: inherit;
+          font-weight: 600;
+          line-height: 1.2;
+          color: inherit;
+          font-size: 1rem;
+        }
+  
+      }
     }
   }
 
@@ -237,7 +272,7 @@ export const Content = styled.div`
   select {
     display: block;
     padding: 6px 12px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
@@ -267,7 +302,7 @@ export const Content = styled.div`
     background-image: none;
     border: 1px solid #1f38c5;
     padding: 12px 36px;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.42857143;
     border-radius: 4px;
     color: #fff;
@@ -413,7 +448,6 @@ export const BackgroundOverlay = styled(Box)`
 `;
 
 export const RepairInput = styled(TextField)`
-    margin-right: 10px;
     .MuiOutlinedInput-root {
         border-radius: 0px;
         

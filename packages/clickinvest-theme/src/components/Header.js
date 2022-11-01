@@ -54,12 +54,12 @@ const Header = ({ state }) => {
                             <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{contact.address}</Typography>
                         </Stack>
                         <Stack flexDirection='row'>
-                            <TopLink link='info@marksmangaragedoors.com'>
+                            <TopLink link={`mailto:${contact.email}`}>
                                 <EmailIcon sx={{ fontSize: 18 }} />
                                 <Typography component='span' sx={{ lineHeight: 1.4, pl: .5, mr: 1 }}>{contact.email}</Typography>
                             </TopLink>
                             <Stack justifyContent='center' sx={{ ml: { sm: 'auto' } }}>
-                                <TopLink link="tel:4123882633">
+                                <TopLink link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
                                     <LocalPhoneIcon sx={{ fontSize: 18 }} />
                                     <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{contact.phoneNumber}</Typography>
                                 </TopLink>
@@ -72,7 +72,7 @@ const Header = ({ state }) => {
                 <Container maxWidth="lg">
                     <Toolbar sx={{ px: '0px !important', alignItems: { sm: 'center', xs: 'flex-start' }, justifyContent: { sm: 'unset', xs: 'space-between' } }}>
                         <Box sx={{ width: { sm: '20%', xs: '50%' }, padding: 1.25 }}>
-                            <ServiceLink link='/'>
+                            <ServiceLink link='/' onClick={() => setMenu(!menu)}>
                                 {
                                     theme.whiteLogo || theme.blackLogo ?
                                         <Box component='img' src={theme.whiteLogo ? theme.whiteLogo : theme.blackLogo} sx={{ width: '100%' }} alt='logo' />
@@ -144,7 +144,7 @@ const Header = ({ state }) => {
                                 </ListItemButton>
                                 <Collapse in={service} timeout="auto" unmountOnExit>
                                     <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 4 }}>
+                                        <ListItemButton sx={{ pl: 4 }} onClick={() => setMenu(false)}>
                                             <ListItemText primary="Demo Posts" />
                                         </ListItemButton>
                                     </List>
@@ -155,15 +155,17 @@ const Header = ({ state }) => {
                                 </ListItemButton>
                                 <Collapse in={areas} timeout="auto" unmountOnExit>
                                     <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 4 }}>
+                                        <ListItemButton sx={{ pl: 4 }} onClick={() => setMenu(false)}>
                                             <ListItemText primary="Demo Areas one" />
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
-                                <ListItemButton >
-                                    <ListItemText primary="Articles" />
-                                </ListItemButton>
-                                <ServiceLink link='/about-us'>
+                                <ServiceLink link='/blog' onClick={() => setMenu(false)}>
+                                    <ListItemButton>
+                                        <ListItemText primary="Articles" sx={{ color: '#000000de' }} />
+                                    </ListItemButton>
+                                </ServiceLink>
+                                <ServiceLink link='/about-us' onClick={() => setMenu(false)}>
                                     <ListItemButton >
                                         <ListItemText primary="About" sx={{ color: '#000000de' }} />
                                     </ListItemButton>

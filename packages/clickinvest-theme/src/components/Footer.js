@@ -11,8 +11,6 @@ import IconButton from '@mui/material/IconButton';
 import { HStack, FooterLink, Divider, FooterArticle, ServiceLink } from './styled';
 
 import EmailIcon from '@mui/icons-material/Email';
-import GoogleIcon from '@mui/icons-material/Google';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -145,7 +143,7 @@ const Footer = ({ state }) => {
                         </Box>
                     </Stack>
                 </Container>
-                <Box sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', mt: 10, py: 1.25, pb: { md: '10px', sm: '60px', xs: '120px' } }}>
+                <Box sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', mt: 10, py: 1.25, pb: { md: '10px', sm: '60px', xs: '60px' } }}>
                     <Container maxWidth="lg">
                         <HStack justifyContent='space-between'>
                             <Typography sx={{ color: '#ECECEC' }}>
@@ -157,14 +155,14 @@ const Footer = ({ state }) => {
                                 <FooterLink link='/' >Privacy Policy</FooterLink>
                             </Typography>
                             <Stack flexDirection='row'>
-                                <Link link='/'>
+                                <Link link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
                                     <IconButton sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
-                                        <FacebookIcon sx={{ color: '#fff' }} />
+                                        <LocalPhoneIcon sx={{ color: '#fff' }} />
                                     </IconButton>
                                 </Link>
-                                <Link link='/'>
+                                <Link link={`mailto:${contact.email}`}>
                                     <IconButton sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
-                                        <GoogleIcon sx={{ color: '#fff' }} />
+                                        <EmailIcon sx={{ color: '#fff' }} />
                                     </IconButton>
                                 </Link>
                             </Stack>
@@ -176,9 +174,11 @@ const Footer = ({ state }) => {
                 <HStack sx={{ justifyContent: 'space-around', alignItems: 'center' }}>
                     {
                         show &&
-                        <IconButton sx={{ padding: 0 }}>
-                            <EmailIcon sx={{ color: 'white', fontSize: '3rem' }} />
-                        </IconButton>
+                        <Link link={`mailto:${contact.email}`}>
+                            <IconButton sx={{ padding: 0 }}>
+                                <EmailIcon sx={{ color: 'white', fontSize: '3rem' }} />
+                            </IconButton>
+                        </Link>
                     }
                     <Box>
                         <Stack alignItems='center'>
@@ -197,9 +197,11 @@ const Footer = ({ state }) => {
                     </Box>
                     {
                         show &&
-                        <IconButton sx={{ padding: 0, borderRadius: '50%', bgcolor: '#88e519' }}>
-                            <LocalPhoneIcon sx={{ color: 'white', fontSize: '3rem' }} />
-                        </IconButton>
+                        <Link link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
+                            <IconButton sx={{ padding: 0, borderRadius: '50%', bgcolor: '#88e519' }}>
+                                <LocalPhoneIcon sx={{ color: 'white', fontSize: '3rem' }} />
+                            </IconButton>
+                        </Link>
                     }
                 </HStack>
             </Box>

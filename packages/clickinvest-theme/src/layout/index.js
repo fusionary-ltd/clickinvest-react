@@ -8,6 +8,7 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Home from "../pages/home/index"
 import Post from "../pages/post/index"
+import Loading from "../components/loading"
 
 import { Accessibility } from 'accessibility'
 
@@ -47,6 +48,7 @@ const Root = ({ state }) => {
       >
         <Header />
         <Switch>
+          <Loading when={data.isFetching} />
           <Home when={data.isArchive} />
           <Post when={data.isPostType} />
         </Switch>

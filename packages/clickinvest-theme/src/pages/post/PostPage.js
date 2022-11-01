@@ -82,7 +82,7 @@ const PostPage = ({ state, actions, libraries }) => {
                                     <Typography sx={{ mb: 3 }}>Or, send a message</Typography>
 
                                     <Grid container spacing={2}>
-                                        <Grid item md={4}>
+                                        <Grid item md={4} sm={6} xs={12}>
                                             <Stack>
                                                 <RepairInput placeholder="Full Name" name="Name" variant="outlined" onChange={handleValue('name')} />
                                                 {
@@ -90,20 +90,20 @@ const PostPage = ({ state, actions, libraries }) => {
                                                 }
                                             </Stack>
                                         </Grid>
-                                        <Grid item md={4}>
+                                        <Grid item md={4} sm={6} xs={12}>
                                             <Stack>
                                                 <RepairInput placeholder="Phone" name="Phone" variant="outlined" onChange={handleValue('phone')} />
                                                 {error.phone && <Typography sx={{ color: theme.warning }}>The field is required.</Typography>}
                                             </Stack>
                                         </Grid>
-                                        <Grid item md={4}>
+                                        <Grid item md={4} sm={6} xs={12}>
                                             <Stack>
                                                 <RepairInput placeholder="Email" name="Email" variant="outlined" onChange={handleValue('email')} />
                                                 {error.email && <Typography sx={{ color: theme.warning }}>The field is required.</Typography>}
                                             </Stack>
                                         </Grid>
-                                        <Grid item md={8}>
-                                            <select style={{ width: '100%', height: '100%', border: 0, fontSize: '1em' }} onChange={handleValue('reason')} >
+                                        <Grid item md={8} sm={6}>
+                                            <select style={{ width: '100%', height: '100%', padding: '0.5rem 1rem', border: 0, fontSize: '1em' }} onChange={handleValue('reason')} >
                                                 <option>Not sure, my garage door is stuck</option>
                                                 <option>Garage Door Replacement</option>
                                                 <option>Garage Spring Replacement</option>

@@ -5,10 +5,11 @@ import Stack from '@mui/material/Stack';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { ServiceLink, Title, AuthorName, PublishDate, Excerpt } from './styled';
 
-const PostItem = ({ state, item, order }) => {
+const PostItem = ({ state, libraries, item, order }) => {
     const isTablet = useMediaQuery('(max-width:768px)');
     const author = state.source.author[item.author];
     const date = new Date(item.date);
+    const Html2React = libraries.html2react.Component;
 
     if (order % 2 === 0 || isTablet) {
         return (
@@ -32,7 +33,9 @@ const PostItem = ({ state, item, order }) => {
                             </PublishDate>
                         </div>
                         {item.excerpt && (
-                            <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
+                            <Excerpt >
+                                <Html2React html={item.excerpt.rendered} />
+                            </Excerpt>
                         )}
                     </Box>
 
@@ -74,7 +77,9 @@ const PostItem = ({ state, item, order }) => {
                             </PublishDate>
                         </div>
                         {item.excerpt && (
-                            <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
+                            <Excerpt >
+                                <Html2React html={item.excerpt.rendered} />
+                            </Excerpt>
                         )}
                     </Box>
                 </Stack>

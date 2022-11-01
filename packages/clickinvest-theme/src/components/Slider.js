@@ -21,8 +21,8 @@ const SliderCmp = ({ state }) => {
         if (slideData.activeIndex === 1) {
             setSlideData(pre => ({
                 ...pre,
-                activeIndex: pre.slider.length,
-                left: pre.width * (pre.slider.length - 1) * -1
+                activeIndex: home.slider.items.length,
+                left: pre.width * (home.slider.items.length - 1) * -1
             }));
         } else {
             setSlideData(pre => ({
@@ -75,11 +75,11 @@ const SliderCmp = ({ state }) => {
                             home.slider.items.map(({ title, description, img }, index) => (
                                 <SliderItem key={index} style={{ left: slideData.left, width: slideData.width }} className='slider-item'>
                                     <Box sx={{ display: 'flex', height: 400 }}>
-                                        <Box sx={{ backgroundImage: `url(${img})`, minWidth: '65%', minHeight: '65%', backgroundSize: 'cover' }} />
+                                        <Box sx={{ backgroundImage: `url(${img})`, width: { sm: '65%', xs: '100%' }, minHeight: { sm: '65%', xs: '50%' }, backgroundSize: 'cover' }} />
                                     </Box>
-                                    <SlideContent>
-                                        <Typography sx={{ color: '#000', fontSize: 27, mb: 4, fontWeight: 700 }} variant='h2'>{title}</Typography>
-                                        <Typography sx={{ color: '#000' }}>{description}</Typography>
+                                    <SlideContent sx={{ width: { sm: '35%', xs: '100%' }, height: { sm: '100%', xs: '50%' }, mt: { sm: 0, xs: 'auto' }, mr: 0, ml: 'auto' }}>
+                                        <Typography sx={{ color: '#000', fontSize: { sm: 27, xs: 20 }, mb: { sm: 4, xs: 2 }, fontWeight: { sm: 700, xs: 500 } }} variant='h2'>{title}</Typography>
+                                        <Typography sx={{ color: '#000', fontSize: { sm: 16, xs: 14 } }}>{description}</Typography>
                                     </SlideContent>
                                 </SliderItem>
                             ))
@@ -93,7 +93,7 @@ const SliderCmp = ({ state }) => {
                             <NextButton onClick={() => nextSlide()}><KeyboardArrowRightIcon /></NextButton>
                         </ButtonsWrapper> : null
                 }
-            </SliderContainer>
+            </SliderContainer >
             {
                 slideData.width ?
                     <Indicators style={{ width: slideData.width }}>
@@ -109,7 +109,7 @@ const SliderCmp = ({ state }) => {
                         }
                     </Indicators> : null
             }
-        </div>
+        </div >
     )
 }
 
