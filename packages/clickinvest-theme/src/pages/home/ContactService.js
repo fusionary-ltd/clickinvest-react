@@ -117,6 +117,7 @@ const ContactService = ({ state }) => {
                 onVerify={token => {
                     setToken(token);
                 }}
+                refreshReCaptcha={false}
             />
         </Box>
     );
