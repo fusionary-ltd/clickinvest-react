@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import PostItem from '../../components/PostItem';
 import Title from '../../components/Title';
 
-const GarageDoorServices = ({ state }) => {
+const GarageDoorServices = ({ state, actions }) => {
     const data = state.source.get(state.router.link);
     const { home } = state.option;
 

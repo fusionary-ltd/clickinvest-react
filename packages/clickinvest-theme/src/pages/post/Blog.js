@@ -1,18 +1,51 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { HStack, PrevNextNav } from '../../components/styled';
-import PostItem from '../../components/PostItem';
+import BlogItem from '../../components/BlogItem';
 
 const Blog = ({ state, actions }) => {
-    const [url, setUrl] = useState('/');
+    const [page, setPage] = useState(1);
+    const [next, setNext] = useState([]);
+    const [data, setData] = useState([]);
+    const [previous, setPrevious] = useState([]);
 
-    const data = useMemo(() => {
-        return state.source.get(url);
-    }, [url])
+    const getData = (p, setData) => {
+        fetch(`https://sandbox.clickinvest.io/wp-json/wp/v2/posts?per_page=10&page=${p}&_embed=true`).then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw response;
+        }).then(data => {
+            console.log(data)
+            setData(data);
+        }).catch(error => {
+            console.log(error);
+            setData([]);
+        })
+    }
+
+    const handleData = (flag) => {
+        if (flag) {
+            setPrevious(data);
+            setData(next);
+            getData(page + 2, setNext);
+            setPage(page + 1);
+        } else {
+            getData(page - 2, setPrevious);
+            setData(previous);
+            setNext(data);
+            setPage(page - 1);
+        }
+    }
+
+    useEffect(() => {
+        getData(1, setData);
+        getData(2, setNext);
+    }, [])
 
     return (
         <Box sx={{ bgcolor: '#EEEEEE', pt: 4, pb: 8 }} >
@@ -26,30 +59,34 @@ const Blog = ({ state, actions }) => {
                     </HStack>
                 </Stack>
 
-                {data.items && data.items.map(({ type, id }, idx) => {
-                    const item = state.source[type][id];
-                    return <PostItem key={item.id} item={item} order={idx} />;
-                })}
+                {
+                    data.length ? data.map((item, idx) => {
+                        // const item = state.source[type][id];
+                        console.log(state.source.post)
+                        // console.log(item)
+                        return <BlogItem key={item.id} item={item} order={idx} />;
+                    }) : null
+                }
 
                 <PrevNextNav>
-                    {data.previous && (
+                    {previous.length ?
                         <button
                             onClick={() => {
-                                setUrl(data.previous)
+                                handleData(false)
                             }}
                         >
                             &#171; Prev
-                        </button>
-                    )}
-                    {data.next && (
+                        </button> : null
+                    }
+                    {next.length ?
                         <button
                             onClick={() => {
-                                setUrl(data.next)
+                                handleData(true)
                             }}
                         >
                             Next &#187;
-                        </button>
-                    )}
+                        </button> : null
+                    }
                 </PrevNextNav>
             </Container>
         </Box>
