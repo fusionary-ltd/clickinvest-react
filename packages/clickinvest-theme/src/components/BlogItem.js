@@ -15,7 +15,7 @@ const PostItem = ({ state, libraries, item, order }) => {
         return (
             <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center', mb: 4 }}>
                 <Stack sx={{ flexDirection: { md: 'row', sm: 'comlumn' }, alignItems: 'center' }} justifyContent='space-between'>
-                    <Box sx={{ width: { md: item._embedded['wp:featuredmedia'][0] ? '50%' : '100%', sm: '100%' } }}>
+                    <Box sx={{ width: { md: item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] ? '50%' : '100%', sm: '100%' } }}>
                         <ServiceLink link={item.link}>
                             <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                         </ServiceLink>
@@ -39,7 +39,7 @@ const PostItem = ({ state, libraries, item, order }) => {
                         )}
                     </Box>
 
-                    {item._embedded['wp:featuredmedia'][0] && (
+                    {item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] && (
                         <Box sx={{ width: { md: 'calc(50% - 30px)', sm: '100%' }, ml: { md: '30px', sm: 0 } }}>
                             <Box sx={{ p: .5, bgcolor: '#fff' }}>
                                 <BlogImage media={item._embedded['wp:featuredmedia'][0]} />
@@ -52,14 +52,14 @@ const PostItem = ({ state, libraries, item, order }) => {
         return (
             <Stack sx={{ p: 1.25, height: '100%', justifyContent: 'center', mb: 4 }}>
                 <Stack sx={{ flexDirection: { md: 'row', sm: 'comlumn' }, alignItems: 'center' }} justifyContent='space-between'>
-                    {item._embedded['wp:featuredmedia'][0] && (
+                    {item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] && (
                         <Box sx={{ width: { md: 'calc(50% - 30px)', sm: '100%' }, mr: { md: '30px', sm: 0 } }}>
                             <Box sx={{ p: .5, bgcolor: '#fff' }}>
                                 <BlogImage media={item._embedded['wp:featuredmedia'][0]} />
                             </Box>
                         </Box>
                     )}
-                    <Box sx={{ width: { md: item._embedded['wp:featuredmedia'][0] ? '50%' : '100%', sm: '100%' } }}>
+                    <Box sx={{ width: { md: item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] ? '50%' : '100%', sm: '100%' } }}>
                         <ServiceLink link={item.link}>
                             <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                         </ServiceLink>

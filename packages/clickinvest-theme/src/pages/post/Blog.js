@@ -20,7 +20,6 @@ const Blog = ({ state, actions }) => {
             }
             throw response;
         }).then(data => {
-            console.log(data)
             setData(data);
         }).catch(error => {
             console.log(error);
@@ -61,9 +60,6 @@ const Blog = ({ state, actions }) => {
 
                 {
                     data.length ? data.map((item, idx) => {
-                        // const item = state.source[type][id];
-                        console.log(state.source.post)
-                        // console.log(item)
                         return <BlogItem key={item.id} item={item} order={idx} />;
                     }) : null
                 }

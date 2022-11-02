@@ -3,7 +3,6 @@ import Image from "@frontity/components/image";
 
 
 const PostImage = ({ state, media }) => {
-  console.log(media)
   if (!media) return null;
 
   const srcset =
