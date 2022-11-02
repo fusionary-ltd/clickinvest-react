@@ -3,7 +3,7 @@ import { connect } from "frontity"
 import TagManager from 'react-gtm-module'
 import Switch from "@frontity/components/switch"
 import MuiThemeProvider from "../provider/Theme"
-import { GoogleReCaptchaProvider, GoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Home from "../pages/home/index"
@@ -16,18 +16,10 @@ const Root = ({ state }) => {
   const data = state.source.get(state.router.link)
   const { reCaptcha } = state.option
 
-  const [token, setToken] = useState();
-
   useEffect(() => {
     TagManager.initialize({ gtmId: 'GTM-NB4CG7G' });
     window.addEventListener('load', function () { new Accessibility(); }, false);
   }, [])
-
-  useEffect(() => {
-    if (document && document.getElementsByClassName('grecaptcha-badge')[0]) {
-      document.getElementsByClassName('grecaptcha-badge')[0].style.display = 'none';
-    }
-  }, [token])
 
   return (
     <MuiThemeProvider>
@@ -53,12 +45,6 @@ const Root = ({ state }) => {
           <Post when={data.isPostType} />
         </Switch>
         <Footer />
-        <GoogleReCaptcha
-          style={{ display: 'none' }}
-          onVerify={token => {
-            setToken(token);
-          }}
-        />
       </GoogleReCaptchaProvider>
     </MuiThemeProvider>
   )
