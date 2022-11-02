@@ -72,7 +72,7 @@ const Header = ({ state }) => {
                 <Container maxWidth="lg">
                     <Toolbar sx={{ px: '0px !important', alignItems: { sm: 'center', xs: 'flex-start' }, justifyContent: { sm: 'unset', xs: 'space-between' } }}>
                         <Box sx={{ width: { sm: '20%', xs: '50%' }, padding: 1.25 }}>
-                            <ServiceLink link='/' onClick={() => setMenu(!menu)}>
+                            <ServiceLink link='/' onClick={() => setMenu(false)}>
                                 {
                                     theme.whiteLogo || theme.blackLogo ?
                                         <Box component='img' src={theme.whiteLogo ? theme.whiteLogo : theme.blackLogo} sx={{ width: '100%' }} alt='logo' />
