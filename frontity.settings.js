@@ -33,8 +33,8 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://architects-seattle.com",
-          "api": "https://architects-seattle.com/wp-json",
+          "url": "https://sandbox.clickinvest.io",
+          "api": "https://sandbox.clickinvest.io/wp-json",
         }
       }
     },
