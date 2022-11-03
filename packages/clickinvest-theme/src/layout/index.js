@@ -19,7 +19,30 @@ const Root = ({ state }) => {
   useEffect(() => {
     TagManager.initialize({ gtmId: 'GTM-NB4CG7G' });
     window.addEventListener('load', function () { new Accessibility(); }, false);
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    const rankMathElements = [];
+
+    fetch(`${state.source.url}/wp-json/rankmath/v1/getHead?url=${state.source.url}/${state.router.link}`).then(async (response) => {
+      const json = await response.json();
+      const { head } = json;
+      const tempElement = document.createElement("div");
+      tempElement.innerHTML = head;
+      for (const child of tempElement.children) {
+        document.head.appendChild(child);
+        rankMathElements.push(child);
+      }
+      tempElement.remove();
+    });
+
+    return () => {
+      for (const child of rankMathElements) {
+        document.head.removeChild(child);
+        child.remove();
+      }
+    }
+  }, [state.router.link]);
 
   return (
     <MuiThemeProvider>
