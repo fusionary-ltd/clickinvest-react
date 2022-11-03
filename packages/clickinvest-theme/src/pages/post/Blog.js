@@ -59,20 +59,40 @@ const Blog = ({ state, actions }) => {
                     data.length ? data.map((item, idx) => {
                         return <BlogItem key={item.id} item={item} order={idx} />;
                     }) :
-                        [0, 1, 2, 3, 4].map((i) => (
+                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
                             <>
                                 {
-                                    <Box sx={{ mb: 5 }} key={i}>
-                                        <Skeleton animation="wave" height={400} />
-                                        <Skeleton animation="wave" height={50} width='70%' />
-                                        <Skeleton animation="wave" />
-                                        <Skeleton animation="wave" />
-                                        <Skeleton animation="wave" />
-                                        <Skeleton animation="wave" height={50} width='70%' sx={{ mt: 3 }} />
-                                        <Skeleton animation="wave" />
-                                        <Skeleton animation="wave" />
-                                        <Skeleton animation="wave" />
-                                    </Box>
+                                    i % 2 === 0 ?
+                                        <HStack sx={{ width: '100%', justifyContent: 'space-between', mb: 4 }}>
+                                            <Stack sx={{ width: '50%' }}>
+                                                <Skeleton animation='wave' height={40} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={14} width={200} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 2 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                            </Stack>
+                                            <Box sx={{ width: { md: 'calc(50% - 30px)', sm: '100%' }, ml: { md: '30px', sm: 0 } }}>
+                                                <Skeleton animation='wave' height={300} sx={{ borderRadius: 0, transform: 'scale(1, 1)' }} />
+                                            </Box>
+                                        </HStack> :
+                                        <HStack sx={{ width: '100%', justifyContent: 'space-between', mb: 4 }}>
+                                            <Box sx={{ width: { md: 'calc(50% - 30px)', sm: '100%' }, mr: { md: '30px', sm: 0 } }}>
+                                                <Skeleton animation='wave' height={300} sx={{ borderRadius: 0, transform: 'scale(1, 1)' }} />
+                                            </Box>
+                                            <Stack sx={{ width: '50%' }}>
+                                                <Skeleton animation='wave' height={40} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={14} width={200} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 2 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                                <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
+                                            </Stack>
+                                        </HStack>
                                 }
                             </>
                         ))
