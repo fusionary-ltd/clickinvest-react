@@ -11,9 +11,11 @@ import BlogItem from '../../components/BlogItem';
 const Blog = ({ state, actions }) => {
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(1);
+    const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
 
     const getData = (p, setData) => {
+        setLoading(true);
         fetch(`https://sandbox.clickinvest.io/wp-json/wp/v2/posts?per_page=10&page=${p}&_embed=true`).then(response => {
             setTotal(response.headers.get('x-wp-totalpages'));
             if (response.ok) {
@@ -22,14 +24,15 @@ const Blog = ({ state, actions }) => {
             throw response;
         }).then(data => {
             setData(data);
+            setLoading(false);
         }).catch(error => {
             console.log(error);
             setData([]);
+            setLoading(false);
         })
     }
 
     const handleData = (flag) => {
-        if (page + 1 > total) return;
         if (flag) {
             getData(page + 1, setData);
             setPage(page + 1);
@@ -56,7 +59,7 @@ const Blog = ({ state, actions }) => {
                 </Stack>
 
                 {
-                    data.length ? data.map((item, idx) => {
+                    data.length && !loading ? data.map((item, idx) => {
                         return <BlogItem key={item.id} item={item} order={idx} />;
                     }) :
                         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
@@ -108,7 +111,7 @@ const Blog = ({ state, actions }) => {
                             &#171; Prev
                         </button> : null
                     }
-                    {page <= total ?
+                    {page < total ?
                         <button
                             onClick={() => {
                                 handleData(true)
