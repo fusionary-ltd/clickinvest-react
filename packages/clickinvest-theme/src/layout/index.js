@@ -38,7 +38,6 @@ const Root = ({ state }) => {
 
     return () => {
       for (const child of rankMathElements) {
-        document.head.removeChild(child);
         child.remove();
       }
     }

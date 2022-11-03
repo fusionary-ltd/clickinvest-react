@@ -17,6 +17,9 @@ const clickinvestTheme = {
       beforeSSR: ({ state, libraries }) => {
         state.option = option
       },
+      beforeCSR: ({ state, libraries }) => {
+        document.querySelectorAll('title')[0].remove();
+      }
     },
   },
 }
