@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import Skeleton from '@mui/material/Skeleton';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { HStack, PrevNextNav } from '../../components/styled';
@@ -9,12 +10,12 @@ import BlogItem from '../../components/BlogItem';
 
 const Blog = ({ state, actions }) => {
     const [page, setPage] = useState(1);
-    const [next, setNext] = useState([]);
+    const [total, setTotal] = useState(1);
     const [data, setData] = useState([]);
-    const [previous, setPrevious] = useState([]);
 
     const getData = (p, setData) => {
         fetch(`https://sandbox.clickinvest.io/wp-json/wp/v2/posts?per_page=10&page=${p}&_embed=true`).then(response => {
+            setTotal(response.headers.get('x-wp-totalpages'));
             if (response.ok) {
                 return response.json();
             }
@@ -28,22 +29,18 @@ const Blog = ({ state, actions }) => {
     }
 
     const handleData = (flag) => {
+        if (page + 1 > total) return;
         if (flag) {
-            setPrevious(data);
-            setData(next);
-            getData(page + 2, setNext);
+            getData(page + 1, setData);
             setPage(page + 1);
         } else {
-            getData(page - 2, setPrevious);
-            setData(previous);
-            setNext(data);
+            getData(page - 1, setData);
             setPage(page - 1);
         }
     }
 
     useEffect(() => {
         getData(1, setData);
-        getData(2, setNext);
     }, [])
 
     return (
@@ -61,11 +58,28 @@ const Blog = ({ state, actions }) => {
                 {
                     data.length ? data.map((item, idx) => {
                         return <BlogItem key={item.id} item={item} order={idx} />;
-                    }) : null
+                    }) :
+                        [0, 1, 2, 3, 4].map((i) => (
+                            <>
+                                {
+                                    <Box sx={{ mb: 5 }} key={i}>
+                                        <Skeleton animation="wave" height={400} />
+                                        <Skeleton animation="wave" height={50} width='70%' />
+                                        <Skeleton animation="wave" />
+                                        <Skeleton animation="wave" />
+                                        <Skeleton animation="wave" />
+                                        <Skeleton animation="wave" height={50} width='70%' sx={{ mt: 3 }} />
+                                        <Skeleton animation="wave" />
+                                        <Skeleton animation="wave" />
+                                        <Skeleton animation="wave" />
+                                    </Box>
+                                }
+                            </>
+                        ))
                 }
 
                 <PrevNextNav>
-                    {previous.length ?
+                    {page > 1 ?
                         <button
                             onClick={() => {
                                 handleData(false)
@@ -74,7 +88,7 @@ const Blog = ({ state, actions }) => {
                             &#171; Prev
                         </button> : null
                     }
-                    {next.length ?
+                    {page <= total ?
                         <button
                             onClick={() => {
                                 handleData(true)
@@ -85,7 +99,7 @@ const Blog = ({ state, actions }) => {
                     }
                 </PrevNextNav>
             </Container>
-        </Box>
+        </Box >
     );
 }
 
