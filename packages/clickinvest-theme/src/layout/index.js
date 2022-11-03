@@ -9,6 +9,7 @@ import Footer from "../components/Footer"
 import Home from "../pages/home/index"
 import Post from "../pages/post/index"
 import Loading from "../components/loading"
+import PageError from "../components/PageError"
 
 import { Accessibility } from 'accessibility'
 
@@ -65,6 +66,7 @@ const Root = ({ state }) => {
           <Loading when={data.isFetching} />
           <Home when={data.isArchive} />
           <Post when={data.isPostType} />
+          <PageError when={data.isError} />
         </Switch>
         <Footer />
       </GoogleReCaptchaProvider>

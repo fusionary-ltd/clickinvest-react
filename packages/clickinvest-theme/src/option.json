@@ -136,5 +136,46 @@
             "title": "Supporting Pittsburgh",
             "description": "Hailed as the Steel City and City of Bridges of America, Pittsburgh is home to the steel industry. The industrialization of Pittsburgh over the years has been improving non-stop. Because of the number of steel bridges and buildings, it’s no wonder why Pittsburgh residents own vehicles as means of transportation. With the use of cars, residents can freely go wherever they want in Pittsburgh. Hence, there is a need for garages for every homeowner. A garage is where they keep their car and other belongings. In other words, it serves as storage for your belongings and equipment. Thus, garage doors are needed to protect your garage fully. Since they provide security and convenience, they are worth investing in. What’s more, they can last for a maximum of 20 years when taken care of well. However, malfunctioning can happen anytime for overhead doors. Because of this, many garage door repair companies in Pittsburgh offer you top-notch services – whether it’s a repair or a replacement. If you’re looking for one, Marksman Garage Doors is your best choice. As a garage door repair in Pittsburgh, PA, we will bring back your garage door fully-functional again."
         }
+    },
+    "post": {
+        "title": "Garage Door Repair Service",
+        "contactDesc": "Needs a professional technician?",
+        "callUsDesc": "For garage door services in Pittsburgh and its surroundings, Call us:",
+        "reason": [
+            "Not sure, my garage door is stuck",
+            "Garage Door Replacement",
+            "Garage Spring Replacement",
+            "Garage Cable Repair",
+            "Garage Opener Repair"
+        ],
+        "rightBar": {
+            "title": "Get In Touch",
+            "description": "Are you from the Pittsburgh area? Call us 24 hr",
+            "img": "https://architects-seattle.com/wp-content/uploads/2022/03/architectural-building-design-and-construction-pla-2022-03-18-08-13-23-utc-min-2048x1365.jpg",
+            "serviceTitle": "Our Services",
+            "serviceDescription": "Garage door issues in the Pittsburgh area? Don’t Worry, Contact us.",
+            "services": [
+                {
+                    "name": "Commercial Garage Door Repair",
+                    "link": "commercial-garage-door-repair"
+                },
+                {
+                    "name": "Commercial Garage Door Repair",
+                    "link": "commercial-garage-door-repair"
+                },
+                {
+                    "name": "Commercial Garage Door Repair",
+                    "link": "commercial-garage-door-repair"
+                },
+                {
+                    "name": "Commercial Garage Door Repair",
+                    "link": "commercial-garage-door-repair"
+                },
+                {
+                    "name": "Commercial Garage Door Repair",
+                    "link": "commercial-garage-door-repair"
+                }
+            ]
+        }
     }
 }

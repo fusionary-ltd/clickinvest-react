@@ -11,11 +11,11 @@ import RightBar from './RightBar';
 
 const PostPage = ({ state, actions, libraries }) => {
     const data = state.source.get(state.router.link);
-    const post = state.source[data.type][data.id];
-    const author = state.source.author[post.author];
-    const date = new Date(post.date);
+    const postData = state.source[data.type][data.id];
+    const author = state.source.author[postData.author];
+    const date = new Date(postData.date);
     const Html2React = libraries.html2react.Component;
-    const { theme, contact } = state.option;
+    const { theme, contact, post } = state.option;
 
     const [values, setValues] = useState({
         name: '',
@@ -74,10 +74,10 @@ const PostPage = ({ state, actions, libraries }) => {
                     <Grid item sm={8} xs={12}>
                         {
                             state.router.link !== '/about-us/' && <>
-                                <Typography variant='h2' sx={{ fontSize: '2em', fontWeight: 700, mb: 3 }}>Garage Door Repair Service</Typography>
-                                <Typography sx={{ fontSize: '1.2em', fontWeight: 600 }}>Needs a professional technician?</Typography>
+                                <Typography variant='h2' sx={{ fontSize: '2em', fontWeight: 700, mb: 3 }}>{post.title}</Typography>
+                                <Typography sx={{ fontSize: '1.2em', fontWeight: 600 }}>{post.contactDesc}</Typography>
                                 <Box sx={{ bgcolor: theme.primary, p: 4 }}>
-                                    <Typography>For garage door services in Pittsburgh and its surroundings, Call us:</Typography>
+                                    <Typography>{post.callUsDesc}</Typography>
                                     <Typography sx={{ fontSize: '1.5em', fontWeight: 600, color: '#fff', my: 2 }}>{contact.phoneNumber}</Typography>
                                     <Typography sx={{ mb: 3 }}>Or, send a message</Typography>
 
@@ -104,11 +104,11 @@ const PostPage = ({ state, actions, libraries }) => {
                                         </Grid>
                                         <Grid item md={8} sm={6}>
                                             <select style={{ width: '100%', height: '100%', padding: '0.5rem 1rem', border: 0, fontSize: '1em' }} onChange={handleValue('reason')} >
-                                                <option>Not sure, my garage door is stuck</option>
-                                                <option>Garage Door Replacement</option>
-                                                <option>Garage Spring Replacement</option>
-                                                <option>Garage Cable Repair</option>
-                                                <option>Garage Opener Repair</option>
+                                                {
+                                                    post && post.reason.length ? post.reason.map((item, idx) => (
+                                                        <option value={item} key={idx}>{item}</option>
+                                                    )) : null
+                                                }
                                             </select>
                                         </Grid>
                                         <Grid item md={4}>
@@ -121,7 +121,7 @@ const PostPage = ({ state, actions, libraries }) => {
                         {
                             data.isReady ? (
                                 <div>
-                                    <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                                    <Title dangerouslySetInnerHTML={{ __html: postData.title.rendered }} />
                                     {!data.isPage && (
                                         <div>
                                             {author && (
@@ -138,7 +138,7 @@ const PostPage = ({ state, actions, libraries }) => {
                                         </div>
                                     )}
                                     <Content>
-                                        <Html2React html={post.content.rendered} />
+                                        <Html2React html={postData.content.rendered} />
                                     </Content>
                                 </div>
                             ) : null
