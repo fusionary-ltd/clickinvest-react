@@ -1,4 +1,4 @@
-import option from './option.json'
+import option from './options.json';
 import Root from "./layout"
 
 const clickinvestTheme = {
@@ -15,7 +15,7 @@ const clickinvestTheme = {
 
       },
       beforeSSR: ({ state, libraries }) => {
-        state.option = option
+        state.option = option;
       },
       beforeCSR: ({ state, libraries }) => {
         document.querySelectorAll('title')[0].remove();

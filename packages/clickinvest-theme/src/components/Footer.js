@@ -93,8 +93,8 @@ const Footer = ({ state }) => {
                             <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme.primary }}>Service Areas</Typography>
                             <Grid container spacing={2}>
                                 {
-                                    footer.serivces.map((item, idx) => (
-                                        <Grid key={idx} item md={12 / footer.serivces.length} xs={6}>
+                                    footer.services.map((item, idx) => (
+                                        <Grid key={idx} item md={12 / footer.services.length} xs={6}>
                                             <Box sx={{ py: 1.25 }}>
                                                 <FooterLink link={item.link}>{item.name}</FooterLink>
                                             </Box>
