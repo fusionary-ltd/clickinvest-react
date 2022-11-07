@@ -45,7 +45,6 @@ const Root = ({ state }) => {
     }
   }, [state.router.link]);
 
-  console.log('data', data)
   return (
     <MuiThemeProvider>
       <GoogleReCaptchaProvider
