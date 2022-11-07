@@ -9,7 +9,8 @@ import Footer from "../components/Footer"
 import Home from "../pages/home/index"
 import Post from "../pages/post/index"
 import Loading from "../components/loading"
-import PageError from "../components/PageError"
+import PageError from "../pages/PageError"
+import Contact from "../pages/Contact"
 
 import { Accessibility } from 'accessibility'
 
@@ -44,6 +45,7 @@ const Root = ({ state }) => {
     }
   }, [state.router.link]);
 
+  console.log('data', data)
   return (
     <MuiThemeProvider>
       <GoogleReCaptchaProvider
@@ -66,6 +68,7 @@ const Root = ({ state }) => {
           <Loading when={data.isFetching} />
           <Home when={data.isArchive} />
           <Post when={data.isPostType} />
+          <Contact when={data.link === "/contact/"} />
           <PageError when={data.isError} />
         </Switch>
         <Footer />
