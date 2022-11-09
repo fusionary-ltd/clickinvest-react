@@ -22,11 +22,11 @@ import { Accessibility } from 'accessibility'
 
 const Root = ({ state }) => {
   const data = state.source.get(state.router.link)
-  const { reCaptcha } = state.option
+  // const { reCaptcha } = state.option
   const [hPercent, setHPercent] = useState(0);
 
   useEffect(() => {
-    TagManager.initialize({ gtmId: 'GTM-NB4CG7G' });
+    // TagManager.initialize({ gtmId: 'GTM-NB4CG7G' });
     window.addEventListener('load', function () { new Accessibility(); }, false);
     document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'
   }, []);
@@ -55,7 +55,7 @@ const Root = ({ state }) => {
 
   return (
     <MuiThemeProvider>
-      <GoogleReCaptchaProvider
+      {/* <GoogleReCaptchaProvider
         reCaptchaKey={reCaptcha.siteKey}
         scriptProps={{
           async: false,
@@ -69,7 +69,7 @@ const Root = ({ state }) => {
             theme: 'dark',
           }
         }}
-      >
+      > */}
         <Header />
         <Switch>
           <Loading when={data.isFetching} setHPercent={setHPercent} />
@@ -85,7 +85,7 @@ const Root = ({ state }) => {
             <KeyboardArrowUpIcon sx={{ position: 'absolute' }} />
           </Box>
         </IconButton>
-      </GoogleReCaptchaProvider>
+      {/* </GoogleReCaptchaProvider> */}
     </MuiThemeProvider>
   )
 }
