@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -15,8 +15,25 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-const Contact = ({ state, libraries }) => {
+const Contact = ({ state, libraries, setHPercent }) => {
     const { theme, contact } = state.option;
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => {
+        var body = document.body, html = document.documentElement;
+        const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - window.innerHeight;
+        setHeight(h);
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setHPercent(window.scrollY / height * 100)
+        }
+        if (height > 0)
+            window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [height])
     return (
         <Box sx={{ my: 4 }}>
             <Container maxWidth="lg">
