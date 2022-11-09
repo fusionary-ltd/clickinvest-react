@@ -13,7 +13,5 @@ RUN rm _accessibility.js
 # Build
 RUN npm run build
 
-EXPOSE 3000
-
 # Run
 CMD ["npm", "run", "serve"]
