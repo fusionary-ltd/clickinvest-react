@@ -4,13 +4,13 @@ import Blog from './Blog';
 import AboutUs from './AboutUs';
 import PostPage from './PostPage';
 
-const Post = ({ state, setHPercent }) => {
+const Post = ({ state }) => {
     if (state.router.link === '/blog/') {
-        return <Blog setHPercent={setHPercent} />
+        return <Blog />
     } else if (state.router.link === '/about-us/') {
-        return <AboutUs setHPercent={setHPercent} />
+        return <AboutUs />
     } else {
-        return <PostPage setHPercent={setHPercent} />
+        return <PostPage />
     }
 }
 

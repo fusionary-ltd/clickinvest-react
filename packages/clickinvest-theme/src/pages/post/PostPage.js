@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -9,30 +9,13 @@ import Typography from '@mui/material/Typography';
 import { RepairInput, RepairButton, ServiceLink, Title, Author, DateWrapper, Content } from '../../components/styled';
 import RightBar from './RightBar';
 
-const PostPage = ({ state, actions, libraries, setHPercent }) => {
+const PostPage = ({ state, libraries }) => {
     const data = state.source.get(state.router.link);
     const postData = state.source[data.type][data.id];
     const author = state.source.author[postData.author];
     const date = new Date(postData.date);
     const Html2React = libraries.html2react.Component;
     const { theme, contact, post } = state.option;
-    const [height, setHeight] = useState(0);
-
-    useEffect(() => {
-        var body = document.body, html = document.documentElement;
-        const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - window.innerHeight;
-        setHeight(h);
-    }, [data]);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setHPercent(window.scrollY / height * 100)
-        }
-        if (height > 0)
-            window.addEventListener("scroll", handleScroll, { passive: true });
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [height])
 
     const [values, setValues] = useState({
         name: '',
@@ -129,7 +112,7 @@ const PostPage = ({ state, actions, libraries, setHPercent }) => {
                                             </select>
                                         </Grid>
                                         <Grid item md={4}>
-                                            <RepairButton onClick={() => sendRequest()} sx={{ bgcolor: theme.secondary, '&:hover': { bgcolor: theme.secondary } }}>SEND</RepairButton>
+                                            <RepairButton title="" onClick={() => sendRequest()} sx={{ bgcolor: theme.secondary, '&:hover': { bgcolor: theme.secondary } }}>SEND</RepairButton>
                                         </Grid>
                                     </Grid>
                                 </Box>

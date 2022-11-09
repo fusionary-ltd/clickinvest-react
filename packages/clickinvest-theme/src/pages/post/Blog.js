@@ -14,24 +14,6 @@ const Blog = ({ setHPercent }) => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
 
-    const [height, setHeight] = useState(0);
-
-    useEffect(() => {
-        var body = document.body, html = document.documentElement;
-        const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - window.innerHeight;
-        setHeight(h);
-    }, [data]);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setHPercent(window.scrollY / height * 100)
-        }
-        if (height > 0)
-            window.addEventListener("scroll", handleScroll, { passive: true });
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [height])
-
     const getData = (p, setData) => {
         setLoading(true);
         fetch(`https://sandbox.clickinvest.io/wp-json/wp/v2/posts?per_page=10&page=${p}&_embed=true`).then(response => {
@@ -122,7 +104,7 @@ const Blog = ({ setHPercent }) => {
 
                 <PrevNextNav>
                     {page > 1 ?
-                        <button
+                        <button title="Prev"
                             onClick={() => {
                                 handleData(false)
                             }}
@@ -131,7 +113,7 @@ const Blog = ({ setHPercent }) => {
                         </button> : null
                     }
                     {page < total ?
-                        <button
+                        <button title="Next"
                             onClick={() => {
                                 handleData(true)
                             }}

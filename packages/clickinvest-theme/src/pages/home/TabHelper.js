@@ -52,7 +52,7 @@ const TapHelper = ({ state }) => {
                         {
                             title.map((item, idx) => (
                                 <Grid item sm={12 / title.length} xs={12} key={idx}>
-                                    <TabButton onClick={() => setActive(idx)} sx={{ bgcolor: idx === active ? theme.primary : '#f1f1f1', '&:hover': { bgcolor: theme.primary } }} >{item}</TabButton>
+                                    <TabButton title="" onClick={() => setActive(idx)} sx={{ bgcolor: idx === active ? theme.primary : '#f1f1f1', '&:hover': { bgcolor: theme.primary } }} >{item}</TabButton>
                                 </Grid>
                             ))
                         }

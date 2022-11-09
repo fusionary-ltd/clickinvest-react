@@ -54,12 +54,12 @@ const Header = ({ state }) => {
                             <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{contact.address}</Typography>
                         </Stack>
                         <Stack flexDirection='row'>
-                            <TopLink link={`mailto:${contact.email}`}>
+                            <TopLink title='' link={`mailto:${contact.email}`}>
                                 <EmailIcon sx={{ fontSize: 18 }} />
                                 <Typography component='span' sx={{ lineHeight: 1.4, pl: .5, mr: 1 }}>{contact.email}</Typography>
                             </TopLink>
                             <Stack justifyContent='center' sx={{ ml: { sm: 'auto' } }}>
-                                <TopLink link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
+                                <TopLink title='' link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
                                     <LocalPhoneIcon sx={{ fontSize: 18 }} />
                                     <Typography component='span' sx={{ lineHeight: 1.4, pl: .5 }}>{contact.phoneNumber}</Typography>
                                 </TopLink>
@@ -72,7 +72,7 @@ const Header = ({ state }) => {
                 <Container maxWidth="lg">
                     <Toolbar sx={{ px: '0px !important', alignItems: { sm: 'center', xs: 'flex-start' }, justifyContent: { sm: 'unset', xs: 'space-between' } }}>
                         <Box sx={{ width: { sm: '20%', xs: '50%' }, padding: 1.25 }}>
-                            <ServiceLink link='/' onClick={() => setMenu(false)}>
+                            <ServiceLink title='' link='/' onClick={() => setMenu(false)}>
                                 {
                                     theme.whiteLogo || theme.blackLogo ?
                                         <Box component='img' src={theme.whiteLogo ? theme.whiteLogo : theme.blackLogo} sx={{ width: '100%' }} alt='logo' />
@@ -83,7 +83,7 @@ const Header = ({ state }) => {
                         <Box sx={{ m: 'auto', display: { sm: 'block', xs: 'none' } }}>
                             <HStack>
                                 <Box sx={{ position: 'relative' }}>
-                                    <CategoryBtn endIcon={<ExpandMoreIcon />} sx={{ color: open ? theme.primary : '#000000', '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} onClick={handleClick} >Service</CategoryBtn>
+                                    <CategoryBtn title='' endIcon={<ExpandMoreIcon />} sx={{ color: open ? theme.primary : '#000000', '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} onClick={handleClick} >Service</CategoryBtn>
                                     <Menu
                                         id="basic-menu"
                                         anchorEl={anchorEl}
@@ -106,26 +106,26 @@ const Header = ({ state }) => {
                                     </Menu>
                                 </Box>
                                 <Box>
-                                    <CategoryBtn sx={{ '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} endIcon={<ExpandMoreIcon />}>Areas</CategoryBtn>
+                                    <CategoryBtn title='' sx={{ '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} endIcon={<ExpandMoreIcon />}>Areas</CategoryBtn>
                                 </Box>
                                 <Box>
-                                    <CategoryLink link='/blog'>
+                                    <CategoryLink title='Blog' link='/blog'>
                                         <Typography sx={{ px: '20px', py: '13px', color: '#000000', fontSize: '1.1rem', fontWeight: 700, '&:hover': { bgcolor: 'transparent', color: theme.primary } }}>Articles</Typography>
                                     </CategoryLink>
                                 </Box>
                                 <Box>
-                                    <CategoryLink link='/about-us'>
+                                    <CategoryLink title='About us' link='/about-us'>
                                         <Typography sx={{ px: '20px', py: '13px', color: '#000000', fontSize: '1.1rem', fontWeight: 700, '&:hover': { bgcolor: 'transparent', color: theme.primary } }}>About</Typography>
                                     </CategoryLink>
                                 </Box>
                             </HStack>
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-                            <Link link='/contact' style={{ textDecoration: 'none' }}>
-                                <Button variant="contained" sx={{ '&:hover': { bgcolor: theme.warning }, bgcolor: theme.warning, textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
+                            <Link title='contact' link='/contact' style={{ textDecoration: 'none' }}>
+                                <Button title='' variant="contained" sx={{ '&:hover': { bgcolor: theme.warning }, bgcolor: theme.warning, textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
                             </Link>
                         </Box>
-                        <IconButton sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }} onClick={() => setMenu(!menu)}>
+                        <IconButton title='' sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }} onClick={() => setMenu(!menu)}>
                             {
                                 menu ? <CloseIcon /> : <MenuIcon />
                             }
@@ -138,35 +138,35 @@ const Header = ({ state }) => {
                                 component="nav"
                                 aria-labelledby="nested-list-subheader"
                             >
-                                <ListItemButton onClick={() => setService(!service)}>
+                                <ListItemButton title='' onClick={() => setService(!service)}>
                                     <ListItemText primary="Service" />
                                     {service ? <ExpandLess /> : <ExpandMore />}
                                 </ListItemButton>
                                 <Collapse in={service} timeout="auto" unmountOnExit>
                                     <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 4 }} onClick={() => setMenu(false)}>
+                                        <ListItemButton title='' sx={{ pl: 4 }} onClick={() => setMenu(false)}>
                                             <ListItemText primary="Demo Posts" />
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
-                                <ListItemButton onClick={() => setAreas(!areas)}>
+                                <ListItemButton title='' onClick={() => setAreas(!areas)}>
                                     <ListItemText primary="Areas" />
                                     {areas ? <ExpandLess /> : <ExpandMore />}
                                 </ListItemButton>
                                 <Collapse in={areas} timeout="auto" unmountOnExit>
                                     <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 4 }} onClick={() => setMenu(false)}>
+                                        <ListItemButton title='' sx={{ pl: 4 }} onClick={() => setMenu(false)}>
                                             <ListItemText primary="Demo Areas one" />
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
                                 <ServiceLink link='/blog' onClick={() => setMenu(false)}>
-                                    <ListItemButton>
+                                    <ListItemButton title=''>
                                         <ListItemText primary="Articles" sx={{ color: '#000000de' }} />
                                     </ListItemButton>
                                 </ServiceLink>
                                 <ServiceLink link='/about-us' onClick={() => setMenu(false)}>
-                                    <ListItemButton >
+                                    <ListItemButton title=''>
                                         <ListItemText primary="About" sx={{ color: '#000000de' }} />
                                     </ListItemButton>
                                 </ServiceLink>

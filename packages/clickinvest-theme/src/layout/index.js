@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { connect } from "frontity"
-import TagManager from 'react-gtm-module'
 import Switch from "@frontity/components/switch"
 import MuiThemeProvider from "../provider/Theme"
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+// import TagManager from 'react-gtm-module'
+// import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import CircularProgress from '@mui/material/CircularProgress';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import Box from '@mui/material/Box'
+import IconButton from '@mui/material/IconButton'
+import CircularProgress from '@mui/material/CircularProgress'
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -21,14 +21,32 @@ import Contact from "../pages/Contact"
 import { Accessibility } from 'accessibility'
 
 const Root = ({ state }) => {
-  const data = state.source.get(state.router.link)
   // const { reCaptcha } = state.option
-  const [hPercent, setHPercent] = useState(0);
+  const data = state.source.get(state.router.link)
+  const [hPercent, setHPercent] = useState(0)
+  const [height, setHeight] = useState(0)
 
   useEffect(() => {
-    // TagManager.initialize({ gtmId: 'GTM-NB4CG7G' });
-    window.addEventListener('load', function () { new Accessibility(); }, false);
-  }, []);
+    var body = document.body, html = document.documentElement
+    const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - window.innerHeight
+    setHeight(h)
+  }, [data])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHPercent(window.scrollY / height * 100)
+    }
+    if (height > 0)
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [height])
+
+  useEffect(() => {
+    // TagManager.initialize({ gtmId: 'GTM-NB4CG7G' })
+    // document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'
+    document.documentElement.setAttribute("lang", 'en')
+    window.addEventListener('load', function () { new Accessibility(); }, false)
+  }, [])
 
   useEffect(() => {
     const rankMathElements = [];
@@ -79,11 +97,11 @@ const Root = ({ state }) => {
       > */}
       <Header />
       <Switch>
-        <Loading when={data.isFetching} setHPercent={() => {}} />
-        <Home when={data.isArchive} setHPercent={() => {}} />
-        <Post when={data.isPostType} setHPercent={() => {}} />
-        <Contact when={data.link === "/contact/"} setHPercent={() => {}} />
-        <PageError when={data.isError} setHPercent={() => {}} />
+        <Loading when={data.isFetching} />
+        <Home when={data.isArchive} />
+        <Post when={data.isPostType} />
+        <Contact when={data.link === "/contact/"} />
+        <PageError when={data.isError} />
       </Switch>
       <Footer />
       <IconButton onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })} sx={{ p: .25, position: 'fixed', bottom: hPercent > 3 ? 120 : -100, transition: 'bottom 1s', right: 10, borderRadius: 50, bgcolor: '#ffff', boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: '#ffff' } }}>

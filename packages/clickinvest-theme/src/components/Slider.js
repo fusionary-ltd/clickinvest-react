@@ -89,8 +89,8 @@ const SliderCmp = ({ state }) => {
                 {
                     slideData.width ?
                         <ButtonsWrapper style={{ width: slideData.width }}>
-                            <PrevButton onClick={() => prevSlide()}><KeyboardArrowLeftIcon /></PrevButton>
-                            <NextButton onClick={() => nextSlide()}><KeyboardArrowRightIcon /></NextButton>
+                            <PrevButton title='' onClick={() => prevSlide()}><KeyboardArrowLeftIcon /></PrevButton>
+                            <NextButton title='' onClick={() => nextSlide()}><KeyboardArrowRightIcon /></NextButton>
                         </ButtonsWrapper> : null
                 }
             </SliderContainer >
