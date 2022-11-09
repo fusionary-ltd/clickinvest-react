@@ -1,6 +1,7 @@
-import { styled, connect } from "frontity";
+import { connect } from "frontity";
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import { Title404, Description } from '../components/styled';
 
 const description404 = (
     <>
@@ -20,7 +21,7 @@ const description = (
 );
 
 // The 404 page component
-const Page404 = ({ state }) => {
+const PageError = ({ state }) => {
     const data = state.source.get(state.router.link);
 
     const title = "Oops! Something went wrong";
@@ -29,25 +30,13 @@ const Page404 = ({ state }) => {
     return (
         <Container maxWidth="lg">
             <Stack alignItems='center' justifyContent='center' sx={{ minHeight: 500 }}>
-                <Title>{data.is404 ? title404 : title}</Title>
+                <Title404>{data.is404 ? title404 : title}</Title404>
                 <Description>{data.is404 ? description404 : description}</Description>
             </Stack>
         </Container>
     );
 };
 
-export default connect(Page404);
+export default connect(PageError);
 
-const Title = styled.h1`
-  margin: 0;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  color: rgba(12, 17, 43);
-  font-size: 4em;
-`;
 
-const Description = styled.div`
-  line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
-  margin: 24px 0;
-`;

@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { RepairInput, RepairButton } from '../../components/styled';
-import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
+// import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const ContactService = ({ state }) => {
     const { theme, home } = state.option;
@@ -113,12 +113,12 @@ const ContactService = ({ state }) => {
                     </form>
                 </Stack>
             </Container>
-            <GoogleReCaptcha
+            {/* <GoogleReCaptcha
                 onVerify={token => {
                     setToken(token);
                 }}
                 refreshReCaptcha={false}
-            />
+            /> */}
         </Box>
     );
 }

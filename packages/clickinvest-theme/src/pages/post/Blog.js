@@ -8,11 +8,29 @@ import Typography from '@mui/material/Typography';
 import { HStack, PrevNextNav } from '../../components/styled';
 import BlogItem from '../../components/BlogItem';
 
-const Blog = ({ state, actions }) => {
+const Blog = ({ setHPercent }) => {
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(1);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => {
+        var body = document.body, html = document.documentElement;
+        const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - window.innerHeight;
+        setHeight(h);
+    }, [data]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setHPercent(window.scrollY / height * 100)
+        }
+        if (height > 0)
+            window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [height])
 
     const getData = (p, setData) => {
         setLoading(true);
@@ -43,6 +61,7 @@ const Blog = ({ state, actions }) => {
     }
 
     useEffect(() => {
+        setHPercent(0);
         getData(1, setData);
     }, [])
 
