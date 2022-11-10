@@ -8,28 +8,11 @@ import Typography from '@mui/material/Typography';
 import ContactService from '../home/ContactService';
 import { AboutUsContent } from '../../components/styled';
 
-const PostPage = ({ state, libraries, setHPercent }) => {
+const PostPage = ({ state, libraries }) => {
     const data = state.source.get(state.router.link);
     const post = state.source[data.type][data.id];
     const Html2React = libraries.html2react.Component;
     const { theme, contact } = state.option;
-    const [height, setHeight] = useState(0);
-
-    useEffect(() => {
-        var body = document.body, html = document.documentElement;
-        const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - window.innerHeight;
-        setHeight(h);
-    }, [data]);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setHPercent(window.scrollY / height * 100)
-        }
-        if (height > 0)
-            window.addEventListener("scroll", handleScroll, { passive: true });
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [height])
 
     return (
         <Box sx={{ my: 4 }}>
