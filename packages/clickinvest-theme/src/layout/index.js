@@ -43,8 +43,8 @@ const Root = ({ state }) => {
 
   useEffect(() => {
     // TagManager.initialize({ gtmId: 'GTM-NB4CG7G' })
-    // document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'
     document.documentElement.setAttribute("lang", 'en')
+    document.documentElement.setAttribute("title", 'clickinvest')
     window.addEventListener('load', function () { new Accessibility(); }, false)
   }, [])
 
@@ -105,8 +105,8 @@ const Root = ({ state }) => {
       </Switch>
       <Footer />
       <IconButton onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })} sx={{ p: .25, position: 'fixed', bottom: hPercent > 3 ? 120 : -100, transition: 'bottom 1s', right: 10, borderRadius: 50, bgcolor: '#ffff', boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: '#ffff' } }}>
-        <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <CircularProgress variant="determinate" value={hPercent > 100 ? 100 : hPercent} sx={{ height: '50px !important', width: '50px !important', '& .MuiCircularProgress-svg': { '& circle': { strokeWidth: 2 } } }} />
+        <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
+          <CircularProgress variant="determinate" value={hPercent > 100 ? 100 : hPercent} sx={{ height: '50px !important', width: '50px !important', '& .MuiCircularProgress-svg': { '& circle': { strokeWidth: 2 } } }} title="cirlce" />
           <KeyboardArrowUpIcon sx={{ position: 'absolute' }} />
         </Box>
       </IconButton>

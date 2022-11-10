@@ -29,7 +29,7 @@ const Experience = ({ state }) => {
                                         <Grid item key={idx} sm={4} xs={12}>
                                             <Stack sx={{ p: 1.25 }}>
                                                 <Stack sx={{ px: 2 }}>
-                                                    <Box component='img' src={img} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
+                                                    <Box component='img' title='experience' src={img} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
                                                 </Stack>
                                                 <Stack sx={{ p: 2.25 }}>
                                                     <ServiceLink link='/'>

@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { HStack, PrevNextNav } from '../../components/styled';
 import BlogItem from '../../components/BlogItem';
 
-const Blog = ({ setHPercent }) => {
+const Blog = () => {
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -43,7 +43,6 @@ const Blog = ({ setHPercent }) => {
     }
 
     useEffect(() => {
-        setHPercent(0);
         getData(1, setData);
     }, [])
 
@@ -61,12 +60,13 @@ const Blog = ({ setHPercent }) => {
 
                 {
                     data.length && !loading ? data.map((item, idx) => {
-                        return <BlogItem key={item.id} item={item} order={idx} />;
+                        return <BlogItem key={idx} item={item} order={idx} />;
                     }) :
                         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-                            <>
+                            <Box key={i}>
                                 {
                                     i % 2 === 0 ?
+
                                         <HStack sx={{ width: '100%', justifyContent: 'space-between', mb: 4 }}>
                                             <Stack sx={{ width: '50%' }}>
                                                 <Skeleton animation='wave' height={40} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
@@ -81,7 +81,9 @@ const Blog = ({ setHPercent }) => {
                                             <Box sx={{ width: { md: 'calc(50% - 30px)', sm: '100%' }, ml: { md: '30px', sm: 0 } }}>
                                                 <Skeleton animation='wave' height={300} sx={{ borderRadius: 0, transform: 'scale(1, 1)' }} />
                                             </Box>
-                                        </HStack> :
+                                        </HStack>
+                                        :
+
                                         <HStack sx={{ width: '100%', justifyContent: 'space-between', mb: 4 }}>
                                             <Box sx={{ width: { md: 'calc(50% - 30px)', sm: '100%' }, mr: { md: '30px', sm: 0 } }}>
                                                 <Skeleton animation='wave' height={300} sx={{ borderRadius: 0, transform: 'scale(1, 1)' }} />
@@ -97,8 +99,9 @@ const Blog = ({ setHPercent }) => {
                                                 <Skeleton animation='wave' height={18} sx={{ borderRadius: 0, transform: 'scale(1, 1)', mb: 1 }} />
                                             </Stack>
                                         </HStack>
+
                                 }
-                            </>
+                            </Box>
                         ))
                 }
 

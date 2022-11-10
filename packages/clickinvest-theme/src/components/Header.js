@@ -121,11 +121,11 @@ const Header = ({ state }) => {
                             </HStack>
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-                            <Link title='contact' link='/contact' style={{ textDecoration: 'none' }}>
-                                <Button title='' variant="contained" sx={{ '&:hover': { bgcolor: theme.warning }, bgcolor: theme.warning, textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
-                            </Link>
+                            <ServiceLink title='contact' link='/contact'>
+                                <Button title='contact' variant="contained" sx={{ '&:hover': { bgcolor: theme.warning }, bgcolor: theme.warning, textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
+                            </ServiceLink>
                         </Box>
-                        <IconButton title='' sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }} onClick={() => setMenu(!menu)}>
+                        <IconButton title='menu' sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }} onClick={() => setMenu(!menu)}>
                             {
                                 menu ? <CloseIcon /> : <MenuIcon />
                             }
@@ -138,7 +138,7 @@ const Header = ({ state }) => {
                                 component="nav"
                                 aria-labelledby="nested-list-subheader"
                             >
-                                <ListItemButton title='' onClick={() => setService(!service)}>
+                                <ListItemButton title='service' onClick={() => setService(!service)}>
                                     <ListItemText primary="Service" />
                                     {service ? <ExpandLess /> : <ExpandMore />}
                                 </ListItemButton>
@@ -149,24 +149,24 @@ const Header = ({ state }) => {
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
-                                <ListItemButton title='' onClick={() => setAreas(!areas)}>
+                                <ListItemButton title='service' onClick={() => setAreas(!areas)}>
                                     <ListItemText primary="Areas" />
                                     {areas ? <ExpandLess /> : <ExpandMore />}
                                 </ListItemButton>
                                 <Collapse in={areas} timeout="auto" unmountOnExit>
                                     <List component="div" disablePadding>
-                                        <ListItemButton title='' sx={{ pl: 4 }} onClick={() => setMenu(false)}>
+                                        <ListItemButton title='service' sx={{ pl: 4 }} onClick={() => setMenu(false)}>
                                             <ListItemText primary="Demo Areas one" />
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
-                                <ServiceLink link='/blog' onClick={() => setMenu(false)}>
-                                    <ListItemButton title=''>
+                                <ServiceLink link='/blog' title='blog' onClick={() => setMenu(false)}>
+                                    <ListItemButton title='Articles'>
                                         <ListItemText primary="Articles" sx={{ color: '#000000de' }} />
                                     </ListItemButton>
                                 </ServiceLink>
                                 <ServiceLink link='/about-us' onClick={() => setMenu(false)}>
-                                    <ListItemButton title=''>
+                                    <ListItemButton title='About'>
                                         <ListItemText primary="About" sx={{ color: '#000000de' }} />
                                     </ListItemButton>
                                 </ServiceLink>

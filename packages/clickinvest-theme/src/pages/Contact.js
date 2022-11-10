@@ -24,7 +24,7 @@ const Contact = ({ state }) => {
                 <Title>Contact Us</Title>
                 <Box position='relative'>
                     <Box sx={{ p: { md: 6.25, xs: 3 }, backgroundImage: `url(${linePattern})`, backgroundSize: 430, backgroundRepeatY: 'no-repeat' }}>
-                        <Box component='img' src={contact.img} sx={{ width: '100%' }} />
+                        <Box component='img' src={contact.img} sx={{ width: '100%' }} title='contact us' />
                     </Box>
                     <Box sx={{ position: 'absolute', top: { sm: 360, xs: 160 }, left: '-50px', zIndex: 9 }}>
                         <Typography variant='h2' sx={{ pr: { sm: 8, xs: 5 }, pl: { sm: '50px', xs: 5 }, py: 0, fontSize: { sm: '3em', xs: '2em' }, fontWeight: { sm: 700, xs: 600 }, color: '#fff', bgcolor: theme.primary, lineHeight: 1.5 }}>Contact Us</Typography>
@@ -61,7 +61,7 @@ const Contact = ({ state }) => {
                     </Grid>
                     <Grid item sm={4} xs={12} >
                         <Stack sx={{ alignItems: 'center', p: 3 }}>
-                            <Link title='' link={`mailto:${contact.email}`}>
+                            <Link ink={`mailto:${contact.email}`} title={contact.email}>
                                 <EmailIcon sx={{ fontSize: 60, color: theme.primary }} />
                             </Link>
                             <Typography sx={{ fontSize: '1.75em', fontWeight: 500 }}>Email Address</Typography>

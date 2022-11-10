@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { RepairInput, RepairButton, ServiceLink, Title, Author, DateWrapper, Content } from '../../components/styled';
+import { RepairInput, RepairButton, ServiceLink, Title, Author, DateWrapper, Content, Select } from '../../components/styled';
 import RightBar from './RightBar';
 
 const PostPage = ({ state, libraries }) => {
@@ -103,13 +103,13 @@ const PostPage = ({ state, libraries }) => {
                                             </Stack>
                                         </Grid>
                                         <Grid item md={8} sm={6}>
-                                            <select style={{ width: '100%', height: '100%', padding: '0.5rem 1rem', border: 0, fontSize: '1em' }} onChange={handleValue('reason')} >
+                                            <Select onChange={handleValue('reason')} title='reason' >
                                                 {
                                                     post && post.reason.length ? post.reason.map((item, idx) => (
                                                         <option value={item} key={idx}>{item}</option>
                                                     )) : null
                                                 }
-                                            </select>
+                                            </Select>
                                         </Grid>
                                         <Grid item md={4}>
                                             <RepairButton title="" onClick={() => sendRequest()} sx={{ bgcolor: theme.secondary, '&:hover': { bgcolor: theme.secondary } }}>SEND</RepairButton>

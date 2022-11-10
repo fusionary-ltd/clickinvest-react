@@ -5,21 +5,12 @@ import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { BackgroundOverlay, HStack } from '../../components/styled'
+import { BackgroundOverlay, HStack, BackgroundImg } from '../../components/styled'
 
 const Introduce = ({ state }) => {
     const { theme, contact, home } = state.option;
     return (
-        <Box
-            style={{ backgroundImage: `url(${home.hero.img})` }}
-            sx={{
-                backgroundPosition: 'center left',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                position: 'relative',
-                py: 15
-            }}
-        >
+        <BackgroundImg img={home.hero.img}>
             <BackgroundOverlay />
             <Container maxWidth="lg">
                 <HStack sx={{ position: 'relative' }}>
@@ -55,7 +46,7 @@ const Introduce = ({ state }) => {
                     </Box>
                 </HStack>
             </Container>
-        </Box>
+        </BackgroundImg>
     );
 }
 
