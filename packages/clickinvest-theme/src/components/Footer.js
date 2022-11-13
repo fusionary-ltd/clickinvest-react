@@ -155,13 +155,13 @@ const Footer = ({ state }) => {
                                 <FooterLink link='/' >Privacy Policy</FooterLink>
                             </Typography>
                             <Stack flexDirection='row'>
-                                <Link link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
-                                    <IconButton sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
+                                <Link title={contact.email} link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
+                                    <IconButton title={contact.phoneNumber} sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
                                         <LocalPhoneIcon sx={{ color: '#fff' }} />
                                     </IconButton>
                                 </Link>
-                                <Link link={`mailto:${contact.email}`}>
-                                    <IconButton sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
+                                <Link title={contact.email} link={`mailto:${contact.email}`}>
+                                    <IconButton title={contact.email} sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
                                         <EmailIcon sx={{ color: '#fff' }} />
                                     </IconButton>
                                 </Link>
@@ -174,8 +174,8 @@ const Footer = ({ state }) => {
                 <HStack sx={{ justifyContent: 'space-around', alignItems: 'center' }}>
                     {
                         show &&
-                        <Link link={`mailto:${contact.email}`}>
-                            <IconButton sx={{ padding: 0 }}>
+                        <Link title={contact.email} link={`mailto:${contact.email}`}>
+                            <IconButton title={contact.email} sx={{ padding: 0 }}>
                                 <EmailIcon sx={{ color: 'white', fontSize: '3rem' }} />
                             </IconButton>
                         </Link>
@@ -197,8 +197,8 @@ const Footer = ({ state }) => {
                     </Box>
                     {
                         show &&
-                        <Link link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
-                            <IconButton sx={{ padding: 0, borderRadius: '50%', bgcolor: '#88e519' }}>
+                        <Link title={contact.phoneNumber} link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
+                            <IconButton title={contact.phoneNumber} sx={{ padding: 0, borderRadius: '50%', bgcolor: '#88e519' }}>
                                 <LocalPhoneIcon sx={{ color: 'white', fontSize: '3rem' }} />
                             </IconButton>
                         </Link>

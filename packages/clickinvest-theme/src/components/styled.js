@@ -6,7 +6,30 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import linePattern from '../assets/img/bg/line-pattern.png'
+import linePattern from '../assets/img/bg/line-pattern.png';
+
+export const Select = styled.select`
+  width: 100%; 
+  height: 100%; 
+  padding: 0.5rem 1rem;
+  border: 0;
+  font-size: 1em;
+`;
+
+export const BgImg = styled(Box)`
+  background-image: url(${props => props.img})
+`;
+
+export const BackgroundImg = styled(Box)`
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-image: url(${props => props.img});
+`;
+
 export const SlideContent = styled(Box)`
     background-color: #f9f9f9;
     text-align: left !important;
@@ -50,12 +73,15 @@ export const SliderWrapper = styled.div`
 `;
 
 export const Slider = styled.ul`
+  width : ${props => props.width}px;
   margin: 0;
   padding: 0;
   height: 100%
 `;
 
 export const SliderItem = styled.li`
+  left: ${props => props.left}px;
+  width: ${props => props.width}px;
   float: left;
   position: relative;
   transition: all .2s linear;
@@ -63,6 +89,7 @@ export const SliderItem = styled.li`
   `;
 
 export const ButtonsWrapper = styled.div`
+  width: ${props => props.width}px;
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -123,6 +150,7 @@ export const IndicatorsWrapper = styled.div`
 `;
 
 export const Indicators = styled.ul`
+  width: ${props => props.width}px;
   position: absolute;
   z-index: 2 !important;
   text-align: center;
@@ -140,6 +168,7 @@ export const Indicator = styled.div`
 
 export const IndicatorAct = styled.div`
   display: inline-block;
+  background-color: ${props => props.bgcolor};
   margin-right: 5px;
   width: 30px;
   height: 5px;

@@ -67,13 +67,13 @@ const SliderCmp = ({ state }) => {
     }, [])
 
     return (
-        <div style={{ position: 'relative' }}>
+        <Box sx={{ position: 'relative' }}>
             <SliderContainer>
                 <SliderWrapper className='slide'>
-                    <Slider style={{ width: slideData.width * home.slider.items.length }}>
+                    <Slider width={slideData.width * home.slider.items.length}>
                         {
                             home.slider.items.map(({ title, description, img }, index) => (
-                                <SliderItem key={index} style={{ left: slideData.left, width: slideData.width }} className='slider-item'>
+                                <SliderItem key={index} left={slideData.left} width={slideData.width} className='slider-item'>
                                     <Box sx={{ display: 'flex', height: 400 }}>
                                         <Box sx={{ backgroundImage: `url(${img})`, width: { sm: '65%', xs: '100%' }, minHeight: { sm: '65%', xs: '50%' }, backgroundSize: 'cover' }} />
                                     </Box>
@@ -88,20 +88,20 @@ const SliderCmp = ({ state }) => {
                 </SliderWrapper>
                 {
                     slideData.width ?
-                        <ButtonsWrapper style={{ width: slideData.width }}>
-                            <PrevButton onClick={() => prevSlide()}><KeyboardArrowLeftIcon /></PrevButton>
-                            <NextButton onClick={() => nextSlide()}><KeyboardArrowRightIcon /></NextButton>
+                        <ButtonsWrapper width={slideData.width}>
+                            <PrevButton title='prev' onClick={() => prevSlide()}><KeyboardArrowLeftIcon /></PrevButton>
+                            <NextButton title='next' onClick={() => nextSlide()}><KeyboardArrowRightIcon /></NextButton>
                         </ButtonsWrapper> : null
                 }
             </SliderContainer >
             {
                 slideData.width ?
-                    <Indicators style={{ width: slideData.width }}>
+                    <Indicators width={slideData.width}>
                         {home.slider.items.map((item, index) => (
                             <Box key={index} sx={{ display: 'inline-block' }}>
                                 {
                                     index + 1 === slideData.activeIndex ?
-                                        <IndicatorAct style={{ backgroundColor: theme.warning }} onClick={clickIndicator} /> :
+                                        <IndicatorAct bgcolor={theme.warning} onClick={clickIndicator} /> :
                                         <Indicator onClick={clickIndicator} />
                                 }
                             </Box>
@@ -109,7 +109,7 @@ const SliderCmp = ({ state }) => {
                         }
                     </Indicators> : null
             }
-        </div >
+        </Box >
     )
 }
 

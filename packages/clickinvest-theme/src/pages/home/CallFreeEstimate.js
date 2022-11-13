@@ -19,8 +19,8 @@ const CallFreeEstimate = ({ state }) => {
                         fontSize: { sm: '2.5rem', xs: '1.8rem' },
                         fontWeight: 700
                     }}>Call Us For a FREE Estimate</Typography>
-                    <Link href={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`} sx={{ textDecoration: 'none' }}>
-                        <Button sx={{
+                    <Link title='' href={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`} sx={{ textDecoration: 'none' }}>
+                        <Button title='' sx={{
                             lineHeight: 1,
                             borderRadius: 1.5,
                             px: 5,

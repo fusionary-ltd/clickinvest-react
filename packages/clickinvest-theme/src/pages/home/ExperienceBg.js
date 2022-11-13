@@ -5,22 +5,13 @@ import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { BackgroundOverlay, HStack } from '../../components/styled'
+import { BackgroundOverlay, BackgroundImg, HStack } from '../../components/styled'
 
 const ExperienceBg = ({ state }) => {
     const { theme, contact, home } = state.option;
 
     return (
-        <Box
-            style={{ backgroundImage: `url(${home.experience.bgImg})` }}
-            sx={{
-                backgroundPosition: 'bottom center  ',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                position: 'relative',
-                py: 15
-            }}
-        >
+        <BackgroundImg img={home.experience.bgImg} >
             <BackgroundOverlay sx={{ bgcolor: 'rgba(0, 0, 0, 0.54)', opacity: 0.5 }} />
             <Container maxWidth="lg">
                 <HStack sx={{ position: 'relative' }}>
@@ -36,8 +27,8 @@ const ExperienceBg = ({ state }) => {
                             </Typography>
                         </Box>
                         <Box>
-                            <Link href={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`} sx={{ textDecoration: 'none' }}>
-                                <Button sx={{
+                            <Link title="" href={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`} sx={{ textDecoration: 'none' }}>
+                                <Button title="" sx={{
                                     lineHeight: 1,
                                     borderRadius: 1.5,
                                     px: 5,
@@ -56,7 +47,7 @@ const ExperienceBg = ({ state }) => {
                     </Box>
                 </HStack>
             </Container>
-        </Box>
+        </BackgroundImg>
     );
 }
 

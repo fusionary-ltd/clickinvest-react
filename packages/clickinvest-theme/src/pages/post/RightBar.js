@@ -16,7 +16,7 @@ const RightBar = ({ state }) => {
                 <CallEndIcon sx={{ mr: 2 }} />
                 <Typography sx={{ fontSize: '1.5em', fontWeight: 600 }}>{contact.phoneNumber}</Typography>
             </HStack>
-            <Box component='img' src={post.rightBar.img} sx={{ my: 1, width: '100%' }} />
+            <Box component='img' title='call us' src={post.rightBar.img} sx={{ my: 1, width: '100%' }} />
             <Box sx={{ borderTop: '1px solid #EBEBEB', my: 4 }} />
             <Box>
                 <Typography sx={{ fontSize: '2em', fontWeight: 600, mb: 3 }}>{post.rightBar.serviceTitle}</Typography>

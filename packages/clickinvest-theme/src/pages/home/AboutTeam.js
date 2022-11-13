@@ -7,12 +7,13 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import black_bg from '../../assets/img/bg/black-bg.jpg';
+import { BgImg } from '../../components/styled';
 
 const AboutTeam = ({ state }) => {
     const { theme, home } = state.option;
 
     return (
-        <Box sx={{ py: 10 }} style={{ backgroundImage: `url(${black_bg})` }}>
+        <BgImg sx={{ py: 10 }} img={black_bg}>
             <Container maxWidth="lg">
                 <Grid container>
                     <Grid item sm={6} xs={12}>
@@ -46,12 +47,12 @@ const AboutTeam = ({ state }) => {
                     </Grid>
                     <Grid item sm={6} xs={12}>
                         <Stack>
-                            <Box component='img' src={home.aboutTeam.img} sx={{ p: 1.25 }} />
+                            <Box component='img' title='team' src={home.aboutTeam.img} sx={{ p: 1.25 }} />
                         </Stack>
                     </Grid>
                 </Grid>
             </Container>
-        </Box>
+        </BgImg>
     );
 }
 
