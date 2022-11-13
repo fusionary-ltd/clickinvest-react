@@ -1,4 +1,3 @@
-import option from './options.json';
 import Root from "./layout"
 
 const clickinvestTheme = {
@@ -14,8 +13,10 @@ const clickinvestTheme = {
       init: ({ state }) => {
 
       },
-      beforeSSR: ({ state, libraries }) => {
-        state.option = option;
+      beforeSSR: async ({ state, libraries }) => {
+        const response = await fetch(`${state.source.url}/wp-json/clickinvest/v1/options`);
+        const json = await response.json();
+        state.option = json;
       },
       beforeCSR: ({ state, libraries }) => {
         document.querySelectorAll('title')[0].remove();
