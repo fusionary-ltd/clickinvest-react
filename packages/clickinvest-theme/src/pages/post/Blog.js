@@ -16,7 +16,7 @@ const Blog = () => {
 
     const getData = (p, setData) => {
         setLoading(true);
-        fetch(`https://sandbox.clickinvest.io/wp-json/wp/v2/posts?per_page=10&page=${p}&_embed=true`).then(response => {
+        fetch(`${state.source.url}/wp-json/wp/v2/posts?per_page=10&page=${p}&_embed=true`).then(response => {
             setTotal(response.headers.get('x-wp-totalpages'));
             if (response.ok) {
                 return response.json();
