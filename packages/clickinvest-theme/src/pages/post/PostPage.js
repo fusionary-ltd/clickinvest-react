@@ -67,6 +67,8 @@ const PostPage = ({ state, libraries }) => {
         setError(temp);
     }
 
+    console.log(post, '---')
+
     return (
         <Box sx={{ my: 4 }}>
             <Container maxWidth="lg">
@@ -74,10 +76,10 @@ const PostPage = ({ state, libraries }) => {
                     <Grid item sm={8} xs={12}>
                         {
                             state.router.link !== '/about-us/' && <>
-                                <Typography variant='h2' sx={{ fontSize: '2em', fontWeight: 700, mb: 3 }}>{post.title}</Typography>
-                                <Typography sx={{ fontSize: '1.2em', fontWeight: 600 }}>{post.contactDesc}</Typography>
+                                <Typography variant='h2' sx={{ fontSize: '2em', fontWeight: 700, mb: 3 }}>{post?.title}</Typography>
+                                <Typography sx={{ fontSize: '1.2em', fontWeight: 600 }}>{post?.contactDesc}</Typography>
                                 <Box sx={{ bgcolor: theme.primary, p: 4 }}>
-                                    <Typography>{post.callUsDesc}</Typography>
+                                    <Typography>{post?.callUsDesc}</Typography>
                                     <Typography sx={{ fontSize: '1.5em', fontWeight: 600, color: '#fff', my: 2 }}>{contact.phoneNumber}</Typography>
                                     <Typography sx={{ mb: 3 }}>Or, send a message</Typography>
 
