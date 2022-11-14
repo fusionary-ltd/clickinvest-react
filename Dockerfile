@@ -10,6 +10,8 @@ COPY _accessibility.js /app/node_modules/accessibility/dist/accessibility.js
 COPY . .
 RUN rm _accessibility.js
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # Build
 RUN npm run build
 
