@@ -1,4 +1,4 @@
-const settings = {
+export default {
   "name": "my-app",
   "state": {
     "frontity": {
@@ -20,7 +20,7 @@ const settings = {
             [
               "blog",
               "/blog/"
-            ],
+            ]
           ],
           "featured": {
             "showOnList": true,
@@ -33,14 +33,12 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://demo2.clickinvest.io",
-          "api": "https://demo2.clickinvest.io/wp-json",
+          "url": process.env.WP_URL,
+          "api": process.env.WP_URL + "/wp-json"
         }
       }
     },
     "@frontity/tiny-router",
     "@frontity/html2react"
   ]
-};
-
-export default settings;
+}
