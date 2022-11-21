@@ -67,7 +67,6 @@ const PostPage = ({ state, libraries }) => {
         setError(temp);
     }
 
-    console.log(post, '---')
 
     return (
         <Box sx={{ my: 4 }}>
