@@ -8,7 +8,8 @@ import Typography from '@mui/material/Typography';
 import { HStack, PrevNextNav } from '../../components/styled';
 import BlogItem from '../../components/BlogItem';
 
-const Blog = () => {
+const Blog = ({state}) => {
+    console.log(state, 'here is blog state---')
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(1);
     const [loading, setLoading] = useState(false);
