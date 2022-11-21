@@ -60,7 +60,6 @@ const ContactService = ({ state }) => {
             temp = { ...temp, location: true };
         }
         setError(temp);
-        console.log({ ...values, reCaptcha: token, origin: location.host });
     }
 
     useEffect(() => {
