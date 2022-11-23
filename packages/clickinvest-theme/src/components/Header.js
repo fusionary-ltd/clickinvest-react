@@ -13,6 +13,7 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
+import Modal from '@mui/material/Modal';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -98,7 +99,10 @@ const CollapsList = ({ item, setMenu }) => {
 
 const Header = ({ state }) => {
     const [menu, setMenu] = useState(false);
+    const [modal, setModal] = useState(false);
     const { theme, contact, header } = state.option;
+    const modalOpen = () => setModal(true);
+    const modalClose = () => setModal(false);
 
     return (
         <>
@@ -163,10 +167,8 @@ const Header = ({ state }) => {
                                 })()
                             }
                         </Box>
-                        <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-                            <ServiceLink title='contact' link='/contact'>
-                                <Button title='contact' variant="contained" sx={{ '&:hover': { bgcolor: theme.warning }, bgcolor: theme.warning, textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Book a Technician</Button>
-                            </ServiceLink>
+                        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                            <Button title='contact' onClick={() => modalOpen()} variant="contained" sx={{ '&:hover': { bgcolor: theme.warning }, bgcolor: theme.warning, textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Contact A Pro</Button>
                         </Box>
                         <IconButton title='menu' sx={{ mt: 2, display: { sm: 'none', xs: 'block' } }} onClick={() => setMenu(!menu)}>
                             {
@@ -210,7 +212,26 @@ const Header = ({ state }) => {
                         </Collapse>
                     </Box>
                 </Container>
+                <Box sx={{ display: { xs: 'flex', md: 'none' }, pb: 1, px: 2 }}>
+                    <Button title='contact' onClick={() => modalOpen()} variant="contained" sx={{ width: '100%', '&:hover': { bgcolor: theme.warning }, bgcolor: theme.warning, textTransform: 'inherit', fontSize: '1.1rem', fontWeight: 700, px: 3, py: 1.5, lineHeight: 1 }}>Contact A Pro</Button>
+                </Box>
             </AppBar>
+            <Modal open={modal} onClose={modalClose} >
+                <Box sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    minWidth: { sm: 800, xs: 'auto' },
+                    width: { sm: 'auto', xs: '90%' },
+                    bgcolor: 'white',
+                    boxShadow: 24,
+                    padding: 1,
+                    borderRadius: 2
+                }}>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/WerCpkTJQTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </Box>
+            </Modal>
         </>
     );
 }
