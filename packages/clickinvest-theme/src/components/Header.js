@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Link from "@frontity/components/link";
 import { connect } from "frontity";
 
 import Box from '@mui/material/Box';
@@ -28,21 +27,78 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 import { TopLink, HStack, CategoryBtn, CategoryLink, ServiceLink } from './styled';
 
-
-const Header = ({ state }) => {
+const MenuList = ({ item, theme }) => {
     const [anchorEl, setAnchorEl] = useState(null);
-    const [menu, setMenu] = useState(false);
-    const [service, setService] = useState(false);
-    const [areas, setAreas] = useState(false);
     const open = Boolean(anchorEl);
-    const { theme, contact } = state.option;
-
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    return (
+        <Box sx={{ position: 'relative' }}>
+            <CategoryBtn title='' endIcon={<ExpandMoreIcon />} sx={{ color: open ? theme.primary : '#000000', '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} onClick={handleClick} >{item.title}</CategoryBtn>
+            <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                }}
+                sx={{
+                    '& .MuiPaper-root': {
+                        borderRadius: 0,
+                        bgcolor: theme.primary
+                    }
+                }}
+            >
+                {
+                    item.list.map((list, i) => (
+                        <MenuItem key={i} onClick={handleClose}>
+                            <ServiceLink link={list.url} title={list.title} >
+                                <Typography sx={{ color: '#000000' }}>{list.title}</Typography>
+                            </ServiceLink>
+                        </MenuItem>
+                    ))
+                }
+            </Menu>
+        </Box>
+    )
+}
+
+const CollapsList = ({ item, setMenu }) => {
+    const [active, setSctive] = useState(false);
+    return (
+        <>
+            <ListItemButton title={item.title} onClick={() => setSctive(!active)}>
+                <ListItemText primary={item.title} />
+                {active ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={active} timeout="auto" unmountOnExit>
+                {
+                    item.list.map((list, i) => (
+                        <List component="div" disablePadding key={i}>
+                            <ListItemButton title='' sx={{ pl: 4 }} onClick={() => setMenu(false)}>
+                                <ServiceLink link={list.url} title={list.title} >
+                                    <Typography sx={{ color: '#000000' }} variant='span'>
+                                        <ListItemText primary={list.title} />
+                                    </Typography>
+                                </ServiceLink>
+                            </ListItemButton>
+                        </List>
+                    ))
+                }
+            </Collapse>
+        </>
+    )
+}
+
+const Header = ({ state }) => {
+    const [menu, setMenu] = useState(false);
+    const { theme, contact, header } = state.option;
 
     return (
         <>
@@ -81,44 +137,31 @@ const Header = ({ state }) => {
                             </ServiceLink>
                         </Box>
                         <Box sx={{ m: 'auto', display: { sm: 'block', xs: 'none' } }}>
-                            <HStack>
-                                <Box sx={{ position: 'relative' }}>
-                                    <CategoryBtn title='' endIcon={<ExpandMoreIcon />} sx={{ color: open ? theme.primary : '#000000', '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} onClick={handleClick} >Service</CategoryBtn>
-                                    <Menu
-                                        id="basic-menu"
-                                        anchorEl={anchorEl}
-                                        open={open}
-                                        onClose={handleClose}
-                                        MenuListProps={{
-                                            'aria-labelledby': 'basic-button',
-                                        }}
-                                        sx={{
-                                            '& .MuiPaper-root': {
-                                                borderRadius: 0,
-                                                bgcolor: theme.primary
-                                            }
-                                        }}
-                                    >
-                                        <MenuItem onClick={handleClose}>
-                                            example
-                                        </MenuItem>
-
-                                    </Menu>
-                                </Box>
-                                <Box>
-                                    <CategoryBtn title='' sx={{ '&:hover': { color: theme.primary, bgcolor: 'transparent' } }} endIcon={<ExpandMoreIcon />}>Areas</CategoryBtn>
-                                </Box>
-                                <Box>
-                                    <CategoryLink title='Blog' link='/blog'>
-                                        <Typography sx={{ px: '20px', py: '13px', color: '#000000', fontSize: '1.1rem', fontWeight: 700, '&:hover': { bgcolor: 'transparent', color: theme.primary } }}>Articles</Typography>
-                                    </CategoryLink>
-                                </Box>
-                                <Box>
-                                    <CategoryLink title='About us' link='/about-us'>
-                                        <Typography sx={{ px: '20px', py: '13px', color: '#000000', fontSize: '1.1rem', fontWeight: 700, '&:hover': { bgcolor: 'transparent', color: theme.primary } }}>About</Typography>
-                                    </CategoryLink>
-                                </Box>
-                            </HStack>
+                            {
+                                (() => {
+                                    if (header && header.menu && header.menu.length) {
+                                        return (
+                                            <HStack>
+                                                {
+                                                    header.menu.map((item, idx) => {
+                                                        if (item.list && item.list.length) {
+                                                            return (<MenuList item={item} theme={theme} key={idx} />)
+                                                        } else {
+                                                            return (
+                                                                <Box key={idx}>
+                                                                    <CategoryLink title='Blog' link={item.url}>
+                                                                        <Typography sx={{ px: '20px', py: '13px', color: '#000000', fontSize: '1.1rem', fontWeight: 700, '&:hover': { bgcolor: 'transparent', color: theme.primary } }}>{item.title}</Typography>
+                                                                    </CategoryLink>
+                                                                </Box>
+                                                            )
+                                                        }
+                                                    })
+                                                }
+                                            </HStack>
+                                        )
+                                    } else return null;
+                                })()
+                            }
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
                             <ServiceLink title='contact' link='/contact'>
@@ -133,44 +176,37 @@ const Header = ({ state }) => {
                     </Toolbar>
                     <Box sx={{ display: { sm: 'none', xs: 'block' }, color: '#000000de' }}>
                         <Collapse in={menu} timeout="auto" unmountOnExit>
-                            <List
-                                sx={{ width: '100%', bgcolor: 'background.paper' }}
-                                component="nav"
-                                aria-labelledby="nested-list-subheader"
-                            >
-                                <ListItemButton title='service' onClick={() => setService(!service)}>
-                                    <ListItemText primary="Service" />
-                                    {service ? <ExpandLess /> : <ExpandMore />}
-                                </ListItemButton>
-                                <Collapse in={service} timeout="auto" unmountOnExit>
-                                    <List component="div" disablePadding>
-                                        <ListItemButton title='' sx={{ pl: 4 }} onClick={() => setMenu(false)}>
-                                            <ListItemText primary="Demo Posts" />
-                                        </ListItemButton>
-                                    </List>
-                                </Collapse>
-                                <ListItemButton title='service' onClick={() => setAreas(!areas)}>
-                                    <ListItemText primary="Areas" />
-                                    {areas ? <ExpandLess /> : <ExpandMore />}
-                                </ListItemButton>
-                                <Collapse in={areas} timeout="auto" unmountOnExit>
-                                    <List component="div" disablePadding>
-                                        <ListItemButton title='service' sx={{ pl: 4 }} onClick={() => setMenu(false)}>
-                                            <ListItemText primary="Demo Areas one" />
-                                        </ListItemButton>
-                                    </List>
-                                </Collapse>
-                                <ServiceLink link='/blog' title='blog' onClick={() => setMenu(false)}>
-                                    <ListItemButton title='Articles'>
-                                        <ListItemText primary="Articles" sx={{ color: '#000000de' }} />
-                                    </ListItemButton>
-                                </ServiceLink>
-                                <ServiceLink link='/about-us' onClick={() => setMenu(false)}>
-                                    <ListItemButton title='About'>
-                                        <ListItemText primary="About" sx={{ color: '#000000de' }} />
-                                    </ListItemButton>
-                                </ServiceLink>
-                            </List>
+                            {
+                                (() => {
+                                    if (header && header.menu && header.menu.length) {
+                                        return (
+
+                                            <List
+                                                sx={{ width: '100%', bgcolor: 'background.paper' }}
+                                                component="nav"
+                                                aria-labelledby="nested-list-subheader"
+                                            >
+                                                {
+                                                    header.menu.map((item, idx) => {
+                                                        if (item.list && item.list.length) {
+                                                            return (<CollapsList item={item} setMenu={setMenu} key={idx} />)
+                                                        } else {
+                                                            return (
+                                                                <ServiceLink key={idx} link={item.url} title={item.title} onClick={() => setMenu(false)}>
+                                                                    <ListItemButton title={item.title}>
+                                                                        <ListItemText primary={item.title} sx={{ color: '#000000de' }} />
+                                                                    </ListItemButton>
+                                                                </ServiceLink>
+                                                            )
+                                                        }
+                                                    })
+                                                }
+                                            </List>
+
+                                        )
+                                    } else return null;
+                                })()
+                            }
                         </Collapse>
                     </Box>
                 </Container>

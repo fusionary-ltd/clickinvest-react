@@ -13,6 +13,52 @@
         "address": "100 S Commons #102, Pittsburgh, PA 15212",
         "img": "https://sandbox.clickinvest.io/wp-content/uploads/2022/03/architectural-building-design-and-construction-pla-2022-03-18-08-13-23-utc-min-1536x1024.jpg"
     },
+    "header": {
+        "menu": [
+            {
+                "title": "Services",
+                "list": [
+                    {
+                        "title": "Service Example 1",
+                        "url": "/"
+                    },
+                    {
+                        "title": "Service Example 2",
+                        "url": "/"
+                    },
+                    {
+                        "title": "Service Example 3",
+                        "url": "/"
+                    }
+                ]
+            },
+            {
+                "title": "Areas",
+                "list": [
+                    {
+                        "title": "Areas Example 1",
+                        "url": "/"
+                    },
+                    {
+                        "title": "Areas Example 2",
+                        "url": "/"
+                    },
+                    {
+                        "title": "Areas Example 3",
+                        "url": "/"
+                    }
+                ]
+            },
+            {
+                "title": "Articles",
+                "url": "/blog"
+            },
+            {
+                "title": "About",
+                "url": "/about-us"
+            }
+        ]
+    },
     "footer": {
         "title": "Garage Door Repair Pittsburgh Marksman",
         "description": "Looking for a garage door repair company near you? Give us a call!",
@@ -37,7 +83,36 @@
                 "name": "Spring Hills",
                 "link": "/spring-hills"
             }
-        ]
+        ],
+        "section": {
+            "title": "Latest Articles",
+            "list": [
+                {
+                    "title": "Article1",
+                    "url": "article_1"
+                },
+                {
+                    "title": "Article2",
+                    "url": "article_2"
+                },
+                {
+                    "title": "Article3",
+                    "url": "article_3"
+                },
+                {
+                    "title": "Article4",
+                    "url": "article_4"
+                },
+                {
+                    "title": "Article5",
+                    "url": "article_5"
+                },
+                {
+                    "title": "Article6",
+                    "url": "article_6"
+                }
+            ]
+        }
     },
     "reCaptcha": {
         "siteKey": "6Lc68b4iAAAAAH5GsjtMP9Mf9mkcZIjMBanIwvRl",

@@ -20,6 +20,12 @@ export const BgImg = styled(Box)`
   background-image: url(${props => props.img})
 `;
 
+export const FloatingLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const BackgroundImg = styled(Box)`
   background-position: center left;
   background-repeat: no-repeat;

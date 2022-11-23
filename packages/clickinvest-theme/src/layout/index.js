@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react"
 import { connect } from "frontity"
 import Switch from "@frontity/components/switch"
 import MuiThemeProvider from "../provider/Theme"
+import { FloatingLink } from "../components/styled"
 // import TagManager from 'react-gtm-module'
 // import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import CircularProgress from '@mui/material/CircularProgress'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 
@@ -21,7 +23,7 @@ import Contact from "../pages/Contact"
 import { Accessibility } from 'accessibility'
 
 const Root = ({ state }) => {
-  // const { reCaptcha } = state.option
+  const { contact, theme } = state.option
   const data = state.source.get(state.router.link)
   const [hPercent, setHPercent] = useState(0)
 
@@ -88,11 +90,16 @@ const Root = ({ state }) => {
         <PageError when={data.isError} />
       </Switch>
       <Footer />
-      <IconButton onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })} sx={{ p: .25, position: 'fixed', bottom: hPercent > 3 ? 120 : -100, transition: 'bottom 1s', right: 10, borderRadius: 50, bgcolor: '#ffff', boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: '#ffff' } }}>
+      <IconButton onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })} sx={{ p: .25, position: 'fixed', bottom: hPercent > 3 ? 180 : -100, transition: 'bottom 1s', right: 10, borderRadius: 50, bgcolor: '#ffff', boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: '#ffff' } }}>
         <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
           <CircularProgress variant="determinate" value={hPercent > 100 ? 100 : hPercent} sx={{ height: '50px !important', width: '50px !important', '& .MuiCircularProgress-svg': { '& circle': { strokeWidth: 2 } } }} title="cirlce" />
           <KeyboardArrowUpIcon sx={{ position: 'absolute' }} />
         </Box>
+      </IconButton>
+      <IconButton sx={{ width: 54, height: 54, p: .25, position: 'fixed', bottom: 120, right: 10, borderRadius: 50, bgcolor: theme.warning, boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: '#ffff' } }}>
+        <FloatingLink title={contact.email} link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
+          <LocalPhoneIcon sx={{ fontSize: 30, color: '#fff' }} />
+        </FloatingLink>
       </IconButton>
       {/* </GoogleReCaptchaProvider> */}
     </MuiThemeProvider>

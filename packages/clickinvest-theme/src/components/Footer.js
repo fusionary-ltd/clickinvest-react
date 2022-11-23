@@ -103,47 +103,36 @@ const Footer = ({ state }) => {
                                 }
                             </Grid>
                         </Box>
-                        <Divider sx={{ mb: 2.5, borderTop: `1px solid ${theme.primary}` }} />
-                        <Box sx={{ mb: 2.5 }}>
-                            <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme.primary }}>
-                                Latest Articles
-                            </Typography>
-                            <Grid container spacing={2}>
-                                <Grid item md={4} sm={6}>
-                                    <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle link='/'>Garage Door Panel Replacement: Which One Is Right for You?</FooterArticle>
-                                    </Box>
-                                </Grid>
-                                <Grid item md={4} sm={6}>
-                                    <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle link='/'>Commercial Garage Door Service in Pittsburgh</FooterArticle>
-                                    </Box>
-                                </Grid>
-                                <Grid item md={4} sm={6}>
-                                    <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle link='/'>Garage Door Pull Cord Came Off</FooterArticle>
-                                    </Box>
-                                </Grid>
-                                <Grid item md={4} sm={6}>
-                                    <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle link='/'>How Much Does Garage Door Opener Installation Cost?</FooterArticle>
-                                    </Box>
-                                </Grid>
-                                <Grid item md={4} sm={6}>
-                                    <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle link='/'>Garage Door Opener Battery Replacement</FooterArticle>
-                                    </Box>
-                                </Grid>
-                                <Grid item md={4} sm={6}>
-                                    <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
-                                        <FooterArticle link='/'>Annual Garage Door Maintenance</FooterArticle>
-                                    </Box>
-                                </Grid>
-                            </Grid>
-                        </Box>
+                        {
+                            (() => {
+                                if (footer.section && footer.section.title && footer.section.list && footer.section.list.length) {
+                                    return (
+                                        <>
+                                            <Divider sx={{ mb: 2.5, borderTop: `1px solid ${theme.primary}` }} />
+                                            <Box sx={{ mb: 2.5 }}>
+                                                <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme.primary }}>
+                                                    {footer.section.title}
+                                                </Typography>
+                                                <Grid container spacing={2}>
+                                                    {
+                                                        footer.section.list.map((item, idx) => (
+                                                            <Grid item md={4} sm={6} key={idx}>
+                                                                <Box sx={{ borderBottom: '1px solid #FFFFFF', height: '100%' }}>
+                                                                    <FooterArticle link={item.url ? item.url : "/"}>{item.title}</FooterArticle>
+                                                                </Box>
+                                                            </Grid>
+                                                        ))
+                                                    }
+                                                </Grid>
+                                            </Box>
+                                        </>
+                                    )
+                                } else return null;
+                            })()
+                        }
                     </Stack>
                 </Container>
-                <Box sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', mt: 10, py: 1.25, pb: { md: '10px', sm: '60px', xs: '60px' } }}>
+                <Box sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', mt: 10, py: 1.25, pb: { md: '10px', sm: '20px', xs: '20px' } }}>
                     <Container maxWidth="lg">
                         <HStack justifyContent='space-between'>
                             <Typography sx={{ color: '#ECECEC' }}>
@@ -155,7 +144,7 @@ const Footer = ({ state }) => {
                                 <FooterLink link='/' >Privacy Policy</FooterLink>
                             </Typography>
                             <Stack flexDirection='row'>
-                                <Link title={contact.email} link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
+                                <Link title={contact.phoneNumber} link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
                                     <IconButton title={contact.phoneNumber} sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
                                         <LocalPhoneIcon sx={{ color: '#fff' }} />
                                     </IconButton>
@@ -170,7 +159,7 @@ const Footer = ({ state }) => {
                     </Container>
                 </Box>
             </Box>
-            <Box sx={{ display: { md: 'none', sm: 'block' }, bgcolor: '#000000bf', width: '100%', position: 'fixed', bottom: 0 }}>
+            {/* <Box sx={{ display: { md: 'none', sm: 'block' }, bgcolor: '#000000bf', width: '100%', position: 'fixed', bottom: 0 }}>
                 <HStack sx={{ justifyContent: 'space-around', alignItems: 'center' }}>
                     {
                         show &&
@@ -204,7 +193,7 @@ const Footer = ({ state }) => {
                         </Link>
                     }
                 </HStack>
-            </Box>
+            </Box> */}
         </>
     );
 }
