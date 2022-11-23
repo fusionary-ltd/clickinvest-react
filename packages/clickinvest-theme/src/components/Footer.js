@@ -13,12 +13,15 @@ import { HStack, FooterLink, Divider, FooterArticle, ServiceLink } from './style
 import EmailIcon from '@mui/icons-material/Email';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+// import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 
 const Footer = ({ state }) => {
-    const { theme, contact, footer } = state.option;
+    const { theme, contact, footer, social } = state.option;
     const [show, setShow] = useState(false);
 
     return (
@@ -132,30 +135,60 @@ const Footer = ({ state }) => {
                         }
                     </Stack>
                 </Container>
-                <Box sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', mt: 10, py: 1.25, pb: { md: '10px', sm: '20px', xs: '20px' } }}>
+                <Box sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', mt: 10, py: 1.25 }}>
                     <Container maxWidth="lg">
-                        <HStack justifyContent='space-between'>
-                            <Typography sx={{ color: '#ECECEC' }}>
-                                © Copyright &nbsp;
-                                <FooterLink link='/' >{footer.title}</FooterLink>
-                                &nbsp; | &nbsp;
-                                <FooterLink link='/' >sitemap</FooterLink>
-                                &nbsp; | &nbsp;
-                                <FooterLink link='/' >Privacy Policy</FooterLink>
-                            </Typography>
-                            <Stack flexDirection='row'>
-                                <Link title={contact.phoneNumber} link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
-                                    <IconButton title={contact.phoneNumber} sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
-                                        <LocalPhoneIcon sx={{ color: '#fff' }} />
-                                    </IconButton>
-                                </Link>
-                                <Link title={contact.email} link={`mailto:${contact.email}`}>
-                                    <IconButton title={contact.email} sx={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
-                                        <EmailIcon sx={{ color: '#fff' }} />
-                                    </IconButton>
-                                </Link>
-                            </Stack>
-                        </HStack>
+                        <Grid container>
+                            <Grid item sm={7} xs={12}>
+                                <HStack sx={{ height: '100%', alignItems: 'center' }}>
+                                    <Typography sx={{ color: '#ECECEC' }}>
+                                        © Copyright &nbsp;
+                                        <FooterLink link='/' >{footer.title}</FooterLink>
+                                        &nbsp; | &nbsp;
+                                        <FooterLink link='/' >sitemap</FooterLink>
+                                        &nbsp; | &nbsp;
+                                        <FooterLink link='/' >Privacy Policy</FooterLink>
+                                    </Typography>
+                                </HStack>
+                            </Grid>
+                            <Grid item sm={5} xs={12}>
+                                <Stack flexDirection='row' sx={{ justifyContent: { sm: 'flex-end', xs: 'flex-start' }, mt: { xs: 1, md: 0 } }}>
+                                    <Link title={contact.phoneNumber} link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
+                                        <IconButton title={contact.phoneNumber} sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
+                                            <LocalPhoneIcon sx={{ color: '#fff' }} />
+                                        </IconButton>
+                                    </Link>
+                                    <Link title={contact.email} link={`mailto:${contact.email}`}>
+                                        <IconButton title={contact.email} sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
+                                            <EmailIcon sx={{ color: '#fff' }} />
+                                        </IconButton>
+                                    </Link>
+                                    {
+                                        social && social.facebook &&
+                                        <Link title={social.facebook} link={social.facebook}>
+                                            <IconButton title={contact.email} sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
+                                                <FacebookIcon sx={{ color: '#fff' }} />
+                                            </IconButton>
+                                        </Link>
+                                    }
+                                    {
+                                        social && social.instagram &&
+                                        <Link title={social.instagram} link={social.instagram}>
+                                            <IconButton title={contact.email} sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
+                                                <InstagramIcon sx={{ color: '#fff' }} />
+                                            </IconButton>
+                                        </Link>
+                                    }
+                                    {
+                                        social && social.whatsApp &&
+                                        <Link title={social.whatsApp} link={social.whatsApp}>
+                                            <IconButton title={contact.email} sx={{ mr: .5, backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))', borderRadius: 1, '&:hover': { backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))' } }}>
+                                                <WhatsAppIcon sx={{ color: '#fff' }} />
+                                            </IconButton>
+                                        </Link>
+                                    }
+                                </Stack>
+                            </Grid>
+                        </Grid>
                     </Container>
                 </Box>
             </Box>
