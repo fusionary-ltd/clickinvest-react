@@ -96,7 +96,7 @@ const Root = ({ state }) => {
           <KeyboardArrowUpIcon sx={{ position: 'absolute' }} />
         </Box>
       </IconButton>
-      <IconButton sx={{ width: 54, height: 54, p: .25, position: 'fixed', bottom: 120, right: 10, borderRadius: 50, bgcolor: theme.warning, boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: '#ffff' } }}>
+      <IconButton sx={{ width: 54, height: 54, p: .25, position: 'fixed', bottom: 120, right: 10, borderRadius: 50, bgcolor: theme.warning, boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: theme.warning } }}>
         <FloatingLink title={contact.email} link={`tel:${contact.phoneNumber.replaceAll('(', '').replaceAll(')', '').replaceAll('-', '').replaceAll(' ', '')}`}>
           <LocalPhoneIcon sx={{ fontSize: 30, color: '#fff' }} />
         </FloatingLink>
