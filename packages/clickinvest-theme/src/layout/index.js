@@ -92,8 +92,8 @@ const Root = ({ state }) => {
       <Footer />
       <IconButton onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })} sx={{ p: .25, position: 'fixed', bottom: hPercent > 3 ? 180 : -100, transition: 'bottom 1s', right: 10, borderRadius: 50, bgcolor: '#ffff', boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: '#ffff' } }}>
         <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
-          <CircularProgress variant="determinate" value={hPercent > 100 ? 100 : hPercent} sx={{ height: '50px !important', width: '50px !important', '& .MuiCircularProgress-svg': { '& circle': { strokeWidth: 2 } } }} title="cirlce" />
-          <KeyboardArrowUpIcon sx={{ position: 'absolute' }} />
+          <CircularProgress variant="determinate" value={hPercent > 100 ? 100 : hPercent} sx={{ color: theme.warning, height: '50px !important', width: '50px !important', '& .MuiCircularProgress-svg': { '& circle': { strokeWidth: 2 } } }} title="cirlce" />
+          <KeyboardArrowUpIcon sx={{ color: theme.warning, position: 'absolute' }} />
         </Box>
       </IconButton>
       <IconButton sx={{ width: 54, height: 54, p: .25, position: 'fixed', bottom: 120, right: 10, borderRadius: 50, bgcolor: theme.warning, boxShadow: '0 0 8px #585858b8', '&:hover': { bgcolor: theme.warning } }}>

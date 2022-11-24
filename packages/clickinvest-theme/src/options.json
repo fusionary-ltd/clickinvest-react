@@ -127,15 +127,18 @@
     },
     "home": {
         "hero": {
+            "enabled": true,
             "img": "https://architects-seattle.com/wp-content/uploads/2022/03/interior-designer-or-architect-reviewing-blueprint-2021-09-03-06-37-57-utc-min-scaled.jpg",
             "h1": "GARAGE DOOR REPAIR PITTSBURGH MARKSMAN GARAGE DOORS",
             "h2": "Marksman Garage Doors is a locally owned and operated servicing company."
         },
         "contact": {
+            "enabled": true,
             "title": "Call Us or Send Us a Message",
             "description": "Leave your contact information in the fields below and we will contact you as soon as possible."
         },
         "slider": {
+            "enabled": true,
             "title": "Serving Pittsburgh is what we love doing",
             "description": "Our high-quality professional garage door repair team will get your garage door repaired. We remain updated on all modern technology and specific trends and provide various services to the community of Pittsburgh.",
             "items": [
@@ -157,6 +160,7 @@
             ]
         },
         "testimonials": {
+            "enabled": true,
             "title": "TESTIMONIALS",
             "description": "Don't Just Take Our Word We're The Best",
             "reviews": [
@@ -181,20 +185,23 @@
             ]
         },
         "services": {
+            "enabled": true,
             "title": "Services",
             "description": "We provide the best repair services in Pittsburgh. Our warranty, just like our service, knows no bounds. That’s right - ALL of us parts and work is covered. Now THAT is comprehensive."
         },
         "aboutTeam": {
+            "enabled": true,
             "title": "THE MARKSMAN TEAM",
             "description": "Our team of experienced and qualified fitters are on hand to help. Providing a high quality service on a variety of garage door brands, styles and configurations, we offer a personal service that will leave you and your wallet happy. Does your garage door need fixing? Never attempt to repair overhead doors on your own, especially if you have no experience. It can be quite a dangerous job because you can get seriously injured if you don’t do it right. This is why it’s important that you contact one of our well-trained and experienced overhead doors repair professionals today so we can assess the problem and give you a quotation.",
             "img": "https://architects-seattle.com/wp-content/uploads/2022/01/the-engineers-enjoy-the-work-at-the-enterprise-2021-09-04-11-04-50-utc-min-642x491.jpg"
         },
+        "callUs": {
+            "enabled": true
+        },
         "experience": {
+            "enabled": true,
             "title": "Years of Experience",
             "description": "A professional team like ours needs to carry out a garage door’s repair, especially if it is an overhead type. When you contact us, we make sure that the garage door is properly fixed so that you, your family, or your employees are not at risk.",
-            "bgImg": "https://architects-seattle.com/wp-content/uploads/2022/01/home-design-concept-architects-are-writing-home-pl-2021-08-26-17-53-37-utc-min-scaled.jpg",
-            "adTitle": "Marksman Experience",
-            "adDescription": "For many years, our garage door repair company has been repairing all types of garage doors, and all of our team members are certified professionals who have undergone extensive training on how to do the job with safety in mind.",
             "items": [
                 {
                     "title": "Our Reputation Is There For A Reason",
@@ -213,7 +220,14 @@
                 }
             ]
         },
+        "experienceBg": {
+            "enabled": true,
+            "source": "",
+            "title": "Marksman Experience",
+            "description": "For many years, our garage door repair company has been repairing all types of garage doors, and all of our team members are certified professionals who have undergone extensive training on how to do the job with safety in mind."
+        },
         "long": {
+            "enabled": true,
             "title": "Supporting Pittsburgh",
             "description": "Hailed as the Steel City and City of Bridges of America, Pittsburgh is home to the steel industry. The industrialization of Pittsburgh over the years has been improving non-stop. Because of the number of steel bridges and buildings, it’s no wonder why Pittsburgh residents own vehicles as means of transportation. With the use of cars, residents can freely go wherever they want in Pittsburgh. Hence, there is a need for garages for every homeowner. A garage is where they keep their car and other belongings. In other words, it serves as storage for your belongings and equipment. Thus, garage doors are needed to protect your garage fully. Since they provide security and convenience, they are worth investing in. What’s more, they can last for a maximum of 20 years when taken care of well. However, malfunctioning can happen anytime for overhead doors. Because of this, many garage door repair companies in Pittsburgh offer you top-notch services – whether it’s a repair or a replacement. If you’re looking for one, Marksman Garage Doors is your best choice. As a garage door repair in Pittsburgh, PA, we will bring back your garage door fully-functional again."
         }

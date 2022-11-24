@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "frontity";
 
 import Box from '@mui/material/Box';
@@ -97,12 +97,23 @@ const CollapsList = ({ item, setMenu }) => {
     )
 }
 
+let flag = 0;
+
 const Header = ({ state }) => {
     const [menu, setMenu] = useState(false);
     const [modal, setModal] = useState(false);
     const { theme, contact, header } = state.option;
     const modalOpen = () => setModal(true);
     const modalClose = () => setModal(false);
+
+    useEffect(() => {
+        document.addEventListener("mouseleave", () => {
+            if (flag === 0) {
+                modalOpen();
+                flag = 1;
+            }
+        })
+    }, [])
 
     return (
         <>
@@ -229,7 +240,7 @@ const Header = ({ state }) => {
                     padding: 1,
                     borderRadius: 2
                 }}>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/WerCpkTJQTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/WerCpkTJQTM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </Box>
             </Modal>
         </>

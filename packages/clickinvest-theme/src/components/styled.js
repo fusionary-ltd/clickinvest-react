@@ -16,6 +16,9 @@ export const Select = styled.select`
   font-size: 1em;
 `;
 
+export const Video = styled.video`
+  width: 100%;
+`;
 export const BgImg = styled(Box)`
   background-image: url(${props => props.img})
 `;

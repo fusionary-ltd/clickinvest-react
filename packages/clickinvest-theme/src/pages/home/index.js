@@ -14,23 +14,56 @@ import Supporting from './Supporting';
 // import Blog from './Blog';
 // import TapHelper from './TabHelper';
 
-const Home = () => {
+const Home = ({ state }) => {
+    const { home } = state.option;
     return (
         <Box>
-            <Introduce />
-            <ContactService />
-            <ServingPittsburgh />
-            <Testimonials />
-            <GarageDoorServices />
-            <AboutTeam />
-            <CallFreeEstimate />
-            <Experience />
-            <ExperienceBg />
-            {/* <TapHelper />
-            <ContactService />
-            <Blog /> */}
-            <ContactService />
-            <Supporting />
+            {
+                home.hero.enabled &&
+                <Introduce />
+            }
+            {
+                home.contact.enabled &&
+                <ContactService />
+            }
+            {
+                home.slider.enabled &&
+                <ServingPittsburgh />
+            }
+            {
+                home.testimonials.enabled &&
+                <Testimonials />
+            }
+            {
+                home.services.enabled &&
+                <GarageDoorServices />
+            }
+            {
+                home.aboutTeam.enabled &&
+                <AboutTeam />
+            }
+            {
+                home.callUs.enabled &&
+                <CallFreeEstimate />
+            }
+            {
+                home.experience.enabled &&
+                <Experience />
+            }
+            {
+                home.experienceBg.enabled &&
+                <ExperienceBg />
+            }
+            {/* <TapHelper /> */}
+            {/* <Blog /> */}
+            {
+                home.contact.enabled &&
+                <ContactService />
+            }
+            {
+                home.long.enabled &&
+                <Supporting />
+            }
         </Box>
     )
 }
