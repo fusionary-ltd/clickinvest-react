@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { HStack, ServiceLink } from '../../components/styled';
+import { HStack, ServiceLink, Video } from '../../components/styled';
 import Title from '../../components/Title';
 
 const Experience = ({ state }) => {
@@ -25,11 +25,13 @@ const Experience = ({ state }) => {
                         <HStack sx={{ pb: 2, mt: -18, mb: 5, bgcolor: '#FFFFFF' }}>
                             <Grid container>
                                 {
-                                    home.experience.items ? home.experience.items.map(({ title, description, img }, idx) => (
+                                    home.experience.items ? home.experience.items.map(({ title, description, video }, idx) => (
                                         <Grid item key={idx} sm={4} xs={12}>
                                             <Stack sx={{ p: 1.25 }}>
                                                 <Stack sx={{ px: 2 }}>
-                                                    <Box component='img' title='experience' src={img} sx={{ p: 1.25, bgcolor: 'white', with: '100%' }} />
+                                                    <Video>
+                                                        <source src={video} type="video/mp4" />
+                                                    </Video>
                                                 </Stack>
                                                 <Stack sx={{ p: 2.25 }}>
                                                     <ServiceLink link='/'>

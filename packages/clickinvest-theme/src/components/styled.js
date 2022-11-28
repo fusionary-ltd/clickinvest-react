@@ -16,11 +16,14 @@ export const Select = styled.select`
   font-size: 1em;
 `;
 
-export const Video = styled.video`
-  width: 100%;
-`;
 export const BgImg = styled(Box)`
   background-image: url(${props => props.img})
+`;
+
+export const Video = styled.video`
+  padding: 10px;
+  width: 100%;
+  background-color: #f5f5f5;
 `;
 
 export const FloatingLink = styled(Link)`

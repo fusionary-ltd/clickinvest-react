@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from "frontity";
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Video, HStack } from '../../components/styled'
+import { BackgroundOverlay, BackgroundImg, HStack } from '../../components/styled'
 
 const ExperienceBg = ({ state }) => {
     const { theme, contact, home } = state.option;
 
     return (
-        <Box sx={{ lineHeight: 0, position: 'relative', bgcolor: '#F5F5F5' }} >
-            <Video autoPlay loop preload="true" id="bg-video">
-                <source src={home.experienceBg.source} type="video/mp4" />
-            </Video>
-            <Container maxWidth="lg" sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <BackgroundImg img={home.experienceBg.img} >
+            <BackgroundOverlay sx={{ bgcolor: 'rgba(0, 0, 0, 0.54)', opacity: 0.5 }} />
+            <Container maxWidth="lg">
                 <HStack sx={{ position: 'relative' }}>
                     <Box sx={{ p: 1.25, width: { md: '50%', sm: '60%' } }}>
                         <Box>
@@ -49,7 +47,7 @@ const ExperienceBg = ({ state }) => {
                     </Box>
                 </HStack>
             </Container>
-        </Box>
+        </BackgroundImg>
     );
 }
 

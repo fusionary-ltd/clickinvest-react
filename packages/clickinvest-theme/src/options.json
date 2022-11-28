@@ -206,21 +206,22 @@
                 {
                     "title": "Our Reputation Is There For A Reason",
                     "description": "In Pittsburgh, our repair services are well-known. You know you are in safe hands when you choose Marksman.",
-                    "img": "https://architects-seattle.com/wp-content/uploads/2022/01/Network-Architect-642x453.jpg"
+                    "video": "https://architects-seattle.com/wp-content/uploads/2022/01/Network-Architect-642x453.jpg"
                 },
                 {
                     "title": "Our Reputation Is There For A Reason",
                     "description": "In Pittsburgh, our repair services are well-known. You know you are in safe hands when you choose Marksman.",
-                    "img": "https://architects-seattle.com/wp-content/uploads/2022/01/Network-Architect-642x453.jpg"
+                    "video": "https://architects-seattle.com/wp-content/uploads/2022/01/Network-Architect-642x453.jpg"
                 },
                 {
                     "title": "Our Reputation Is There For A Reason",
                     "description": "In Pittsburgh, our repair services are well-known. You know you are in safe hands when you choose Marksman.",
-                    "img": "https://architects-seattle.com/wp-content/uploads/2022/01/Network-Architect-642x453.jpg"
+                    "video": "https://architects-seattle.com/wp-content/uploads/2022/01/Network-Architect-642x453.jpg"
                 }
             ]
         },
         "experienceBg": {
+            "img": "https://architects-seattle.com/wp-content/uploads/2022/03/interior-designer-or-architect-reviewing-blueprint-2021-09-03-06-37-57-utc-min-scaled.jpg",
             "enabled": true,
             "source": "",
             "title": "Marksman Experience",
