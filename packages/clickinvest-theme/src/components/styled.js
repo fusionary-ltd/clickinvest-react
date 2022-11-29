@@ -20,8 +20,7 @@ export const BgImg = styled(Box)`
   background-image: url(${props => props.img})
 `;
 
-export const Video = styled.video`
-  padding: 10px;
+export const Iframe = styled.iframe`
   width: 100%;
   background-color: #f5f5f5;
 `;
