@@ -92,7 +92,7 @@ const Footer = ({ state }) => {
                             </Grid>
                         </Box>
                         <Divider sx={{ mb: 2.5, borderTop: `1px solid ${theme.primary}` }} />
-                        <Box sx={{ mb: 2.5 }}>
+                        {footer.services.length > 0 && <Box sx={{ mb: 2.5 }}>
                             <Typography variant='h5' sx={{ mb: 2, py: 1.25, px: 2.5, color: '#000000', fontSize: '1.3rem', lineHeight: 1, fontWeight: 600, display: 'inline-block', bgcolor: theme.primary }}>Service Areas</Typography>
                             <Grid container spacing={2}>
                                 {
@@ -105,7 +105,7 @@ const Footer = ({ state }) => {
                                     ))
                                 }
                             </Grid>
-                        </Box>
+                        </Box>}
                         {
                             (() => {
                                 if (footer.section && footer.section.title && footer.section.list && footer.section.list.length) {
