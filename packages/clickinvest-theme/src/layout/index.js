@@ -30,7 +30,6 @@ const Root = ({ state }) => {
   useEffect(() => {
     // TagManager.initialize({ gtmId: 'GTM-NB4CG7G' })
     document.documentElement.setAttribute("lang", 'en')
-    document.documentElement.setAttribute("title", 'clickinvest')
     window.addEventListener('load', function () { new Accessibility(); }, false)
   }, [])
 
